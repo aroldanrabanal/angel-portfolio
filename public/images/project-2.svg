@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#EFE9F5"/>
+      <stop offset="100%" stop-color="#DDD1EC"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0A0F"/>
+      <stop offset="100%" stop-color="#1A0A2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g2)"/>
+  <g transform="translate(280 60)">
+    <rect width="240" height="480" rx="32" fill="url(#phone)"/>
+    <rect x="14" y="14" width="212" height="452" rx="22" fill="#6E22D6"/>
+    <rect x="30" y="40" width="180" height="14" fill="#FFFFFF" opacity="0.85"/>
+    <rect x="30" y="62" width="120" height="8" fill="#FFFFFF" opacity="0.4"/>
+    <rect x="30" y="100" width="180" height="80" rx="6" fill="#FFFFFF" opacity="0.12"/>
+    <rect x="30" y="190" width="180" height="80" rx="6" fill="#FFFFFF" opacity="0.12"/>
+    <rect x="30" y="280" width="180" height="80" rx="6" fill="#D6FF3E" opacity="0.85"/>
+    <rect x="30" y="380" width="180" height="40" rx="20" fill="#FFFFFF"/>
+  </g>
+  <text x="60" y="540" font-family="monospace" font-size="14" fill="#0A0A0F" opacity="0.6">MUSIC INDUSTRY � UX � BACKEND</text>
+</svg>

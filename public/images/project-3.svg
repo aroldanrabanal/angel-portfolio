@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <radialGradient id="g3" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#6E22D6"/>
+      <stop offset="60%" stop-color="#1A0936"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g3)"/>
+  <g transform="translate(400 300)" opacity="0.9">
+    <circle r="160" fill="none" stroke="#D6FF3E" stroke-width="2"/>
+    <circle r="120" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+    <circle r="80" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+    <path d="M -180 0 L 180 0 M 0 -180 L 0 180" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
+    <circle r="6" fill="#D6FF3E"/>
+  </g>
+  <text x="60" y="540" font-family="monospace" font-size="14" fill="#FFFFFF" opacity="0.7">PORTFOLIO � NEXT.JS � R3F � GSAP</text>
+</svg>

@@ -1,0 +1,36 @@
+"use client";
+
+import { useReducedMotion } from "framer-motion";
+import type { Portfolio } from "@/types/portfolio";
+import { LenisProvider } from "@/lib/lenis";
+import { TopNav } from "@/components/ui/TopNav";
+import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Services } from "@/components/sections/Services";
+import { Works } from "@/components/sections/Works";
+import { Process } from "@/components/sections/Process";
+import { CTA } from "@/components/sections/CTA";
+import { Footer } from "@/components/sections/Footer";
+
+type Props = { data: Portfolio };
+
+export function PortfolioShell({ data }: Props) {
+  const reduceMotion = useReducedMotion() ?? false;
+
+  return (
+    <LenisProvider>
+      <BackgroundGrid />
+      <TopNav data={data} />
+      <main className="relative z-10">
+        <Hero data={data} reduceMotion={reduceMotion} />
+        <About data={data} reduceMotion={reduceMotion} />
+        <Services data={data} reduceMotion={reduceMotion} />
+        <Works data={data} reduceMotion={reduceMotion} />
+        <Process data={data} reduceMotion={reduceMotion} />
+        <CTA data={data} reduceMotion={reduceMotion} />
+      </main>
+      <Footer data={data} />
+    </LenisProvider>
+  );
+}

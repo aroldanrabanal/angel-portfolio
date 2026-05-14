@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A0A2E"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#6E22D6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#6E22D6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="face" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#3D1B6E"/>
+      <stop offset="50%" stop-color="#5B1FB8"/>
+      <stop offset="100%" stop-color="#1A0936"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <rect width="600" height="800" fill="url(#rim)"/>
+  <ellipse cx="300" cy="340" rx="150" ry="190" fill="url(#face)"/>
+  <ellipse cx="300" cy="780" rx="280" ry="160" fill="url(#face)" opacity="0.85"/>
+  <circle cx="252" cy="320" r="14" fill="#0A0A0F"/>
+  <circle cx="348" cy="320" r="14" fill="#0A0A0F"/>
+  <rect x="220" y="290" width="60" height="10" fill="#0A0A0F"/>
+  <rect x="320" y="290" width="60" height="10" fill="#0A0A0F"/>
+  <path d="M270 410 Q300 430 330 410" stroke="#0A0A0F" stroke-width="3" fill="none"/>
+  <text x="300" y="760" text-anchor="middle" font-family="monospace" font-size="14" fill="#FFFFFF" opacity="0.4">PORTRAIT � PLACEHOLDER</text>
+</svg>

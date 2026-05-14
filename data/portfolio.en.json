@@ -1,0 +1,343 @@
+{
+  "personal": {
+    "name": "Ángel Roldán Rabanal",
+    "title": "Multiplatform & Web Developer · DAM",
+    "tagline": "Multiplatform & web developer — I like creative, efficient, user-focused applications (same line as my GitHub profile). Mostly PHP, SQL and JavaScript in production; this site is a Next.js playground. Seville; Erasmus+ in Prague. Always learning and exploring new technologies.",
+    "location": "Seville, Spain · Prague, CZ",
+    "phone": "+34 640 280 151",
+    "email": "aroldanrabanal@safareyes.es",
+    "github": "https://github.com/aroldanrabanal",
+    "linkedin": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371",
+    "available": true,
+    "closing": "Driving licence · fine with travel when it makes sense — write if you want to compare notes or talk roles.",
+    "portrait": "/images/portrait.svg"
+  },
+  "about": "Multiplatform & web developer — user-centred delivery is the thread through my GitHub and my day jobs. Higher Vocational student in Multiplatform Application Development (SAFA), with a few years of real tickets, queries and deploys behind me. I like systems that stay understandable: backends you can reason about, front-ends that do not fight the user, and integrations you can revisit months later without dread. Erasmus+ in Prague is the latest chapter — more AI-assisted workflows, same curiosity about how things actually run in production.",
+  "projects": [
+    {
+      "id": "p1",
+      "title": "This portfolio (open source)",
+      "kind": "Web · Next.js · 3D",
+      "description": "The site you are on: Next.js 16, React Three Fiber, GSAP, Lenis, EN/ES i18n. Source on GitHub; typically deployed on Vercel.",
+      "image": "/images/project-3.svg",
+      "href": "https://github.com/aroldanrabanal/angel-portfolio",
+      "accent": "violet"
+    },
+    {
+      "id": "p2",
+      "title": "TECHNOAPP",
+      "kind": "Web · TypeScript",
+      "description": "TypeScript UI shipped on Vercel. Repository: github.com/aroldanrabanal/TECHNOAPP",
+      "image": "/images/project-1.svg",
+      "href": "https://technoapp-red.vercel.app",
+      "accent": "cream"
+    },
+    {
+      "id": "p3",
+      "title": "CampusGo",
+      "kind": "Web + mobile · vocational project",
+      "description": "Web client (TypeScript) and Android app in Java. Repos: github.com/aroldanrabanal/CampusGo and github.com/aroldanrabanal/AppCampusGo.",
+      "image": "/images/project-2.svg",
+      "href": "https://github.com/aroldanrabanal/CampusGo",
+      "accent": "lime"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Software Developer (Erasmus+)",
+      "company": "Buinsoft Technology S.R.O.",
+      "period": "Mar 2026 – Present",
+      "description": "Erasmus+ internship in Prague: internal and client-facing tools with a lot of AI-assisted delivery — automation, leaner iterations, hybrid cadence with the team.",
+      "tags": ["AI", "Automation", "Prague", "Hybrid", "Full-Stack"]
+    },
+    {
+      "id": 2,
+      "role": "Web Application Developer",
+      "company": "Lanzadera Music",
+      "period": "Jan 2025 – Present",
+      "description": "Maintenance and small features on PHP/SQL/JS stacks — performance passes, UX fixes, the unglamorous work that keeps a music-industry app humming.",
+      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"]
+    },
+    {
+      "id": 3,
+      "role": "Web Application Developer",
+      "company": "Central Loyola SAFA",
+      "period": "Apr 2023 – Present",
+      "description": "Institutional web work: custom PHP, tuned MySQL, Google and REST integrations — the kind of full-stack glue where the brief changes mid-semester and the data model has to keep up.",
+      "tags": ["PHP", "MySQL", "Google APIs", "REST", "Full-Stack"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Higher Vocational Degree — Multiplatform App Development",
+      "school": "SAFA Nuestra Señora de los Reyes",
+      "period": "2024 – 2026 (Current)"
+    },
+    {
+      "degree": "Intermediate Degree — Microcomputer Systems and Networks",
+      "school": "SAFA Nuestra Señora de los Reyes",
+      "period": "2022 – 2024"
+    }
+  ],
+  "softSkills": [
+    "Problem Solving",
+    "Creativity",
+    "Teamwork",
+    "Adaptability",
+    "Time Management",
+    "Responsibility",
+    "Initiative",
+    "Communication"
+  ],
+  "languages": [
+    { "lang": "Spanish", "level": "Native" },
+    { "lang": "English", "level": "B2 — Trinity certified (C1 in progress)" }
+  ],
+  "extra": {
+    "license": true,
+    "travel": true,
+    "relocation": true
+  },
+  "ui": {
+    "sections": [
+      { "id": "hero", "label": "Home" },
+      { "id": "about", "label": "About" },
+      { "id": "services", "label": "Capabilities" },
+      { "id": "works", "label": "Works" },
+      { "id": "process", "label": "Process" },
+      { "id": "stack", "label": "Stack" },
+      { "id": "contact", "label": "Contact" }
+    ],
+    "cta": {
+      "viewProjects": "View projects",
+      "github": "GitHub",
+      "emailMe": "Email me",
+      "projectsHref": "#works",
+      "experienceMiniSceneHint": "Experience preview",
+      "linkedin": "LinkedIn"
+    },
+    "footer": {
+      "educationTitle": "Education",
+      "languagesTitle": "Languages",
+      "softSkillsTitle": "Soft skills",
+      "availableSuffix": " · Open to interesting conversations"
+    },
+    "labels": {
+      "aboutHeading": "About",
+      "experienceHeading": "Experience",
+      "projectsHeading": "Projects",
+      "skillsHeading": "Skills",
+      "contactHeading": "Contact"
+    },
+    "aria": {
+      "contactButton": "Go to contact section"
+    },
+    "languageToggle": {
+      "groupAriaLabel": "Site language",
+      "switchToEnglish": "Switch to English",
+      "switchToSpanish": "Switch to Spanish"
+    }
+  },
+  "template": {
+    "brand": {
+      "monogram": "Á",
+      "name": "ANGEL.DEV",
+      "tagline": "Portfolio — work & side experiments",
+      "estYear": "since 2023"
+    },
+    "nav": [
+      { "label": "About", "href": "#about" },
+      { "label": "Capabilities", "href": "#services" },
+      { "label": "Work", "href": "#works" },
+      { "label": "Notes", "href": "#process" }
+    ],
+    "hero": {
+      "words": ["BUILD", "LEARN", "SHIP"],
+      "kicker": "Seville ↔ Prague — institutional PHP stacks, music-industry maintenance, and whatever I am breaking in Next.js after hours. Nothing here is a sales deck.",
+      "stats": "Code in production since 2023 · Erasmus+ Prague, 2026",
+      "tagline": "DAM student · Buinsoft · Lanzadera · SAFA",
+      "indexLabel": "#1"
+    },
+    "about": {
+      "heading": ["A bit", "about me"],
+      "kicker": "About",
+      "indexLabel": "#2",
+      "commitStripLabel": "Often in commits",
+      "body": [
+        "I am Ángel — multiplatform and web dev path at SAFA (Seville), aligned with what I publish on GitHub: steady work on institutional and music-industry PHP/SQL/JS codebases. I care about boring reliability: migrations you can replay, queries you can explain, and UIs that do not surprise people who already have a full calendar.",
+        "Prague (Buinsoft) is where I am leaning into AI-assisted delivery without pretending the fundamentals disappear. This page is partly CV, partly lab log — scroll for selected work and contact."
+      ],
+      "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "AI"]
+    },
+    "services": {
+      "heading": ["What I", "touch most"],
+      "kicker": "Capabilities",
+      "indexLabel": "#3",
+      "items": [
+        {
+          "id": "s1",
+          "title": "Web apps",
+          "blurb": "PHP and SQL first, JS where the browser needs it — CRUD, auth, reports, the unglamorous middle of a product.",
+          "bullets": ["Server-rendered patterns", "REST + JSON", "Responsive layouts"]
+        },
+        {
+          "id": "s2",
+          "title": "Mobile & Ionic",
+          "blurb": "Shared Angular + Capacitor builds for things that need to leave the desk — still one codebase to reason about.",
+          "bullets": ["IONIC + Angular", "Capacitor", "Offline-tolerant flows"]
+        },
+        {
+          "id": "s3",
+          "title": "Backends & APIs",
+          "blurb": "Services that talk to MySQL/Oracle without mystery — versioning, logging, and contracts you can grep.",
+          "bullets": ["MySQL · Oracle", "Google APIs", "Roles & sessions"]
+        },
+        {
+          "id": "s4",
+          "title": "Data modelling",
+          "blurb": "Schemas and migrations that survive the next feature request — not perfect diagrams, tables that behave.",
+          "bullets": ["Normalisation", "Slow-query passes", "Backfills"]
+        },
+        {
+          "id": "s5",
+          "title": "Integrations",
+          "blurb": "OAuth, webhooks, cron — glue code that should read like a checklist when you come back in six months.",
+          "bullets": ["OAuth clients", "Webhooks", "Scheduled jobs"]
+        },
+        {
+          "id": "s6",
+          "title": "Front-end lab",
+          "blurb": "This portfolio: Next.js, motion, a bit of WebGL — experiments that keep my JS/React muscles warm outside PHP day jobs.",
+          "bullets": ["Next.js / React", "GSAP · R3F", "Tailwind"]
+        }
+      ]
+    },
+    "works": {
+      "heading": ["Selected", "work"],
+      "kicker": "Projects",
+      "indexLabel": "#4",
+      "intro": "Public repositories and live demos: this portfolio, TECHNOAPP on Vercel, and the CampusGo stack (web + Android). Paid work and the Erasmus+ internship are listed under Process below as employment experience.",
+      "projectKindFallback": "Project"
+    },
+    "process": {
+      "heading": ["How I", "work"],
+      "kicker": "Notes",
+      "indexLabel": "#5",
+      "intro": "Not a methodology slide — just habits that keep school deadlines and production incidents from colliding too loudly.",
+      "experienceStripKicker": "Where I'm shipping right now",
+      "experienceOngoingSuffix": "ongoing roles",
+      "steps": [
+        {
+          "id": "p1",
+          "title": "Read the system",
+          "body": "Screenshots, logs, who owns which table. I try to know what already works before renaming half of it."
+        },
+        {
+          "id": "p2",
+          "title": "Small slices",
+          "body": "Commits and PRs you can actually review — backend and UI in parallel so nobody stares at a blank page for weeks."
+        },
+        {
+          "id": "p3",
+          "title": "Ship, then watch",
+          "body": "Staging when there is one, backups when there should be, and a quick sanity pass on real data shapes."
+        },
+        {
+          "id": "p4",
+          "title": "Leave breadcrumbs",
+          "body": "README fragments, ticket notes, a line in the changelog — future me (or the next dev) deserves a map."
+        }
+      ]
+    },
+    "stack": {
+      "kicker": "Hard skills",
+      "heading": "Stack in rotation",
+      "indexLabel": "#6",
+      "intro": "Languages, frameworks and infra I actually grep docs for — the same mix behind school projects, institutional tooling, music-industry tickets, and this Next.js portfolio.",
+      "items": [
+        "PHP",
+        "TypeScript",
+        "JavaScript",
+        "Java",
+        "Python",
+        "SQL",
+        "React",
+        "Next.js",
+        "Angular",
+        "IONIC",
+        "Tailwind",
+        "Node.js",
+        "Docker",
+        "Linux",
+        "MySQL",
+        "MariaDB",
+        "Oracle",
+        "REST",
+        "Git",
+        "CI/CD",
+        "Firebase",
+        "GSAP",
+        "R3F",
+        "Kotlin",
+        "Capacitor"
+      ]
+    },
+    "cta": {
+      "heading": ["Say", "hello"],
+      "kicker": "Contact",
+      "indexLabel": "#7",
+      "body": "If you want to swap notes on school, stacks, or Prague/Seville — email is best. No pitch deck required; I read messages slowly and answer honestly."
+    },
+    "footer": {
+      "tagline": "Developer portfolio — not an agency site",
+      "marqueeItems": [
+        "Seville · Prague",
+        "DAM · multiplatform",
+        "Production tickets & school deadlines",
+        "This site is a lab log, not a pitch",
+        "Seville · Prague",
+        "Erasmus+ 2026"
+      ],
+      "columns": [
+        {
+          "title": "Focus",
+          "links": [
+            { "label": "Web & PHP stacks" },
+            { "label": "Mobile · Ionic" },
+            { "label": "APIs & data" },
+            { "label": "Lab · Next.js" },
+            { "label": "Integrations" }
+          ]
+        },
+        {
+          "title": "Links",
+          "links": [
+            { "label": "GitHub", "href": "https://github.com/aroldanrabanal" },
+            { "label": "LinkedIn", "href": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371" },
+            { "label": "Email", "href": "mailto:aroldanrabanal@safareyes.es" },
+            { "label": "Phone", "href": "tel:+34640280151" }
+          ]
+        },
+        {
+          "title": "On this page",
+          "links": [
+            { "label": "About", "href": "#about" },
+            { "label": "Capabilities", "href": "#services" },
+            { "label": "Work", "href": "#works" },
+            { "label": "Contact", "href": "#contact" }
+          ]
+        },
+        {
+          "title": "Meta",
+          "links": [
+            { "label": "Education" },
+            { "label": "Languages" },
+            { "label": "Colophon: Next.js" }
+          ]
+        }
+      ],
+      "legal": "Built with Next.js, React Three Fiber and GSAP — Seville · Prague."
+    }
+  }
+}

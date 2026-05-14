@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# angel-portfolio
 
-## Getting Started
+Personal portfolio site for **Ángel Roldán Rabanal** — Next.js App Router, bilingual copy (EN/ES), scroll-driven sections, and a small WebGL scene (React Three Fiber + GSAP).
 
-First, run the development server:
+## Stack
+
+- [Next.js](https://nextjs.org/) 16 · React 19 · TypeScript
+- [Tailwind CSS](https://tailwindcss.com/) v4
+- [GSAP](https://gsap.com/) + ScrollTrigger · [Lenis](https://lenis.darkroom.engineering/) smooth scroll
+- [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) · [three.js](https://threejs.org/)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run start   # run production server locally
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content
 
-## Learn More
+Copy and structure live in [`data/portfolio.en.json`](data/portfolio.en.json) and [`data/portfolio.es.json`](data/portfolio.es.json). Types: [`types/portfolio.ts`](types/portfolio.ts).
 
-To learn more about Next.js, take a look at the following resources:
+- **Works** (`projects` in JSON): public repos and live demos.
+- **Experience** (`experience` in JSON): real employment and internships — surfaced in the Process section.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Production URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace with your live deployment after you connect hosting (for example Vercel):
+
+**Production:** _add your URL here (e.g. `https://your-domain.vercel.app`)_
+
+## Repository
+
+Source: [github.com/aroldanrabanal/angel-portfolio](https://github.com/aroldanrabanal/angel-portfolio)
+
+If the repo does not exist yet, create it on GitHub (public), add this folder as `origin`, and push `main`:
+
+```bash
+git remote add origin https://github.com/aroldanrabanal/angel-portfolio.git
+git branch -M main
+git push -u origin main
+```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Import this repository in the [Vercel dashboard](https://vercel.com/new).
+2. Framework preset: **Next.js**. Root: repository root.
+3. Keep secrets only in **Project → Settings → Environment Variables** — do not commit `.env` files (they are gitignored).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, CampusGo, etc.).
+
+## Licence
+
+Private / personal project unless you add an explicit licence file.
