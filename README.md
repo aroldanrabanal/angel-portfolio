@@ -9,6 +9,12 @@ Personal portfolio site for **Ángel Roldán Rabanal** — Next.js App Router, b
 - [GSAP](https://gsap.com/) + ScrollTrigger · [Lenis](https://lenis.darkroom.engineering/) smooth scroll
 - [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) · [three.js](https://threejs.org/)
 
+## Production
+
+**Live site:** [angel-portfolio-virid.vercel.app](https://angel-portfolio-virid.vercel.app)
+
+Source: [github.com/aroldanrabanal/angel-portfolio](https://github.com/aroldanrabanal/angel-portfolio)
+
 ## Getting started
 
 ```bash
@@ -31,29 +37,31 @@ Copy and structure live in [`data/portfolio.en.json`](data/portfolio.en.json) an
 - **Works** (`projects` in JSON): public repos and live demos.
 - **Experience** (`experience` in JSON): real employment and internships — surfaced in the Process section.
 
-## Production URL
-
-Replace with your live deployment after you connect hosting (for example Vercel):
-
-**Production:** _add your URL here (e.g. `https://your-domain.vercel.app`)_
-
 ## Repository
 
-**Create** the public repository [github.com/aroldanrabanal/angel-portfolio](https://github.com/new?name=angel-portfolio) on GitHub (empty, no README) if it does not exist yet, then push:
-
 ```bash
-git remote add origin https://github.com/aroldanrabanal/angel-portfolio.git
-git branch -M main
-git push -u origin main
+git clone https://github.com/aroldanrabanal/angel-portfolio.git
+cd angel-portfolio
 ```
 
-If `origin` is already set, only `git push -u origin main` is required.
+Push updates to `main`:
+
+```bash
+git push origin main
+```
+
+Vercel is connected to this repo; pushes to `main` trigger production deploys when Git integration is enabled in the [Vercel dashboard](https://vercel.com/aroldanrabanals-projects/angel-portfolio).
 
 ## Deploy on Vercel
 
-1. After the GitHub repo exists and `main` is pushed, import it in the [Vercel dashboard](https://vercel.com/new).
-2. Framework preset: **Next.js**. Root: repository root. No extra env vars are required for the default static content build (`npm run build` passes locally).
-3. Keep secrets only in **Project → Settings → Environment Variables** — do not commit `.env` files (they are gitignored).
+This project is linked under **aroldanrabanals-projects / angel-portfolio**. From a clean clone you can redeploy with:
+
+```bash
+npx vercel link --yes
+npx vercel --prod --yes
+```
+
+No environment variables are required for the default build. Keep secrets only in **Project → Settings → Environment Variables** — never commit `.env` files (they are gitignored).
 
 See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, CampusGo, etc.).
 
