@@ -107,7 +107,7 @@ export function Process({ data, reduceMotion }: Props) {
             ))}
           </ol>
 
-          {/* Experience strip — real Lanzadera + SAFA timeline */}
+          {/* Experience strip — employment from data.experience */}
           <div className="mt-20 border-t border-[color:var(--ink)]/10 pt-12">
             <div className="mb-8 flex items-baseline justify-between">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--ink)]/60">
