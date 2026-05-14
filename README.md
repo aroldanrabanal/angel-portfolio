@@ -39,15 +39,15 @@ Replace with your live deployment after you connect hosting (for example Vercel)
 
 ## Repository
 
-Source: [github.com/aroldanrabanal/angel-portfolio](https://github.com/aroldanrabanal/angel-portfolio)
-
-If the repo does not exist yet, create it on GitHub (public), add this folder as `origin`, and push `main`:
+**Create** the public repository [github.com/aroldanrabanal/angel-portfolio](https://github.com/new?name=angel-portfolio) on GitHub (empty, no README) if it does not exist yet, then push:
 
 ```bash
 git remote add origin https://github.com/aroldanrabanal/angel-portfolio.git
 git branch -M main
 git push -u origin main
 ```
+
+If `origin` is already set, only `git push -u origin main` is required.
 
 ## Deploy on Vercel
 
