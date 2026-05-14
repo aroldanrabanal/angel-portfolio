@@ -214,7 +214,7 @@
       ]
     },
     "works": {
-      "heading": ["Selected", "work"],
+      "heading": ["Public", "repos"],
       "kicker": "Projects",
       "indexLabel": "#4",
       "intro": "Public repositories and live demos: this portfolio, TECHNOAPP on Vercel, and the CampusGo stack (web + Android). Paid work and the Erasmus+ internship are listed under Process below as employment experience.",

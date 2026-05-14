@@ -51,8 +51,8 @@ If `origin` is already set, only `git push -u origin main` is required.
 
 ## Deploy on Vercel
 
-1. Import this repository in the [Vercel dashboard](https://vercel.com/new).
-2. Framework preset: **Next.js**. Root: repository root.
+1. After the GitHub repo exists and `main` is pushed, import it in the [Vercel dashboard](https://vercel.com/new).
+2. Framework preset: **Next.js**. Root: repository root. No extra env vars are required for the default static content build (`npm run build` passes locally).
 3. Keep secrets only in **Project → Settings → Environment Variables** — do not commit `.env` files (they are gitignored).
 
 See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, CampusGo, etc.).
