@@ -3,7 +3,6 @@
 import {
   useCallback,
   useEffect,
-  useRef,
   useState,
   type ComponentProps,
   type ReactNode,
@@ -31,8 +30,6 @@ export function WebGLCanvas({
 }: WebGLCanvasProps) {
   const [ready, setReady] = useState(false);
   const [blocked, setBlocked] = useState(false);
-  const onCreatedRef = useRef(onCreated);
-  onCreatedRef.current = onCreated;
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setReady(true));
@@ -46,8 +43,8 @@ export function WebGLCanvas({
       setBlocked(true);
     };
     canvas.addEventListener("webglcontextlost", onLost, false);
-    onCreatedRef.current?.(state);
-  }, []);
+    onCreated?.(state);
+  }, [onCreated]);
 
   if (!ready || blocked) {
     return <>{fallback}</>;
