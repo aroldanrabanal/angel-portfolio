@@ -2,11 +2,11 @@
 
 import {
   createContext,
-  startTransition,
+  useCallback,
   useContext,
   useEffect,
   useRef,
-  useState,
+  useSyncExternalStore,
 } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
@@ -34,7 +34,17 @@ export function LenisProvider({
   disabled?: boolean;
 }) {
   const lenisRef = useRef<Lenis | null>(null);
-  const [lenis, setLenis] = useState<Lenis | null>(null);
+  const subscribers = useRef(new Set<() => void>());
+  const subscribe = useCallback((onStoreChange: () => void) => {
+    subscribers.current.add(onStoreChange);
+
+    return () => subscribers.current.delete(onStoreChange);
+  }, []);
+  const getSnapshot = useCallback(() => lenisRef.current, []);
+  const lenis = useSyncExternalStore(subscribe, getSnapshot, () => null);
+  const notifySubscribers = useCallback(() => {
+    subscribers.current.forEach((notify) => notify());
+  }, []);
 
   useEffect(() => {
     const reduce =
@@ -56,9 +66,7 @@ export function LenisProvider({
     });
 
     lenisRef.current = instance;
-    startTransition(() => {
-      setLenis(instance);
-    });
+    notifySubscribers();
 
     instance.on("scroll", ScrollTrigger.update);
 
@@ -72,11 +80,9 @@ export function LenisProvider({
       gsap.ticker.remove(tick);
       instance.destroy();
       lenisRef.current = null;
-      startTransition(() => {
-        setLenis(null);
-      });
+      notifySubscribers();
     };
-  }, [disabled]);
+  }, [disabled, notifySubscribers]);
 
   return (
     <LenisContext.Provider value={{ lenis }}>{children}</LenisContext.Provider>
