@@ -8,6 +8,7 @@ type Props = {
   className?: string;
   /** Separator glyph between items. */
   separator?: string;
+  paused?: boolean;
 };
 
 /**
@@ -18,6 +19,7 @@ export function Marquee({
   speed = 32,
   className = "",
   separator = "·",
+  paused = false,
 }: Props) {
   const content = (
     <span className="flex shrink-0 items-center gap-8 pr-8">
@@ -38,11 +40,11 @@ export function Marquee({
       <div
         className="flex w-max"
         style={{
-          animation: `zylo-marquee ${speed}s linear infinite`,
+          animation: paused ? undefined : `zylo-marquee ${speed}s linear infinite`,
         }}
       >
         {content}
-        {content}
+        {paused ? null : content}
       </div>
       <style>{`
         @keyframes zylo-marquee {

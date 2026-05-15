@@ -13,20 +13,24 @@ const CTAKnot = dynamic(
   { ssr: false },
 );
 
-type Props = { data: Portfolio; reduceMotion: boolean };
+type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
-export function CTA({ data, reduceMotion }: Props) {
+export function CTA({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (reduceMotion || !root.current) return;
-    const c1 = splitChars(w1.current);
-    const c2 = splitChars(w2.current);
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current].filter((item): item is HTMLElement => Boolean(item))
+      : [...splitChars(w1.current), ...splitChars(w2.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set([...c1, ...c2], { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".cta-knot-wrap", { opacity: 0, scale: 0.75 });
       gsap.set(".cta-extra", { opacity: 0, y: 20 });
 
@@ -38,8 +42,10 @@ export function CTA({ data, reduceMotion }: Props) {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
           tl.to(".cta-knot-wrap", { opacity: 1, scale: 1, duration: 1.4 })
             .to(
-              [...c1, ...c2],
-              { yPercent: 0, opacity: 1, duration: 0.9, stagger: { each: 0.022 } },
+              headingTargets,
+              liteMotion
+                ? { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: "power2.out" }
+                : { yPercent: 0, opacity: 1, duration: 0.9, stagger: { each: 0.022 } },
               "<0.1",
             )
             .to(
@@ -52,7 +58,7 @@ export function CTA({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { cta } = data.template;
 
@@ -74,7 +80,7 @@ export function CTA({ data, reduceMotion }: Props) {
         <div className="mx-auto grid max-w-[1400px] place-items-center">
           <div className="relative grid h-[80vh] min-h-[600px] w-full place-items-center">
             <div className="cta-knot-wrap absolute inset-0 z-0">
-              <CTAKnot reduceMotion={reduceMotion} />
+              <CTAKnot reduceMotion={reduceMotion} liteMotion={liteMotion} />
             </div>
 
             <p className="cta-extra absolute top-6 z-10 font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">

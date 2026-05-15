@@ -7,7 +7,7 @@ import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { StarBurst } from "@/components/ui/StarBurst";
 
-type Props = { data: Portfolio; reduceMotion: boolean };
+type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
 const CARD_VISUALS: Record<string, { tilt: number; glyph: React.ReactNode }> = {
   s1: { tilt: -2, glyph: <BlobGlyph color="#ffffff" /> },
@@ -108,7 +108,7 @@ function PrismGlyph() {
   );
 }
 
-export function Services({ data, reduceMotion }: Props) {
+export function Services({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
@@ -116,11 +116,15 @@ export function Services({ data, reduceMotion }: Props) {
   useEffect(() => {
     if (reduceMotion) return;
     if (!root.current) return;
-    const c1 = splitChars(w1.current);
-    const c2 = splitChars(w2.current);
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current].filter((item): item is HTMLElement => Boolean(item))
+      : [...splitChars(w1.current), ...splitChars(w2.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set([...c1, ...c2], { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".srv-card", { opacity: 0, y: 60 });
 
       ScrollTrigger.create({
@@ -129,12 +133,17 @@ export function Services({ data, reduceMotion }: Props) {
         once: true,
         onEnter: () => {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-          tl.to([...c1, ...c2], {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.85,
-            stagger: { each: 0.02 },
-          }).to(
+          tl.to(
+            headingTargets,
+            liteMotion
+              ? { y: 0, opacity: 1, duration: 0.55, stagger: 0.08, ease: "power2.out" }
+              : {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  stagger: { each: 0.02 },
+                },
+          ).to(
             ".srv-card",
             { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: "power3.out" },
             "<0.2",
@@ -144,7 +153,7 @@ export function Services({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { services } = data.template;
 

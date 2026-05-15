@@ -7,23 +7,27 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 
-type Props = { data: Portfolio; reduceMotion: boolean };
+type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
 const projectKind = (data: Portfolio, project: PortfolioProject) =>
   project.kind ?? data.template.works.projectKindFallback;
 
-export function Works({ data, reduceMotion }: Props) {
+export function Works({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (reduceMotion || !root.current) return;
-    const c1 = splitChars(w1.current);
-    const c2 = splitChars(w2.current);
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current].filter((item): item is HTMLElement => Boolean(item))
+      : [...splitChars(w1.current), ...splitChars(w2.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set([...c1, ...c2], { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".work-card", { opacity: 0, y: 80 });
 
       ScrollTrigger.create({
@@ -32,12 +36,17 @@ export function Works({ data, reduceMotion }: Props) {
         once: true,
         onEnter: () => {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-          tl.to([...c1, ...c2], {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.85,
-            stagger: { each: 0.02 },
-          }).to(
+          tl.to(
+            headingTargets,
+            liteMotion
+              ? { y: 0, opacity: 1, duration: 0.55, stagger: 0.08, ease: "power2.out" }
+              : {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  stagger: { each: 0.02 },
+                },
+          ).to(
             ".work-card",
             { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" },
             "<0.2",
@@ -47,7 +56,7 @@ export function Works({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { works } = data.template;
   const projects = data.projects;
