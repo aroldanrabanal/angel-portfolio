@@ -18,28 +18,88 @@
       "id": "p1",
       "title": "Este portfolio (código abierto)",
       "kind": "Web · Next.js · 3D",
-      "description": "Sitio que estás viendo: Next.js 16, React Three Fiber, GSAP, Lenis e i18n ES/EN. Código en GitHub; despliegue habitual en Vercel.",
+      "description": "Portfolio personal bilingüe construido como laboratorio front-end: Next.js 16, React 19, Tailwind v4, GSAP/Lenis para scroll y una escena WebGL con React Three Fiber.",
       "image": "/images/project-3.svg",
       "href": "https://github.com/aroldanrabanal/angel-portfolio",
+      "highlights": [
+        "Contenido centralizado en JSON ES/EN con tipos TypeScript compartidos.",
+        "Secciones animadas con GSAP, ScrollTrigger y preferencia de movimiento reducido.",
+        "Despliegue conectado a Vercel y documentación de instalación, build, lint y contenido."
+      ],
+      "documentation": [
+        "README con stack, arranque local, comandos de producción y despliegue en Vercel.",
+        "Guía interna en docs/OTHER-REPOS.md para mantener GitHub y la sección Works alineados."
+      ],
+      "links": [
+        { "label": "Repositorio", "href": "https://github.com/aroldanrabanal/angel-portfolio" },
+        { "label": "Demo", "href": "https://angel-portfolio-virid.vercel.app" }
+      ],
       "accent": "violet"
     },
     {
       "id": "p2",
       "title": "TECHNOAPP",
-      "kind": "Web · TypeScript",
-      "description": "Interfaz en TypeScript en producción en Vercel. Repositorio: github.com/aroldanrabanal/TECHNOAPP",
+      "kind": "Web + Android · Next.js · Firebase",
+      "description": "Guía social para la escena techno de Praga: eventos, venues, agenda, perfiles, amigos, chats y panel admin. El código mezcla Next.js 16, Firebase, scraping de Resident Advisor, clasificación con IA y build Android vía Capacitor.",
       "image": "/images/project-1.svg",
       "href": "https://technoapp-red.vercel.app",
+      "highlights": [
+        "Rutas públicas para eventos, calendario, perfil, social y chats; zona admin protegida.",
+        "APIs App Router para eventos, venues, agenda, asistentes, amistades, chats y scraping programado.",
+        "Modo demo/mocks y scripts específicos para generar la versión Android con Capacitor."
+      ],
+      "documentation": [
+        "README actual de base Next.js; conviene ampliarlo con propósito, Firebase, variables y flujo admin.",
+        "package.json documenta comandos dev/build/lint y pipeline Android: build web, sync y APK debug."
+      ],
+      "links": [
+        { "label": "Demo", "href": "https://technoapp-red.vercel.app" },
+        { "label": "Repositorio", "href": "https://github.com/aroldanrabanal/TECHNOAPP" }
+      ],
       "accent": "cream"
     },
     {
       "id": "p3",
       "title": "CampusGo",
-      "kind": "Web + móvil · DAM",
-      "description": "Cliente web (TypeScript) y app Android en Java. Repos: github.com/aroldanrabanal/CampusGo y github.com/aroldanrabanal/AppCampusGo.",
+      "kind": "Ionic/Angular + Spring Boot · DAM",
+      "description": "Ecosistema para eventos de campus: front Ionic/Angular con Capacitor y backend Spring Boot en Java 21. El cliente consume la API en Render para listar, crear, editar, eliminar eventos y gestionar galería de imágenes.",
       "image": "/images/project-2.svg",
       "href": "https://github.com/aroldanrabanal/CampusGo",
+      "highlights": [
+        "Frontend con rutas de inicio, login, registro, calendario, favoritos, pago y social.",
+        "Servicio Angular conectado a https://appcampusgo.onrender.com con endpoints de eventos y galerías.",
+        "Backend con JPA, DTOs, MapStruct, controladores REST, PostgreSQL/MariaDB y tests de servicios."
+      ],
+      "documentation": [
+        "CampusGo no publica README específico todavía; los scripts npm cubren start/build/test/lint.",
+        "AppCampusGo expone el contrato REST principal: /eventos, /eventos/front, /usuarios y relaciones usuario-evento."
+      ],
+      "links": [
+        { "label": "Frontend", "href": "https://github.com/aroldanrabanal/CampusGo" },
+        { "label": "Backend/API", "href": "https://github.com/aroldanrabanal/AppCampusGo" }
+      ],
       "accent": "lime"
+    },
+    {
+      "id": "p4",
+      "title": "A Saturday Night of Angel",
+      "kind": "Juego 2D · Unity · C#",
+      "description": "Proyecto Unity de plataformas 2D con escenas de menú y niveles, movimiento del jugador, doble salto, disparo, patrullas enemigas, vida, objetos y estado de game over.",
+      "image": "/images/project-4.svg",
+      "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
+      "highlights": [
+        "Scripts C# separados para movimiento, disparo, enemigos, salud, objetos y plataformas móviles.",
+        "Escenas MainMenu, Nivel1 y Nivel2 con prefabs, sprites, URP 2D y TextMesh Pro.",
+        "Buen proyecto para enseñar lógica de gameplay, colisiones y estructura básica de un juego Unity."
+      ],
+      "documentation": [
+        "Repositorio sin README publicado; la documentación pendiente debería cubrir controles, escenas y build.",
+        "El árbol de Assets deja claro el recorrido técnico: PlayerMovement, PlayerShooting, EnemyPatrol y GameOverManager."
+      ],
+      "links": [
+        { "label": "Repositorio", "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel" }
+      ],
+      "accent": "ink"
     }
   ],
   "experience": [
@@ -217,7 +277,10 @@
       "heading": ["Repos y", "demos"],
       "kicker": "Proyectos",
       "indexLabel": "#4",
-      "intro": "Repositorios públicos y demos: este portfolio, TECHNOAPP (Vercel) y el ecosistema CampusGo (web + Android). Los encargos de empresa y las prácticas Erasmus+ están en la sección Proceso, debajo, como experiencia laboral.",
+      "intro": "Repositorios públicos revisados en GitHub: este portfolio, TECHNOAPP, CampusGo/AppCampusGo y el juego Unity. Cada tarjeta resume qué hace, cómo está montado y qué documentación conviene mirar o completar.",
+      "highlightsLabel": "Destacado",
+      "documentationLabel": "Documentación",
+      "linksLabel": "Enlaces",
       "projectKindFallback": "Proyecto"
     },
     "process": {

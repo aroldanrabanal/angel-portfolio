@@ -18,28 +18,88 @@
       "id": "p1",
       "title": "This portfolio (open source)",
       "kind": "Web · Next.js · 3D",
-      "description": "The site you are on: Next.js 16, React Three Fiber, GSAP, Lenis, EN/ES i18n. Source on GitHub; typically deployed on Vercel.",
+      "description": "Bilingual personal portfolio built as a front-end lab: Next.js 16, React 19, Tailwind v4, GSAP/Lenis for scroll, and a small WebGL scene with React Three Fiber.",
       "image": "/images/project-3.svg",
       "href": "https://github.com/aroldanrabanal/angel-portfolio",
+      "highlights": [
+        "Content lives in ES/EN JSON with shared TypeScript types.",
+        "Sections use GSAP, ScrollTrigger, and reduced-motion handling.",
+        "Vercel deployment is documented alongside install, build, lint, and content notes."
+      ],
+      "documentation": [
+        "README covers stack, local setup, production commands, and Vercel deployment.",
+        "docs/OTHER-REPOS.md keeps GitHub repositories and the Works section aligned."
+      ],
+      "links": [
+        { "label": "Repository", "href": "https://github.com/aroldanrabanal/angel-portfolio" },
+        { "label": "Demo", "href": "https://angel-portfolio-virid.vercel.app" }
+      ],
       "accent": "violet"
     },
     {
       "id": "p2",
       "title": "TECHNOAPP",
-      "kind": "Web · TypeScript",
-      "description": "TypeScript UI shipped on Vercel. Repository: github.com/aroldanrabanal/TECHNOAPP",
+      "kind": "Web + Android · Next.js · Firebase",
+      "description": "Social guide for Prague techno events: events, venues, agenda, profiles, friends, chats, and an admin panel. The code combines Next.js 16, Firebase, Resident Advisor scraping, AI classification, and an Android build via Capacitor.",
       "image": "/images/project-1.svg",
       "href": "https://technoapp-red.vercel.app",
+      "highlights": [
+        "Public routes cover events, calendar, profile, social, and chats; admin routes are guarded.",
+        "App Router APIs handle events, venues, agenda, attendees, friendships, chats, and scheduled scraping.",
+        "Demo/mock mode and dedicated scripts support Android output through Capacitor."
+      ],
+      "documentation": [
+        "Current README is still the default Next.js starter; it should document purpose, Firebase, env vars, and admin flow.",
+        "package.json documents dev/build/lint and Android pipeline commands: web build, sync, and debug APK."
+      ],
+      "links": [
+        { "label": "Demo", "href": "https://technoapp-red.vercel.app" },
+        { "label": "Repository", "href": "https://github.com/aroldanrabanal/TECHNOAPP" }
+      ],
       "accent": "cream"
     },
     {
       "id": "p3",
       "title": "CampusGo",
-      "kind": "Web + mobile · vocational project",
-      "description": "Web client (TypeScript) and Android app in Java. Repos: github.com/aroldanrabanal/CampusGo and github.com/aroldanrabanal/AppCampusGo.",
+      "kind": "Ionic/Angular + Spring Boot · vocational project",
+      "description": "Campus events ecosystem: Ionic/Angular front end with Capacitor plus a Java 21 Spring Boot backend. The client consumes the Render API to list, create, edit, delete events, and manage image galleries.",
       "image": "/images/project-2.svg",
       "href": "https://github.com/aroldanrabanal/CampusGo",
+      "highlights": [
+        "Frontend routes include home, login, registration, calendar, favourites, payment, and social screens.",
+        "Angular service calls https://appcampusgo.onrender.com for event and gallery endpoints.",
+        "Backend uses JPA, DTOs, MapStruct, REST controllers, PostgreSQL/MariaDB, and service tests."
+      ],
+      "documentation": [
+        "CampusGo does not publish a focused README yet; npm scripts cover start/build/test/lint.",
+        "AppCampusGo exposes the main REST contract: /eventos, /eventos/front, /usuarios, and user-event relations."
+      ],
+      "links": [
+        { "label": "Frontend", "href": "https://github.com/aroldanrabanal/CampusGo" },
+        { "label": "Backend/API", "href": "https://github.com/aroldanrabanal/AppCampusGo" }
+      ],
       "accent": "lime"
+    },
+    {
+      "id": "p4",
+      "title": "A Saturday Night of Angel",
+      "kind": "2D game · Unity · C#",
+      "description": "Unity 2D platformer project with menu and level scenes, player movement, double jump, shooting, enemy patrols, health, pickups, and game-over state.",
+      "image": "/images/project-4.svg",
+      "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
+      "highlights": [
+        "C# scripts are split across movement, shooting, enemies, health, pickups, and moving platforms.",
+        "MainMenu, Nivel1, and Nivel2 scenes use prefabs, sprites, URP 2D, and TextMesh Pro.",
+        "Strong showcase for gameplay logic, collisions, and a basic Unity game structure."
+      ],
+      "documentation": [
+        "Repository has no published README yet; next docs should cover controls, scenes, and build notes.",
+        "The Assets tree makes the technical path clear: PlayerMovement, PlayerShooting, EnemyPatrol, and GameOverManager."
+      ],
+      "links": [
+        { "label": "Repository", "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel" }
+      ],
+      "accent": "ink"
     }
   ],
   "experience": [
@@ -217,7 +277,10 @@
       "heading": ["Public", "repos"],
       "kicker": "Projects",
       "indexLabel": "#4",
-      "intro": "Public repositories and live demos: this portfolio, TECHNOAPP on Vercel, and the CampusGo stack (web + Android). Paid work and the Erasmus+ internship are listed under Process below as employment experience.",
+      "intro": "Public repositories reviewed on GitHub: this portfolio, TECHNOAPP, CampusGo/AppCampusGo, and the Unity game. Each card explains what it does, how it is built, and which documentation is useful or still missing.",
+      "highlightsLabel": "Highlights",
+      "documentationLabel": "Docs",
+      "linksLabel": "Links",
       "projectKindFallback": "Project"
     },
     "process": {

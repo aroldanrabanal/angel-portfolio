@@ -26,6 +26,12 @@ export type PortfolioProject = {
   image: string;
   description?: string;
   href?: string;
+  highlights?: string[];
+  documentation?: string[];
+  links?: {
+    label: string;
+    href: string;
+  }[];
   /** Optional short label shown as overline (e.g. "Web", "Mobile") */
   kind?: string;
   /** Optional accent color hint */
@@ -132,6 +138,9 @@ export type TemplateProcessStep = {
 
 export type TemplateWorks = TemplateBlock & {
   intro: string;
+  highlightsLabel: string;
+  documentationLabel: string;
+  linksLabel: string;
   /** Fallback when `project.kind` is missing */
   projectKindFallback: string;
 };
