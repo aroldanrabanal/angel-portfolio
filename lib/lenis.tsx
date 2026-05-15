@@ -16,9 +16,16 @@ export function useLenis(): Lenis | null {
 
 /**
  * Wraps the app with a Lenis smooth-scroll instance synced to gsap.ticker
- * so ScrollTrigger updates in the same frame. Respects prefers-reduced-motion.
+ * so ScrollTrigger updates in the same frame. Mobile lite mode keeps native
+ * scrolling to reduce main-thread work on constrained devices.
  */
-export function LenisProvider({ children }: { children: React.ReactNode }) {
+export function LenisProvider({
+  children,
+  disabled = false,
+}: {
+  children: React.ReactNode;
+  disabled?: boolean;
+}) {
   const lenisRef = useRef<Lenis | null>(null);
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
@@ -27,7 +34,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (reduce) {
+    if (disabled || reduce) {
       return;
     }
 
@@ -58,7 +65,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       lenisRef.current = null;
       setLenis(null);
     };
-  }, []);
+  }, [disabled]);
 
   return (
     <LenisContext.Provider value={{ lenis }}>{children}</LenisContext.Provider>

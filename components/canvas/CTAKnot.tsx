@@ -34,10 +34,36 @@ function ChromeKnot({ reduceMotion }: { reduceMotion: boolean }) {
 
 type Props = {
   reduceMotion?: boolean;
+  liteMotion?: boolean;
   className?: string;
 };
 
-export function CTAKnot({ reduceMotion = false, className = "" }: Props) {
+function StaticCTAKnot({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-hidden
+      className={`pointer-events-none absolute inset-0 grid place-items-center ${className}`}
+    >
+      <div
+        className="relative h-[min(70vw,420px)] w-[min(70vw,420px)] rounded-full border border-white/20 shadow-[0_0_96px_rgba(214,255,62,0.18)]"
+        style={{
+          background:
+            "radial-gradient(circle at 42% 35%, rgba(255,255,255,0.92), rgba(245,245,250,0.46) 31%, rgba(163,116,255,0.32) 54%, rgba(10,10,15,0) 74%)",
+          transform: "rotate(14deg) scale(0.94)",
+        }}
+      >
+        <span className="absolute left-[14%] top-[48%] h-[2px] w-[72%] rotate-6 bg-white/60" />
+        <span className="absolute inset-[26%] rounded-[45%] border border-[color:var(--lime)]/55" />
+      </div>
+    </div>
+  );
+}
+
+export function CTAKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
+  if (reduceMotion || liteMotion) {
+    return <StaticCTAKnot className={className} />;
+  }
+
   return (
     <div className={`pointer-events-none absolute inset-0 ${className}`}>
       <WebGLCanvas

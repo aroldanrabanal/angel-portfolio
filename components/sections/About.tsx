@@ -9,9 +9,9 @@ import { SectionFrame } from "@/components/ui/SectionFrame";
 import { Crosshair } from "@/components/ui/Crosshair";
 import { BrandWord } from "@/components/ui/BrandWord";
 
-type Props = { data: Portfolio; reduceMotion: boolean };
+type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
-export function About({ data, reduceMotion }: Props) {
+export function About({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
@@ -20,11 +20,15 @@ export function About({ data, reduceMotion }: Props) {
     if (reduceMotion) return;
     if (!root.current) return;
 
-    const c1 = splitChars(w1.current);
-    const c2 = splitChars(w2.current);
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current].filter((item): item is HTMLElement => Boolean(item))
+      : [...splitChars(w1.current), ...splitChars(w2.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set([...c1, ...c2], { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".about-portrait", { opacity: 0, y: 40 });
       gsap.set(".about-body p", { opacity: 0, y: 20 });
       gsap.set(".about-strip > *", { opacity: 0, y: 12 });
@@ -37,13 +41,15 @@ export function About({ data, reduceMotion }: Props) {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
           tl.to(".about-portrait", { opacity: 1, y: 0, duration: 1 })
             .to(
-              [...c1, ...c2],
-              {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.8,
-                stagger: { each: 0.02 },
-              },
+              headingTargets,
+              liteMotion
+                ? { y: 0, opacity: 1, duration: 0.55, stagger: 0.08, ease: "power2.out" }
+                : {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: { each: 0.02 },
+                  },
               "<0.1",
             )
             .to(
@@ -61,7 +67,7 @@ export function About({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { about } = data.template;
 

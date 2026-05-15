@@ -3,6 +3,7 @@
 import { useReducedMotion } from "framer-motion";
 import type { Portfolio } from "@/types/portfolio";
 import { LenisProvider } from "@/lib/lenis";
+import { useMotionProfile } from "@/lib/useMotionProfile";
 import { TopNav } from "@/components/ui/TopNav";
 import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
 import { Hero } from "@/components/sections/Hero";
@@ -17,20 +18,21 @@ type Props = { data: Portfolio };
 
 export function PortfolioShell({ data }: Props) {
   const reduceMotion = useReducedMotion() ?? false;
+  const motion = useMotionProfile(reduceMotion);
 
   return (
-    <LenisProvider>
+    <LenisProvider disabled={motion.disableScrollSmoothing}>
       <BackgroundGrid />
       <TopNav data={data} />
       <main className="relative z-10">
-        <Hero data={data} reduceMotion={reduceMotion} />
-        <About data={data} reduceMotion={reduceMotion} />
-        <Services data={data} reduceMotion={reduceMotion} />
-        <Works data={data} reduceMotion={reduceMotion} />
-        <Process data={data} reduceMotion={reduceMotion} />
-        <CTA data={data} reduceMotion={reduceMotion} />
+        <Hero data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <About data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <Services data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <Works data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <Process data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <CTA data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
       </main>
-      <Footer data={data} />
+      <Footer data={data} liteMotion={motion.disableScrollSmoothing} />
     </LenisProvider>
   );
 }

@@ -53,10 +53,36 @@ function Knot({ reduceMotion }: { reduceMotion: boolean }) {
 
 type Props = {
   reduceMotion?: boolean;
+  liteMotion?: boolean;
   className?: string;
 };
 
-export function HeroKnot({ reduceMotion = false, className = "" }: Props) {
+function StaticHeroKnot({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-hidden
+      className={`pointer-events-none absolute inset-0 grid place-items-center ${className}`}
+    >
+      <div
+        className="relative h-[min(62vw,360px)] w-[min(62vw,360px)] rounded-[38%_62%_48%_52%] border border-white/20 shadow-[0_0_80px_rgba(110,34,214,0.38)]"
+        style={{
+          background:
+            "radial-gradient(circle at 35% 24%, rgba(255,255,255,0.92), rgba(163,116,255,0.58) 34%, rgba(110,34,214,0.26) 58%, rgba(214,255,62,0.12) 72%, transparent 78%)",
+          transform: "rotate(-18deg)",
+        }}
+      >
+        <span className="absolute left-[18%] top-[50%] h-[2px] w-[68%] -rotate-12 bg-[color:var(--lime)]/70" />
+        <span className="absolute inset-[20%] rounded-full border border-white/25" />
+      </div>
+    </div>
+  );
+}
+
+export function HeroKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
+  if (reduceMotion || liteMotion) {
+    return <StaticHeroKnot className={className} />;
+  }
+
   return (
     <div className={`pointer-events-none absolute inset-0 ${className}`}>
       <WebGLCanvas

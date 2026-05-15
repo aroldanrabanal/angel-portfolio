@@ -7,20 +7,24 @@ import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { StarBurst } from "@/components/ui/StarBurst";
 
-type Props = { data: Portfolio; reduceMotion: boolean };
+type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
-export function Process({ data, reduceMotion }: Props) {
+export function Process({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (reduceMotion || !root.current) return;
-    const c1 = splitChars(w1.current);
-    const c2 = splitChars(w2.current);
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current].filter((item): item is HTMLElement => Boolean(item))
+      : [...splitChars(w1.current), ...splitChars(w2.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set([...c1, ...c2], { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".proc-step", { opacity: 0, y: 30 });
       gsap.set(".proc-exp", { opacity: 0, y: 30 });
 
@@ -30,12 +34,17 @@ export function Process({ data, reduceMotion }: Props) {
         once: true,
         onEnter: () => {
           const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-          tl.to([...c1, ...c2], {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.85,
-            stagger: { each: 0.02 },
-          })
+          tl.to(
+            headingTargets,
+            liteMotion
+              ? { y: 0, opacity: 1, duration: 0.55, stagger: 0.08, ease: "power2.out" }
+              : {
+                  yPercent: 0,
+                  opacity: 1,
+                  duration: 0.85,
+                  stagger: { each: 0.02 },
+                },
+          )
             .to(
               ".proc-step",
               { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
@@ -51,7 +60,7 @@ export function Process({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { process } = data.template;
 

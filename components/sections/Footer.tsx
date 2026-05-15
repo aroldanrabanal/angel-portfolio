@@ -4,7 +4,7 @@ import type { Portfolio } from "@/types/portfolio";
 import { Monogram } from "@/components/ui/Monogram";
 import { Marquee } from "@/components/ui/Marquee";
 
-type Props = { data: Portfolio };
+type Props = { data: Portfolio; liteMotion: boolean };
 
 function PlanetGlyph({ className = "" }: { className?: string }) {
   return (
@@ -24,7 +24,7 @@ function PlanetGlyph({ className = "" }: { className?: string }) {
   );
 }
 
-export function Footer({ data }: Props) {
+export function Footer({ data, liteMotion }: Props) {
   const { footer, brand } = data.template;
 
   return (
@@ -37,6 +37,7 @@ export function Footer({ data }: Props) {
         <Marquee
           items={footer.marqueeItems}
           speed={42}
+          paused={liteMotion}
           className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/60"
         />
       </div>
