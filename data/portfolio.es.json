@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Ángel Roldán Rabanal",
-    "title": "Desarrollador multiplataforma y web · DAM",
-    "tagline": "Desarrollador multiplataforma y web — me gustan las aplicaciones creativas, eficientes y centradas en la persona usuaria (la misma línea que en mi perfil de GitHub). Sobre todo PHP, Java, SQL y JavaScript; esta web es un laboratorio en Next.js. Sevilla; Erasmus+ en Praga. Siempre aprendiendo y explorando nuevas tecnologías.",
-    "location": "Sevilla, España · Praga, CZ",
+    "title": "Desarrollador de Aplicaciones Multiplataforma",
+    "tagline": "Desarrollador multiplataforma con experiencia real — PHP, SQL y JavaScript en el día a día; Next.js en los experimentos. Grado Superior DAM finalizado en mayo de 2026. Erasmus+ en Praga (Buinsoft) como último tramo formativo. Siempre aprendiendo.",
+    "location": "Sevilla, España",
     "phone": "+34 640 280 151",
     "email": "angelroldanrabanal@gmail.com",
     "github": "https://github.com/aroldanrabanal",
@@ -12,34 +12,110 @@
     "closing": "Carnet de conducir · disponible para desplazamientos.",
     "portrait": "/images/IMG-20260514-WA0024.jpg"
   },
-  "about": "Desarrollador multiplataforma y web — la entrega a los usuarios es el hilo entre mi GitHub y mis trabajos del día a día. Estudiante de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (SAFA), con unos años de tickets reales, consultas y despliegues a mis espaldas. Me gustan los sistemas que se entienden: backends que puedas razonar, frontends que no peleen con el usuario e integraciones que puedas revisitar meses después sin miedo. Erasmus+ en Praga es el capítulo más reciente: más flujos asistidos por IA, la misma curiosidad por cómo funcionan las cosas en producción.",
+  "about": "Desarrollador de aplicaciones multiplataforma con experiencia en entornos reales de producción — terminé el Grado Superior en Desarrollo de Aplicaciones Multiplataforma en SAFA en mayo de 2026. He trabajado en stacks PHP/SQL/JS para proyectos institucionales y del sector musical, y completé un Erasmus+ en Praga (Buinsoft) integrando flujos asistidos por IA. Me interesa construir software que sea fácil de mantener: backends razonables, frontends que no peleen con el usuario e integraciones que se puedan retomar meses después.",
   "projects": [
     {
       "id": "p1",
       "title": "Este portfolio (código abierto)",
       "kind": "Web · Next.js · 3D",
-      "description": "Sitio que estás viendo: Next.js 16, React Three Fiber, GSAP, Lenis e i18n ES/EN. Código en GitHub; despliegue habitual en Vercel.",
+      "year": "2025 – 2026",
+      "role": "Diseño y desarrollo a tiempo parcial",
+      "description": "Sitio que estás viendo: Next.js 16, React Three Fiber, GSAP, Lenis e i18n ES/EN. Código en GitHub; desplegado en Vercel.",
       "image": "/images/project-3.svg",
       "href": "https://github.com/aroldanrabanal/angel-portfolio",
-      "accent": "violet"
+      "accent": "violet",
+      "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber", "Lenis", "i18n ES/EN"],
+      "content": [
+        "Este portfolio es a la vez carta de presentación y laboratorio: aquí pruebo animaciones con GSAP, scroll suavizado con Lenis y una escena ligera en WebGL con React Three Fiber, sin renunciar a un sitio rápido de entender y mantener.",
+        "La base es Next.js 16 con App Router: una sola página principal con secciones ancladas y ahora fichas de proyecto en rutas dedicadas. El contenido vive en JSON tipado (español e inglés) para poder iterar copy sin tocar la lógica de componentes.",
+        "El repositorio es público: sirve como muestra de cómo estructuro estilos, secciones y datos, y de cómo documento decisiones mínimas para que el proyecto siga siendo legible dentro de unos meses."
+      ],
+      "highlights": [
+        {
+          "title": "Objetivo",
+          "body": "Mostrar experiencia real y experimentos recientes con una estética coherente, accesible en dos idiomas y desplegable sin fricción en Vercel."
+        },
+        {
+          "title": "Reto técnico",
+          "body": "Equilibrar motion y 3D con rendimiento y primera carga razonable, manteniendo tipado estricto y componentes acotados."
+        },
+        {
+          "title": "Estado",
+          "body": "Activo: nuevas secciones, mejoras de copy y refactors pequeños cuando encajan con el tiempo disponible."
+        }
+      ],
+      "links": [
+        { "label": "Código en GitHub", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true }
+      ]
     },
     {
       "id": "p2",
       "title": "TECHNOAPP",
       "kind": "Web · TypeScript",
-      "description": "Interfaz en TypeScript en producción en Vercel. Repositorio: github.com/aroldanrabanal/TECHNOAPP",
+      "year": "2024 – 2025",
+      "role": "Frontend y despliegue",
+      "description": "Interfaz en TypeScript desplegada en Vercel. Repositorio público en GitHub.",
       "image": "/images/project-1.svg",
       "href": "https://technoapp-red.vercel.app",
-      "accent": "cream"
+      "accent": "cream",
+      "tech": ["TypeScript", "React", "Vite", "Tailwind CSS", "Vercel"],
+      "content": [
+        "TECHNOAPP es una aplicación web centrada en una interfaz clara y tipada en TypeScript. La prioridad fue un flujo de usuario entendible, componentes reutilizables y un pipeline de build que permitiera iterar con confianza.",
+        "El despliegue en Vercel deja una demo siempre accesible para revisión rápida: enlaces estables para compartir con tutoría o con quien quiera ver el estado del proyecto sin clonar el repositorio.",
+        "El código está en GitHub como referencia de estructura de carpetas, separación de vistas y estilos, y buenas prácticas básicas de accesibilidad y responsive."
+      ],
+      "highlights": [
+        {
+          "title": "Enfoque",
+          "body": "UI mantenible con TypeScript estricto y despliegue continuo sencillo para demos y entregas."
+        },
+        {
+          "title": "Aprendizajes",
+          "body": "Coordinar diseño responsive, estados de carga y feedback visual sin sobrecargar el bundle."
+        },
+        {
+          "title": "Enlaces",
+          "body": "Demo en vivo y repositorio público para inspección del código y del historial de cambios."
+        }
+      ],
+      "links": [
+        { "label": "Demo en Vercel", "url": "https://technoapp-red.vercel.app", "external": true },
+        { "label": "Repositorio", "url": "https://github.com/aroldanrabanal/TECHNOAPP", "external": true }
+      ]
     },
     {
       "id": "p3",
-      "title": "CampusGo",
-      "kind": "Web + móvil · DAM",
-      "description": "Cliente web (TypeScript) y app Android en Java. Repos: github.com/aroldanrabanal/CampusGo y github.com/aroldanrabanal/AppCampusGo.",
+      "title": "A Saturday Night of Angel",
+      "kind": "Unity · C# · público",
+      "year": "2024 – 2025",
+      "role": "Desarrollo de gameplay y escenas",
+      "description": "Proyecto Unity en C#; repositorio público en GitHub.",
       "image": "/images/project-2.svg",
-      "href": "https://github.com/aroldanrabanal/CampusGo",
-      "accent": "lime"
+      "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
+      "accent": "lime",
+      "tech": ["Unity", "C#", "Git", "Visual Studio"],
+      "content": [
+        "Pequeño proyecto de fin de ciclo en Unity con C#: escenas, scripts de personaje o interacción y la habitual curva de aprendizaje del editor y del ciclo compilar–probar–depurar.",
+        "El repositorio es público para que cualquier revisión pueda centrarse en organización de carpetas, convenciones de nombres y claridad del código de gameplay, no solo en el binario exportado.",
+        "Encaja en el portfolio como contraste con el trabajo web: mismas ganas de dejar el código legible y documentado, en un motor distinto."
+      ],
+      "highlights": [
+        {
+          "title": "Contexto",
+          "body": "Ejercicio académico con entrega en motor de juegos, útil para demostrar lógica, escenas y control de versiones."
+        },
+        {
+          "title": "Código",
+          "body": "Scripts C# modulares donde pude, comentarios donde ayudaban a entender decisiones de diseño."
+        },
+        {
+          "title": "Siguientes pasos",
+          "body": "Mejoras de pulido, más contenido jugable o port a WebGL si encaja en un sprint futuro."
+        }
+      ],
+      "links": [
+        { "label": "Repositorio", "url": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel", "external": true }
+      ]
     }
   ],
   "experience": [
@@ -47,24 +123,24 @@
       "id": 1,
       "role": "Desarrollador de software (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
-      "period": "Mar 2026 – Actualidad",
-      "description": "Prácticas Erasmus+ en Praga: herramientas internas y de cliente con mucha entrega asistida por IA — automatización, iteraciones más ajustadas, ritmo híbrido con el equipo.",
-      "tags": ["AI", "Automation", "Prague", "Hybrid", "Full-Stack"]
+      "period": "Mar 2026 – May 2026",
+      "description": "Prácticas Erasmus+ en Praga: desarrollo de herramientas internas y para clientes con integración de automatización asistida por IA. Trabajo en modalidad híbrida con equipo internacional.",
+      "tags": ["IA", "Automatización", "Praga", "Híbrido", "Full-Stack"]
     },
     {
       "id": 2,
       "role": "Desarrollador de aplicaciones web",
       "company": "Lanzadera Music",
-      "period": "Ene 2025 – Actualidad",
-      "description": "Mantenimiento y pequeñas funciones sobre stacks PHP/SQL/JS — pasadas de rendimiento, arreglos de UX, el trabajo discreto que mantiene viva una app del sector musical.",
+      "period": "Ene 2025 – Ene 2026",
+      "description": "Desarrollo y mantenimiento de aplicaciones web sobre stacks PHP/SQL/JS. Mejoras de rendimiento en backend y correcciones de UX en una plataforma del sector musical en producción.",
       "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"]
     },
     {
       "id": 3,
       "role": "Desarrollador de aplicaciones web",
       "company": "Central Loyola SAFA",
-      "period": "Abr 2023 – Actualidad",
-      "description": "Web institucional: PHP a medida, MySQL afinado, integraciones con Google y REST — el pegamento full-stack donde el encargo cambia a mitad de curso y el modelo de datos tiene que seguir el ritmo.",
+      "period": "Abr 2023 – Ago 2025",
+      "description": "Desarrollo de soluciones web a medida para proyectos institucionales. Gestión y optimización de bases de datos MySQL, integración frontend/servidor y trabajo con APIs externas (Google, REST).",
       "tags": ["PHP", "MySQL", "Google APIs", "REST", "Full-Stack"]
     }
   ],
@@ -72,7 +148,7 @@
     {
       "degree": "Grado Superior — Desarrollo de Aplicaciones Multiplataforma",
       "school": "SAFA Nuestra Señora de los Reyes",
-      "period": "2024 – 2026 (En curso)"
+      "period": "2024 – 2026"
     },
     {
       "degree": "Grado Medio — Sistemas Microinformáticos y Redes",
@@ -121,7 +197,7 @@
       "educationTitle": "Formación",
       "languagesTitle": "Idiomas",
       "softSkillsTitle": "Habilidades blandas",
-      "availableSuffix": " · Abierto a conversaciones interesantes"
+      "availableSuffix": " · Abierto a nuevas oportunidades"
     },
     "labels": {
       "aboutHeading": "Sobre mí",
@@ -143,72 +219,72 @@
     "brand": {
       "monogram": "Á",
       "name": "ANGEL.DEV",
-      "tagline": "Portfolio — trabajo y experimentos",
+      "tagline": "Portfolio — proyectos y experimentos",
       "estYear": "desde 2023"
     },
     "nav": [
       { "label": "Sobre mí", "href": "#about" },
       { "label": "Capacidades", "href": "#services" },
       { "label": "Trabajo", "href": "#works" },
-      { "label": "Notas", "href": "#process" }
+      { "label": "Proceso", "href": "#process" }
     ],
     "hero": {
       "words": ["CONSTRUIR", "APRENDER", "PUBLICAR"],
-      "kicker": "Sevilla ↔ Praga — stacks PHP institucionales, mantenimiento en el sector musical y lo que rompo en Next.js fuera de horario. Nada de discurso comercial.",
-      "stats": "Código en producción desde 2023 · Erasmus+ Praga, 2026",
-      "tagline": "Estudiante DAM · Buinsoft · Lanzadera · SAFA",
+      "kicker": "Desarrollador web y móvil basado en Sevilla. PHP institucional, mantenimiento en el sector musical y exploración de Next.js en proyectos propios. Erasmus+ en Praga en 2026 como tramo internacional del ciclo formativo.",
+      "stats": "GS DAM (SAFA) · Erasmus+ Praga 2026 · publicando desde 2023",
+      "tagline": "DAM · Buinsoft · Lanzadera · SAFA",
       "indexLabel": "#1"
     },
     "about": {
       "heading": ["Un poco", "sobre mí"],
       "kicker": "Sobre mí",
       "indexLabel": "#2",
-      "commitStripLabel": "Suelo estar en commits",
+      "commitStripLabel": "Activo en commits",
       "body": [
-        "Soy Ángel — itinerario multiplataforma y web en SAFA (Sevilla), alineado con lo que publico en GitHub: trabajo constante en bases de código PHP/SQL/JS institucionales y del sector musical. Me importa la fiabilidad aburrida: migraciones que se pueden repetir, consultas que sabes explicar y UIs que no sorprendan a quien ya tiene la agenda llena.",
-        "Praga (Buinsoft) es donde apuesto por la entrega asistida por IA sin fingir que desaparecen los fundamentos. Esta página es en parte CV, en parte bitácora — sigue bajando para trabajos seleccionados y contacto."
+        "Soy Ángel — desarrollador de aplicaciones multiplataforma formado en SAFA Sevilla, con experiencia real en bases de código PHP/SQL/JS en entornos institucionales y del sector musical. Me importa escribir software mantenible: migraciones reproducibles, consultas explicables e interfaces que no sorprendan al usuario.",
+        "El Erasmus+ en Buinsoft (Praga) fue mi tramo internacional: herramientas internas y de cliente con entrega asistida por IA. Esta página recoge proyectos seleccionados, experiencia laboral y contacto."
       ],
-      "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "AI"]
+      "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "IA"]
     },
     "services": {
-      "heading": ["En lo que", "más caigo"],
+      "heading": ["En lo que", "más trabajo"],
       "kicker": "Capacidades",
       "indexLabel": "#3",
       "items": [
         {
           "id": "s1",
           "title": "Aplicaciones web",
-          "blurb": "PHP y SQL primero, JS donde el navegador lo pide — CRUD, auth, informes, la parte poco glamurosa del producto.",
-          "bullets": ["Patrones server-render", "REST + JSON", "Maquetación responsive"]
+          "blurb": "PHP y SQL como base, JavaScript donde el navegador lo requiere — CRUD, autenticación, informes y la lógica de negocio detrás del producto.",
+          "bullets": ["Renderizado en servidor", "REST + JSON", "Diseño responsive"]
         },
         {
           "id": "s2",
           "title": "Móvil e Ionic",
-          "blurb": "Compartido Angular + Capacitor para lo que tiene que salir del escritorio — sigue siendo una base de código que razonar.",
-          "bullets": ["IONIC + Angular", "Capacitor", "Flujos tolerantes a offline"]
+          "blurb": "Aplicaciones híbridas con Angular y Capacitor — una sola base de código para web y móvil, con soporte offline cuando es necesario.",
+          "bullets": ["IONIC + Angular", "Capacitor", "Flujos offline"]
         },
         {
           "id": "s3",
           "title": "Backends y APIs",
-          "blurb": "Servicios que hablan con MySQL/Oracle sin misterio — versionado, logs y contratos que puedes buscar en grep.",
+          "blurb": "Servicios conectados a MySQL u Oracle con logging, versionado y contratos claros — fáciles de depurar y extender.",
           "bullets": ["MySQL · Oracle", "Google APIs", "Roles y sesiones"]
         },
         {
           "id": "s4",
           "title": "Modelado de datos",
-          "blurb": "Esquemas y migraciones que sobreviven al siguiente encargo — no diagramas perfectos, tablas que se comportan.",
-          "bullets": ["Normalización", "Pasadas de consultas lentas", "Backfills"]
+          "blurb": "Esquemas y migraciones que aguantan nuevos requisitos — normalización, optimización de consultas lentas y backfills controlados.",
+          "bullets": ["Normalización", "Optimización de consultas", "Backfills"]
         },
         {
           "id": "s5",
           "title": "Integraciones",
-          "blurb": "OAuth, webhooks, cron — código pegamento que debería leerse como una lista cuando vuelvas en seis meses.",
+          "blurb": "OAuth, webhooks, tareas programadas — código de integración limpio y documentado, pensado para ser retomado meses después.",
           "bullets": ["Clientes OAuth", "Webhooks", "Tareas programadas"]
         },
         {
           "id": "s6",
           "title": "Laboratorio front-end",
-          "blurb": "Este portfolio: Next.js, motion, un poco de WebGL — experimentos que mantienen calientes los músculos JS/React fuera del día a día PHP.",
+          "blurb": "Este portfolio: Next.js, animaciones con GSAP y WebGL con React Three Fiber — proyectos propios para mantener al día las habilidades en React.",
           "bullets": ["Next.js / React", "GSAP · R3F", "Tailwind"]
         }
       ]
@@ -217,44 +293,53 @@
       "heading": ["Repos y", "demos"],
       "kicker": "Proyectos",
       "indexLabel": "#4",
-      "intro": "Repositorios públicos y demos: este portfolio, TECHNOAPP (Vercel) y el ecosistema CampusGo (web + Android). Los encargos de empresa y las prácticas Erasmus+ están en la sección Proceso, debajo, como experiencia laboral.",
-      "projectKindFallback": "Proyecto"
+      "intro": "Repositorios públicos y demos en producción: este portfolio, TECHNOAPP (Vercel) y A Saturday Night of Angel (Unity, GitHub público). Pulsa una tarjeta para leer el caso completo; el icono pequeño abre el enlace externo. Los proyectos de empresa y las prácticas Erasmus+ en Buinsoft están en la sección Proceso.",
+      "projectKindFallback": "Proyecto",
+      "caseStudyCta": "Ver caso",
+      "openDemo": "Abrir demo",
+      "openRepo": "Abrir repositorio",
+      "backToWorks": "Volver a proyectos",
+      "externalLinkAria": "Abrir enlace externo del proyecto",
+      "detailOverviewHeading": "Resumen",
+      "detailTechHeading": "Stack y herramientas",
+      "detailHighlightsHeading": "En detalle",
+      "detailLinksHeading": "Enlaces"
     },
     "process": {
       "heading": ["Cómo", "trabajo"],
-      "kicker": "Notas",
+      "kicker": "Proceso",
       "indexLabel": "#5",
-      "intro": "No es una lámina de metodología — solo hábitos para que los plazos del centro y los incidentes de producción no choquen demasiado fuerte.",
-      "experienceStripKicker": "Donde ahora construyo",
-      "experienceOngoingSuffix": "roles en curso",
+      "intro": "Hábitos que aplico para mantener la calidad tanto en proyectos del ciclo formativo como en encargos reales y experimentos personales.",
+      "experienceStripKicker": "Experiencia reciente",
+      "experienceOngoingSuffix": "roles activos",
       "steps": [
         {
           "id": "p1",
-          "title": "Leer el sistema",
-          "body": "Capturas, logs, quién es dueño de qué tabla. Intento saber qué funciona ya antes de renombrar la mitad."
+          "title": "Entender el sistema",
+          "body": "Antes de cambiar nada, reviso logs, capturas y quién es responsable de cada parte. Entender lo que ya funciona evita romper lo que no hay que tocar."
         },
         {
           "id": "p2",
-          "title": "Trozos pequeños",
-          "body": "Commits y PRs que de verdad se pueden revisar — backend y UI en paralelo para que nadie mire una página en blanco durante semanas."
+          "title": "Cambios pequeños e incrementales",
+          "body": "Commits y PRs revisables — backend y UI en paralelo para evitar bloqueos y facilitar la revisión de código."
         },
         {
           "id": "p3",
-          "title": "Publicar y vigilar",
-          "body": "Staging cuando lo hay, copias de seguridad cuando tocan, y un repaso rápido con datos reales."
+          "title": "Publicar y verificar",
+          "body": "Staging cuando está disponible, copias de seguridad cuando corresponde y una verificación rápida con datos reales antes de cerrar."
         },
         {
           "id": "p4",
-          "title": "Dejar migas de pan",
-          "body": "Fragmentos de README, notas en el ticket, una línea en el changelog — el yo futuro (o el siguiente dev) merece un mapa."
+          "title": "Dejar documentación útil",
+          "body": "Fragmentos de README, notas en el ticket, una línea en el changelog — documentación mínima pero suficiente para el siguiente desarrollador."
         }
       ]
     },
     "stack": {
-      "kicker": "Competencias duras",
-      "heading": "Stack en rotación",
+      "kicker": "Habilidades técnicas",
+      "heading": "Stack actual",
       "indexLabel": "#6",
-      "intro": "Lenguajes, frameworks e infra con los que de verdad consulto documentación — la misma mezcla detrás de proyectos del centro, tooling institucional, tickets del sector musical y este portfolio en Next.js.",
+      "intro": "Lenguajes, frameworks e infraestructura con los que trabajo habitualmente — presentes en proyectos del ciclo, herramientas institucionales, mantenimiento en el sector musical, el sprint Erasmus+ en Praga y este portfolio en Next.js.",
       "items": [
         "PHP",
         "TypeScript",
@@ -284,26 +369,26 @@
       ]
     },
     "cta": {
-      "heading": ["Di", "hola"],
+      "heading": ["Hablamos", ""],
       "kicker": "Contacto",
       "indexLabel": "#7",
-      "body": "Si quieres intercambiar notas sobre el centro, stacks o Sevilla/Praga — el correo es lo mejor. Sin pitch deck; leo despacio y respondo con sinceridad."
+      "body": "Si quieres hablar sobre un proyecto, una oportunidad laboral o intercambiar notas sobre tecnología — el correo es la mejor vía. Leo todos los mensajes y respondo con detalle."
     },
     "footer": {
-      "tagline": "Portfolio de desarrollador — no es web de agencia",
+      "tagline": "Portfolio de desarrollador — proyectos reales y experimentos propios",
       "marqueeItems": [
-        "Sevilla · Praga",
-        "DAM · multiplataforma",
-        "Tickets de producción y plazos del centro",
-        "Esta web es bitácora de laboratorio, no pitch",
-        "Sevilla · Praga",
-        "Erasmus+ 2026"
+        "Sevilla · Erasmus+ Praga 2026",
+        "DAM · Multiplataforma",
+        "Experiencia en producción real",
+        "Web · Móvil · APIs",
+        "Desarrollado desde Sevilla",
+        "Grado Superior DAM · 2026"
       ],
       "columns": [
         {
-          "title": "Enfoque",
+          "title": "Especialidades",
           "links": [
-            { "label": "Web y stacks PHP" },
+            { "label": "Web y PHP" },
             { "label": "Móvil · Ionic" },
             { "label": "APIs y datos" },
             { "label": "Lab · Next.js" },
@@ -315,7 +400,7 @@
           "links": [
             { "label": "GitHub", "href": "https://github.com/aroldanrabanal" },
             { "label": "LinkedIn", "href": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371" },
-            { "label": "Correo", "href": "mailto:aroldanrabanal@safareyes.es" },
+            { "label": "Correo", "href": "mailto:angelroldanrabanal@gmail.com" },
             { "label": "Teléfono", "href": "tel:+34640280151" }
           ]
         },
@@ -333,11 +418,11 @@
           "links": [
             { "label": "Formación" },
             { "label": "Idiomas" },
-            { "label": "Colofón: Next.js" }
+            { "label": "Hecho con Next.js" }
           ]
         }
       ],
-      "legal": "Hecho con Next.js, React Three Fiber y GSAP — Sevilla · Praga."
+      "legal": "Desarrollado con Next.js, React Three Fiber y GSAP — Sevilla · Erasmus+ Praga (2026)."
     }
   }
 }

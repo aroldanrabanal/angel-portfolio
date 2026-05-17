@@ -32,7 +32,10 @@ export function WebGLCanvas({
   const [ready, setReady] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const onCreatedRef = useRef(onCreated);
-  onCreatedRef.current = onCreated;
+
+  useEffect(() => {
+    onCreatedRef.current = onCreated;
+  }, [onCreated]);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setReady(true));

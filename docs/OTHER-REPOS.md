@@ -6,9 +6,7 @@ Checklist to keep GitHub and the portfolio **Works** section aligned. Repos live
 |--------------|------|------------------|
 | [angel-portfolio](https://github.com/aroldanrabanal/angel-portfolio) | This site | README, `main` branch, optional Vercel deploy |
 | [TECHNOAPP](https://github.com/aroldanrabanal/TECHNOAPP) | TS UI on Vercel | README with stack + link to [technoapp-red.vercel.app](https://technoapp-red.vercel.app); GitHub **Topics** (e.g. `nextjs`, `typescript`, `vercel`) |
-| [CampusGo](https://github.com/aroldanrabanal/CampusGo) | Web client (TypeScript) | README describing product; link companion [AppCampusGo](https://github.com/aroldanrabanal/AppCampusGo) |
-| [AppCampusGo](https://github.com/aroldanrabanal/AppCampusGo) | Android / Java client | README + link back to CampusGo |
-| [A-Saturday-Night-of-Angel](https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel) | Unity / C# (optional in Works) | Short README + build/run notes |
+| [A-Saturday-Night-of-Angel](https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel) | Unity / C# (in Works) | Short README + build/run notes |
 
 Skip polishing for class-only or empty repos (`clase`, `odoo`, etc.) unless you intend to showcase them.
 

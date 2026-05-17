@@ -3,6 +3,7 @@ import { Tourney, Space_Mono } from "next/font/google";
 import portfolioEn from "@/data/portfolio.en.json";
 import portfolioEs from "@/data/portfolio.es.json";
 import type { Portfolio } from "@/types/portfolio";
+import { AppProviders } from "@/components/providers/AppProviders";
 import "./globals.css";
 
 const dataEn = portfolioEn as Portfolio;
@@ -42,7 +43,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${tourney.variable} ${spaceMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   );
 }

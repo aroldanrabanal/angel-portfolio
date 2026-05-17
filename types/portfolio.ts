@@ -20,16 +20,36 @@ export type PortfolioPersonal = {
   portrait?: string;
 };
 
+export type PortfolioProjectLink = {
+  label: string;
+  url: string;
+  /** When true, opens in a new tab (default true for http(s) URLs) */
+  external?: boolean;
+};
+
+export type PortfolioProjectHighlight = {
+  title: string;
+  body: string;
+};
+
 export type PortfolioProject = {
   id: string;
   title: string;
   image: string;
   description?: string;
+  /** Legacy primary URL; also surfaced as a link if `links` is omitted */
   href?: string;
   /** Optional short label shown as overline (e.g. "Web", "Mobile") */
   kind?: string;
   /** Optional accent color hint */
   accent?: "violet" | "cream" | "ink" | "lime";
+  /** Long-form paragraphs for the project detail page */
+  content?: string[];
+  tech?: string[];
+  highlights?: PortfolioProjectHighlight[];
+  links?: PortfolioProjectLink[];
+  year?: string;
+  role?: string;
 };
 
 export type PortfolioExperience = {
@@ -134,6 +154,18 @@ export type TemplateWorks = TemplateBlock & {
   intro: string;
   /** Fallback when `project.kind` is missing */
   projectKindFallback: string;
+  /** Primary CTA on project cards (links to case study) */
+  caseStudyCta: string;
+  openDemo: string;
+  openRepo: string;
+  backToWorks: string;
+  /** Screen reader / title for external shortcut on cards */
+  externalLinkAria: string;
+  /** Project detail page section headings */
+  detailOverviewHeading: string;
+  detailTechHeading: string;
+  detailHighlightsHeading: string;
+  detailLinksHeading: string;
 };
 
 export type TemplateAbout = TemplateBlock & {

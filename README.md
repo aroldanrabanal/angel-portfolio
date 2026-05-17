@@ -63,7 +63,7 @@ npx vercel --prod --yes
 
 No environment variables are required for the default build. Keep secrets only in **Project → Settings → Environment Variables** — never commit `.env` files (they are gitignored).
 
-See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, CampusGo, etc.).
+See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, A-Saturday-Night-of-Angel, etc.).
 
 ## Licence
 

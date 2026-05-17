@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Portfolio, PortfolioProject } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
@@ -11,6 +12,12 @@ type Props = { data: Portfolio; reduceMotion: boolean };
 
 const projectKind = (data: Portfolio, project: PortfolioProject) =>
   project.kind ?? data.template.works.projectKindFallback;
+
+function primaryExternalHref(project: PortfolioProject): string | undefined {
+  if (project.href) return project.href;
+  const hit = project.links?.find((l) => /^https?:\/\//i.test(l.url));
+  return hit?.url;
+}
 
 export function Works({ data, reduceMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
@@ -104,96 +111,77 @@ function WorkCardLarge({
   project: PortfolioProject;
   className?: string;
 }) {
+  const { works } = data.template;
+  const ext = primaryExternalHref(project);
+
   return (
-    <a
-      href={project.href ?? "#"}
-      target={project.href ? "_blank" : undefined}
-      rel="noopener noreferrer"
+    <div
       className={`work-card group relative block overflow-hidden border border-white/10 bg-[color:var(--violet-deep)] ${className}`}
     >
-      <div className="relative aspect-[5/4] w-full overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes="(max-width: 1024px) 100vw, 60vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%)",
-          }}
-        />
-      </div>
+      <Link
+        href={`/proyecto/${project.id}`}
+        className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[color:var(--lime)]"
+        aria-label={`${works.caseStudyCta}: ${project.title}`}
+      />
 
-      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-6 sm:p-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--lime)]">
-          {projectKind(data, project)}
-        </p>
-        <h3 className="font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
-          {project.title}
-        </h3>
-        {project.description ? (
-          <p className="max-w-md font-mono text-[12px] leading-relaxed text-white/80">
-            {project.description}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center bg-[color:var(--lime)] text-[color:var(--ink)] transition-transform group-hover:scale-110">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path
-            d="M3 11 L11 3 M4 3 H11 V10"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="square"
+      <div className="pointer-events-none relative">
+        <div className="relative aspect-[5/4] w-full overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
-        </svg>
-      </div>
-    </a>
-  );
-}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%)",
+            }}
+          />
+        </div>
 
-function WorkCardSmall({ data, project }: { data: Portfolio; project: PortfolioProject }) {
-  return (
-    <a
-      href={project.href ?? "#"}
-      target={project.href ? "_blank" : undefined}
-      rel="noopener noreferrer"
-      className="work-card group relative block overflow-hidden border border-white/10 bg-[color:var(--violet-deep)]"
-    >
-      <div className="relative aspect-[5/3] w-full overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes="(max-width: 1024px) 100vw, 40vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.55) 100%)",
-          }}
-        />
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-6 sm:gap-3 sm:p-8">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--lime)]">
             {projectKind(data, project)}
           </p>
-          <h4 className="mt-1 font-display text-xl uppercase leading-[0.95]">
+          {project.tech?.length ? (
+            <ul className="flex max-w-md flex-wrap gap-1.5" aria-hidden>
+              {project.tech.slice(0, 5).map((t) => (
+                <li
+                  key={t}
+                  className="border border-white/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/85"
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <h3 className="font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
             {project.title}
-          </h4>
+          </h3>
+          {project.description ? (
+            <p className="max-w-md font-mono text-[12px] leading-relaxed text-white/80">
+              {project.description}
+            </p>
+          ) : null}
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+            {works.caseStudyCta}
+          </p>
         </div>
-        <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center border border-white/30 text-white transition-colors group-hover:bg-white group-hover:text-[color:var(--ink)]">
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+      </div>
+
+      {ext ? (
+        <a
+          href={ext}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center bg-[color:var(--lime)] text-[color:var(--ink)] transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          aria-label={works.externalLinkAria}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
             <path
               d="M3 11 L11 3 M4 3 H11 V10"
               stroke="currentColor"
@@ -201,8 +189,101 @@ function WorkCardSmall({ data, project }: { data: Portfolio; project: PortfolioP
               strokeLinecap="square"
             />
           </svg>
-        </span>
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
+function WorkCardSmall({ data, project }: { data: Portfolio; project: PortfolioProject }) {
+  const { works } = data.template;
+  const ext = primaryExternalHref(project);
+
+  return (
+    <div className="work-card group relative block overflow-hidden border border-white/10 bg-[color:var(--violet-deep)]">
+      <Link
+        href={`/proyecto/${project.id}`}
+        className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[color:var(--lime)]"
+        aria-label={`${works.caseStudyCta}: ${project.title}`}
+      />
+
+      <div className="pointer-events-none relative">
+        <div className="relative aspect-[5/3] w-full overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.55) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+              {projectKind(data, project)}
+            </p>
+            {project.tech?.length ? (
+              <ul className="mt-1 flex flex-wrap gap-1" aria-hidden>
+                {project.tech.slice(0, 3).map((t) => (
+                  <li
+                    key={t}
+                    className="border border-white/12 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-white/75"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <h4 className="mt-1 font-display text-xl uppercase leading-[0.95]">
+              {project.title}
+            </h4>
+            <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">
+              {works.caseStudyCta}
+            </p>
+          </div>
+          {ext ? (
+            <a
+              href={ext}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto relative z-20 inline-flex h-8 w-8 shrink-0 items-center justify-center border border-white/30 text-white transition-colors hover:bg-white hover:text-[color:var(--ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--lime)]"
+              aria-label={works.externalLinkAria}
+            >
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>
+                <path
+                  d="M3 11 L11 3 M4 3 H11 V10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </a>
+          ) : (
+            <span
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center border border-white/30 text-white opacity-40"
+              aria-hidden
+            >
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M3 11 L11 3 M4 3 H11 V10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </span>
+          )}
+        </div>
       </div>
-    </a>
+    </div>
   );
 }

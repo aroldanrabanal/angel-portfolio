@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  startTransition,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
@@ -42,7 +49,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     });
 
     lenisRef.current = instance;
-    setLenis(instance);
+    startTransition(() => {
+      setLenis(instance);
+    });
 
     instance.on("scroll", ScrollTrigger.update);
 
@@ -56,7 +65,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       gsap.ticker.remove(tick);
       instance.destroy();
       lenisRef.current = null;
-      setLenis(null);
+      startTransition(() => {
+        setLenis(null);
+      });
     };
   }, []);
 

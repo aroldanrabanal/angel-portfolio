@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import type { Portfolio } from "@/types/portfolio";
 import { Monogram } from "@/components/ui/Monogram";
 import { useLocale } from "@/components/i18n/LocaleProvider";
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export function TopNav({ data }: Props) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { locale, setLocale } = useLocale();
   const lt = data.ui.languageToggle;
   const [theme, setTheme] = useState<"ink" | "violet" | "cream" | "violet-deep">(
@@ -44,6 +47,8 @@ export function TopNav({ data }: Props) {
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const hashHref = (hash: string) => (isHome ? hash : `/${hash}`);
+
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
@@ -51,8 +56,9 @@ export function TopNav({ data }: Props) {
     >
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-10">
         <a
-          href="#hero"
+          href={hashHref("#hero")}
           onClick={(e) => {
+            if (!isHome) return;
             e.preventDefault();
             handleNav("#hero");
           }}
@@ -77,8 +83,9 @@ export function TopNav({ data }: Props) {
           {data.template.nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={hashHref(item.href)}
               onClick={(e) => {
+                if (!isHome) return;
                 e.preventDefault();
                 handleNav(item.href);
               }}
@@ -126,8 +133,9 @@ export function TopNav({ data }: Props) {
           </div>
 
           <a
-            href="#contact"
+            href={hashHref("#contact")}
             onClick={(e) => {
+              if (!isHome) return;
               e.preventDefault();
               handleNav("#contact");
             }}
@@ -155,8 +163,9 @@ export function TopNav({ data }: Props) {
         {data.template.nav.map((item) => (
           <a
             key={item.href}
-            href={item.href}
+            href={hashHref(item.href)}
             onClick={(e) => {
+              if (!isHome) return;
               e.preventDefault();
               handleNav(item.href);
             }}
