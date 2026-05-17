@@ -27,7 +27,7 @@
       "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber", "Lenis", "i18n ES/EN"],
       "content": [
         "Este portfolio es a la vez carta de presentación y laboratorio: aquí pruebo animaciones con GSAP, scroll suavizado con Lenis y una escena ligera en WebGL con React Three Fiber, sin renunciar a un sitio rápido de entender y mantener.",
-        "La base es Next.js 16 con App Router: una sola página principal con secciones ancladas y ahora fichas de proyecto en rutas dedicadas. El contenido vive en JSON tipado (español e inglés) para poder iterar copy sin tocar la lógica de componentes.",
+        "La base es Next.js 16 con App Router: una sola página principal con secciones ancladas y fichas de proyecto en rutas dedicadas. El contenido vive en JSON tipado (español e inglés) para poder iterar copy sin tocar la lógica de componentes.",
         "El repositorio es público: sirve como muestra de cómo estructuro estilos, secciones y datos, y de cómo documento decisiones mínimas para que el proyecto siga siendo legible dentro de unos meses."
       ],
       "highlights": [
@@ -45,37 +45,38 @@
         }
       ],
       "links": [
-        { "label": "Código en GitHub", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true }
+        { "label": "Código en GitHub", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
+        { "label": "Demo en vivo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
       ]
     },
     {
       "id": "p2",
       "title": "TECHNOAPP",
-      "kind": "Web · TypeScript",
+      "kind": "Web + Android · Next.js · Firebase",
       "year": "2024 – 2025",
-      "role": "Frontend y despliegue",
-      "description": "Interfaz en TypeScript desplegada en Vercel. Repositorio público en GitHub.",
+      "role": "Full-stack y despliegue",
+      "description": "Guía social para la escena techno de Praga: eventos, venues, agenda, perfiles, amigos, chats y panel admin. Next.js 16, Firebase, scraping de Resident Advisor, clasificación con IA y build Android vía Capacitor.",
       "image": "/images/project-1.svg",
       "href": "https://technoapp-red.vercel.app",
       "accent": "cream",
-      "tech": ["TypeScript", "React", "Vite", "Tailwind CSS", "Vercel"],
+      "tech": ["Next.js 16", "Firebase", "TypeScript", "Capacitor", "Vercel"],
       "content": [
-        "TECHNOAPP es una aplicación web centrada en una interfaz clara y tipada en TypeScript. La prioridad fue un flujo de usuario entendible, componentes reutilizables y un pipeline de build que permitiera iterar con confianza.",
-        "El despliegue en Vercel deja una demo siempre accesible para revisión rápida: enlaces estables para compartir con tutoría o con quien quiera ver el estado del proyecto sin clonar el repositorio.",
-        "El código está en GitHub como referencia de estructura de carpetas, separación de vistas y estilos, y buenas prácticas básicas de accesibilidad y responsive."
+        "TECHNOAPP es una guía social para eventos techno en Praga: rutas públicas para eventos, calendario, perfil, social y chats, con herramientas de administración protegidas.",
+        "El App Router expone APIs para eventos, venues, agenda, asistentes, amistades, chats y scraping programado, con modo demo/mocks para iterar con más seguridad.",
+        "Scripts de Capacitor soportan un pipeline Android sobre el build web cuando hace falta una shell nativa para demos."
       ],
       "highlights": [
         {
-          "title": "Enfoque",
-          "body": "UI mantenible con TypeScript estricto y despliegue continuo sencillo para demos y entregas."
+          "title": "Alcance",
+          "body": "Eventos, venues, agenda, perfiles, amigos, chats y flujos admin en un solo código."
         },
         {
-          "title": "Aprendizajes",
-          "body": "Coordinar diseño responsive, estados de carga y feedback visual sin sobrecargar el bundle."
+          "title": "Stack",
+          "body": "Next.js 16, Firebase, scraping de Resident Advisor, clasificación con IA y Capacitor para salida Android."
         },
         {
-          "title": "Enlaces",
-          "body": "Demo en vivo y repositorio público para inspección del código y del historial de cambios."
+          "title": "Documentación",
+          "body": "README aún en plantilla Next.js — el siguiente paso es documentar Firebase, variables, flujo admin/scraper y comandos Android."
         }
       ],
       "links": [
@@ -86,18 +87,18 @@
     {
       "id": "p3",
       "title": "A Saturday Night of Angel",
-      "kind": "Unity · C# · público",
+      "kind": "Juego 2D · Unity · C#",
       "year": "2024 – 2025",
       "role": "Desarrollo de gameplay y escenas",
-      "description": "Proyecto Unity en C#; repositorio público en GitHub.",
+      "description": "Plataformas 2D en Unity con menú y niveles, movimiento, doble salto, disparo, patrullas enemigas, vida, objetos y game over.",
       "image": "/images/project-2.svg",
       "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
       "accent": "lime",
-      "tech": ["Unity", "C#", "Git", "Visual Studio"],
+      "tech": ["Unity", "C#", "URP 2D", "Git"],
       "content": [
         "Pequeño proyecto de fin de ciclo en Unity con C#: escenas, scripts de personaje o interacción y la habitual curva de aprendizaje del editor y del ciclo compilar–probar–depurar.",
-        "El repositorio es público para que cualquier revisión pueda centrarse en organización de carpetas, convenciones de nombres y claridad del código de gameplay, no solo en el binario exportado.",
-        "Encaja en el portfolio como contraste con el trabajo web: mismas ganas de dejar el código legible y documentado, en un motor distinto."
+        "Scripts C# para movimiento, disparo, enemigos, salud, objetos y plataformas móviles en MainMenu, Nivel1 y Nivel2.",
+        "El repositorio es público para que la revisión pueda centrarse en organización de carpetas, convenciones y claridad del código de gameplay."
       ],
       "highlights": [
         {
@@ -106,11 +107,11 @@
         },
         {
           "title": "Código",
-          "body": "Scripts C# modulares donde pude, comentarios donde ayudaban a entender decisiones de diseño."
+          "body": "Scripts C# modulares donde pude, con comentarios donde ayudan a entender decisiones de diseño."
         },
         {
-          "title": "Siguientes pasos",
-          "body": "Mejoras de pulido, más contenido jugable o port a WebGL si encaja en un sprint futuro."
+          "title": "Documentación",
+          "body": "Sin README publicado — el siguiente paso debería cubrir controles, escenas y notas de build/exportación."
         }
       ],
       "links": [

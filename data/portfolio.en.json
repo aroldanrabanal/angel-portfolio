@@ -45,37 +45,38 @@
         }
       ],
       "links": [
-        { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true }
+        { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
+        { "label": "Live demo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
       ]
     },
     {
       "id": "p2",
       "title": "TECHNOAPP",
-      "kind": "Web · TypeScript",
+      "kind": "Web + Android · Next.js · Firebase",
       "year": "2024 – 2025",
-      "role": "Frontend and deployment",
-      "description": "TypeScript UI deployed on Vercel. Public GitHub repository.",
+      "role": "Full-stack and deployment",
+      "description": "Social guide for Prague techno events: events, venues, agenda, profiles, friends, chats, and an admin panel. Next.js 16, Firebase, Resident Advisor scraping, AI classification, and an Android build via Capacitor.",
       "image": "/images/project-1.svg",
       "href": "https://technoapp-red.vercel.app",
       "accent": "cream",
-      "tech": ["TypeScript", "React", "Vite", "Tailwind CSS", "Vercel"],
+      "tech": ["Next.js 16", "Firebase", "TypeScript", "Capacitor", "Vercel"],
       "content": [
-        "TECHNOAPP is a web app focused on a clear, strongly typed TypeScript UI. The priority was an understandable user flow, reusable components, and a build pipeline that made iteration feel safe.",
-        "Hosting on Vercel gives a always-on demo for quick reviews — stable URLs for tutors or anyone who wants the current state without cloning the repo.",
-        "The GitHub project is the reference for folder layout, view vs style separation, and baseline accessibility and responsive habits."
+        "TECHNOAPP is a social guide for Prague techno events — public routes for events, calendar, profile, social, and chats, with guarded admin tooling behind the scenes.",
+        "The App Router exposes APIs for events, venues, agenda, attendees, friendships, chats, and scheduled scraping, with demo/mock mode for safer iteration.",
+        "Capacitor scripts support an Android pipeline on top of the web build when a native shell is needed for demos."
       ],
       "highlights": [
         {
-          "title": "Focus",
-          "body": "Maintainable UI with strict TypeScript and simple continuous deployment for demos and hand-ins."
+          "title": "Product scope",
+          "body": "Events, venues, agenda, profiles, friends, chats, and admin flows in one codebase."
         },
         {
-          "title": "Lessons",
-          "body": "Juggling responsive layouts, loading states, and visual feedback without bloating the bundle."
+          "title": "Stack",
+          "body": "Next.js 16, Firebase, Resident Advisor scraping, AI classification, and Capacitor for Android output."
         },
         {
-          "title": "Links",
-          "body": "Live demo plus public repository for code and history inspection."
+          "title": "Documentation",
+          "body": "README still on the Next.js starter — next pass should document Firebase, env vars, admin/scraper flow, and Android commands."
         }
       ],
       "links": [
@@ -86,18 +87,18 @@
     {
       "id": "p3",
       "title": "A Saturday Night of Angel",
-      "kind": "Unity · C# · public",
+      "kind": "2D game · Unity · C#",
       "year": "2024 – 2025",
       "role": "Gameplay and scene work",
-      "description": "Unity project in C#; public GitHub repository.",
+      "description": "Unity 2D platformer in C# with menu and level scenes, movement, double jump, shooting, enemy patrols, health, pickups, and game-over state.",
       "image": "/images/project-2.svg",
       "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
       "accent": "lime",
-      "tech": ["Unity", "C#", "Git", "Visual Studio"],
+      "tech": ["Unity", "C#", "URP 2D", "Git"],
       "content": [
         "A small end-of-cycle Unity project in C# — scenes, character or interaction scripts, and the usual compile–play–debug loop of learning the editor properly.",
-        "The repository is public so reviews can focus on folder structure, naming, and gameplay code clarity, not only the exported binary.",
-        "It sits in the portfolio as a contrast to web work: same intent to leave readable, commented code, in a different engine."
+        "C# scripts cover movement, shooting, enemies, health, pickups, and moving platforms across MainMenu, Nivel1, and Nivel2.",
+        "The repository is public so reviews can focus on folder structure, naming, and gameplay code clarity, not only the exported binary."
       ],
       "highlights": [
         {
@@ -106,11 +107,11 @@
         },
         {
           "title": "Code",
-          "body": "Modular C# scripts where possible, comments where they explain design choices."
+          "body": "Modular C# scripts where possible, with comments where they explain design choices."
         },
         {
-          "title": "Next steps",
-          "body": "Polish passes, more playable content, or a WebGL port if a future sprint allows."
+          "title": "Documentation",
+          "body": "No published README yet — next pass should cover controls, scenes, and build/export notes."
         }
       ],
       "links": [

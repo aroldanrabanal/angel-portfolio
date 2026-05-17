@@ -34,7 +34,7 @@ npm run lint
 
 Copy and structure live in [`data/portfolio.en.json`](data/portfolio.en.json) and [`data/portfolio.es.json`](data/portfolio.es.json). Types: [`types/portfolio.ts`](types/portfolio.ts).
 
-- **Works** (`projects` in JSON): public repos and live demos.
+- **Works** (`projects` in JSON): public repos and live demos, with per-project highlights, documentation notes, and links.
 - **Experience** (`experience` in JSON): real employment and internships — surfaced in the Process section.
 
 ## Repository
