@@ -159,6 +159,40 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
                 <BrandWord variant="sans" className="text-2xl">{about.trustStrip[5]}</BrandWord>
               </div>
             </div>
+
+            {/* Education + Languages */}
+            <div className="mt-8 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-2">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                  {data.ui.footer.educationTitle}
+                </p>
+                <ul className="mt-3 space-y-3">
+                  {data.education.map((edu) => (
+                    <li key={edu.degree} className="flex flex-col gap-0.5">
+                      <span className="font-mono text-[12px] leading-snug text-white/85">
+                        {edu.degree}
+                      </span>
+                      <span className="font-mono text-[10px] text-white/45">
+                        {edu.school} · {edu.period}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                  {data.ui.footer.languagesTitle}
+                </p>
+                <ul className="mt-3 space-y-3">
+                  {data.languages.map((lang) => (
+                    <li key={lang.lang} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
+                      <span className="font-mono text-[12px] text-white/85">{lang.lang}</span>
+                      <span className="font-mono text-[10px] text-white/50">{lang.level}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

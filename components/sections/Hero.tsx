@@ -140,10 +140,24 @@ export function Hero({ data, reduceMotion, liteMotion }: Props) {
         {/* Utility bar */}
         <div className="hero-utility absolute inset-x-0 bottom-12 z-30 flex flex-wrap items-center justify-between gap-3 border-y border-white/10 bg-black/30 px-4 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 sm:px-8 sm:text-[12px]">
           <span>{hero.stats}</span>
-          <span aria-hidden className="flex items-center gap-1 text-[color:var(--lime)]">
-            ★ ★ ★ ★ ★
-          </span>
           <span className="hidden sm:block">{hero.tagline}</span>
+          <div className="flex items-center gap-4">
+            <a
+              href={data.personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 transition-colors hover:text-[color:var(--lime)]"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="/CV_Angel_Roldan_Rabanal.pdf"
+              download
+              className="border border-white/20 bg-white/5 px-3 py-1 text-white/70 transition-colors hover:border-[color:var(--lime)] hover:text-[color:var(--lime)]"
+            >
+              CV ↓
+            </a>
+          </div>
           <span>{hero.indexLabel}</span>
         </div>
       </div>

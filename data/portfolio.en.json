@@ -15,38 +15,38 @@
   "about": "Passionate, creative multiplatform application developer — I completed the Higher Vocational Degree in Multiplatform Application Development at SAFA (May 2026). I ship web and mobile work with PHP, JavaScript, SQL and more: user-centred delivery is still the thread through my GitHub and paid roles. I love building things that work beautifully, learning fast, and contributing to real projects with genuine curiosity. I like systems that stay understandable — backends you can reason about, front-ends that do not fight the user, integrations you can reopen months later. Erasmus+ in Prague (Buinsoft, through May 2026) layered AI-assisted workflows and an international cadence on top of the same obsession: how software actually behaves in production.",
   "projects": [
     {
-      "id": "p1",
-      "title": "This portfolio (open source)",
-      "kind": "Web · Next.js · 3D",
+      "id": "p4",
+      "title": "CampusGo",
+      "kind": "Web + Android · Angular · IONIC · Java",
       "year": "2025 – 2026",
-      "role": "Design and part-time development",
-      "description": "The site you are on: Next.js 16, React Three Fiber, GSAP, Lenis, EN/ES i18n. Source on GitHub; deployed on Vercel.",
-      "image": "/images/project-3.svg",
-      "href": "https://github.com/aroldanrabanal/angel-portfolio",
-      "accent": "violet",
-      "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber", "Lenis", "EN/ES i18n"],
+      "role": "Full-stack — web and mobile",
+      "description": "Campus management platform built as a multiplatform project: a Next.js/TypeScript web app (CampusGo) and a companion Android app in Java (AppCampusGo). Demonstrates the full DAM stack — web, mobile, and backend in one delivery.",
+      "image": "/images/project-4.svg",
+      "href": "https://github.com/aroldanrabanal/CampusGo",
+      "accent": "ink",
+      "tech": ["TypeScript", "Next.js", "Angular", "IONIC", "Java", "Android", "MySQL", "REST"],
       "content": [
-        "This portfolio doubles as a CV and a lab: I use it to try GSAP motion, Lenis-smooth scrolling, and a lightweight WebGL scene with React Three Fiber, while keeping the story easy to scan and maintain.",
-        "The stack is Next.js 16 with the App Router: a single landing with anchored sections plus dedicated project pages. Copy lives in typed JSON (English and Spanish) so text iterations do not fight component code.",
-        "The repo is public on purpose — it shows how I structure styles, sections, and data, and how I leave small breadcrumbs so the project still makes sense months later."
+        "CampusGo is a campus management platform delivered as two separate repos: a web front-end in TypeScript/Next.js and a native Android app in Java. The project covers the full scope of Multiplatform Application Development — one data layer, two runtimes.",
+        "The web app handles campus resources, scheduling, and user management via a REST API. The Android companion (AppCampusGo) consumes the same API through a native Java client, giving the same workflows on mobile.",
+        "The project is the clearest example of my DAM specialisation: a shared backend, a browser client, and a mobile client maintained in parallel."
       ],
       "highlights": [
         {
-          "title": "Goal",
-          "body": "Show real shipping experience and recent experiments with a consistent look, two languages, and frictionless Vercel deploys."
+          "title": "Why it matters",
+          "body": "Shows the full multiplatform triangle: web app, Android app, and shared REST backend — all from a single academic cycle."
         },
         {
-          "title": "Technical tension",
-          "body": "Balance motion and 3D with sensible first-load behaviour, strict typing, and small, focused components."
+          "title": "Stack",
+          "body": "TypeScript + Next.js for web; Java for Android; MySQL + REST for the shared backend."
         },
         {
           "title": "Status",
-          "body": "Active: new sections, copy passes, and small refactors when time allows."
+          "body": "Completed as a DAM cycle project. Both repositories are public on GitHub."
         }
       ],
       "links": [
-        { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
-        { "label": "Live demo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
+        { "label": "Web repository (CampusGo)", "url": "https://github.com/aroldanrabanal/CampusGo", "external": true },
+        { "label": "Android repository (AppCampusGo)", "url": "https://github.com/aroldanrabanal/AppCampusGo", "external": true }
       ]
     },
     {
@@ -56,7 +56,7 @@
       "year": "2024 – 2025",
       "role": "Full-stack and deployment",
       "description": "Social guide for Prague techno events: events, venues, agenda, profiles, friends, chats, and an admin panel. Next.js 16, Firebase, Resident Advisor scraping, AI classification, and an Android build via Capacitor.",
-      "image": "/images/project-1.svg",
+      "image": "/images/project-1.png",
       "href": "https://technoapp-red.vercel.app",
       "accent": "cream",
       "tech": ["Next.js 16", "Firebase", "TypeScript", "Capacitor", "Vercel"],
@@ -75,8 +75,8 @@
           "body": "Next.js 16, Firebase, Resident Advisor scraping, AI classification, and Capacitor for Android output."
         },
         {
-          "title": "Documentation",
-          "body": "README still on the Next.js starter — next pass should document Firebase, env vars, admin/scraper flow, and Android commands."
+          "title": "Live demo",
+          "body": "Deployed on Vercel — visit technoapp-red.vercel.app to see events, social, and calendar in action."
         }
       ],
       "links": [
@@ -96,26 +96,61 @@
       "accent": "lime",
       "tech": ["Unity", "C#", "URP 2D", "Git"],
       "content": [
-        "A small end-of-cycle Unity project in C# — scenes, character or interaction scripts, and the usual compile–play–debug loop of learning the editor properly.",
+        "A complete Unity 2D platformer in C# — menu scene, two gameplay levels, and a full game loop: movement, double jump, shooting, enemy patrols, health, pickups, and game over.",
         "C# scripts cover movement, shooting, enemies, health, pickups, and moving platforms across MainMenu, Nivel1, and Nivel2.",
-        "The repository is public so reviews can focus on folder structure, naming, and gameplay code clarity, not only the exported binary."
+        "The repository is public so reviews can focus on folder structure, naming, and gameplay code clarity."
       ],
       "highlights": [
         {
           "title": "Context",
-          "body": "Academic game-engine exercise useful for showing logic, scenes, and version control discipline."
+          "body": "End-of-cycle game-engine project demonstrating logic, scene management, and version control discipline."
         },
         {
           "title": "Code",
-          "body": "Modular C# scripts where possible, with comments where they explain design choices."
+          "body": "Modular C# scripts where possible, with comments explaining design choices."
         },
         {
-          "title": "Documentation",
-          "body": "No published README yet — next pass should cover controls, scenes, and build/export notes."
+          "title": "Scope",
+          "body": "Full game loop across two levels: movement, combat, enemies, health system, and pickups."
         }
       ],
       "links": [
         { "label": "Repository", "url": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel", "external": true }
+      ]
+    },
+    {
+      "id": "p1",
+      "title": "This portfolio (open source)",
+      "kind": "Web · Next.js · 3D",
+      "year": "2025 – 2026",
+      "role": "Design and development",
+      "description": "The site you are on: Next.js 16, React Three Fiber, GSAP, Lenis, EN/ES i18n. Source on GitHub; deployed on Vercel.",
+      "image": "/images/project-3.png",
+      "href": "https://github.com/aroldanrabanal/angel-portfolio",
+      "accent": "violet",
+      "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber", "Lenis", "EN/ES i18n"],
+      "content": [
+        "This portfolio is a CV and a lab in one: GSAP scroll-linked animations, Lenis smooth-scrolling, and a WebGL scene with React Three Fiber — while keeping the content fast to scan and easy to maintain.",
+        "The stack is Next.js 16 with the App Router: a single landing with anchored sections plus dedicated project pages. Copy lives in typed JSON (English and Spanish) so content updates don't touch component code.",
+        "The repo is public — it shows how I structure styles, sections, and data, and how I document decisions so the project stays readable months later."
+      ],
+      "highlights": [
+        {
+          "title": "Goal",
+          "body": "Show real shipping experience and recent experiments with a consistent look, two languages, and frictionless Vercel deploys."
+        },
+        {
+          "title": "Technical challenge",
+          "body": "Balance motion and 3D with sensible first-load behaviour, strict typing, and small, focused components."
+        },
+        {
+          "title": "Status",
+          "body": "Active: new sections, copy passes, and small refactors when time allows."
+        }
+      ],
+      "links": [
+        { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
+        { "label": "Live demo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
       ]
     }
   ],
@@ -133,7 +168,7 @@
       "role": "Web Application Developer",
       "company": "Lanzadera Music",
       "period": "Jan 2026 – Present",
-      "description": "Maintenance and small features on PHP/SQL/JS stacks — performance passes, UX fixes, the unglamorous work that keeps a music-industry app humming.",
+      "description": "Maintenance and feature development on PHP/SQL/JS stacks — performance passes, UX improvements, and backend fixes that keep a music-industry platform running reliably.",
       "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"]
     },
     {
@@ -227,13 +262,13 @@
       { "label": "About", "href": "#about" },
       { "label": "Capabilities", "href": "#services" },
       { "label": "Work", "href": "#works" },
-      { "label": "Notes", "href": "#process" }
+      { "label": "Experience", "href": "#process" }
     ],
     "hero": {
       "words": ["BUILD", "LEARN", "SHIP"],
-      "kicker": "Seville-based — institutional PHP, music-industry maintenance, and whatever I break in Next.js after hours. Prague was a 2026 Erasmus+ chapter, not a permanent address. Nothing here is a sales deck.",
-      "stats": "GS DAM (SAFA) · Erasmus+ Prague 2026 · shipping since 2023",
-      "tagline": "DAM · Buinsoft · Lanzadera · SAFA",
+      "kicker": "Ángel Roldán — Full-Stack & Multiplatform Developer, Seville. PHP · JavaScript · Angular · IONIC · MySQL. Degree: DAM (SAFA, May 2026). Available.",
+      "stats": "DAM (SAFA) · Erasmus+ Prague 2026 · shipping since 2023",
+      "tagline": "Buinsoft · Lanzadera Music · SAFA",
       "indexLabel": "#1"
     },
     "about": {
@@ -243,7 +278,7 @@
       "commitStripLabel": "Often in commits",
       "body": [
         "I am Ángel — Multiplatform Application Developer out of SAFA Seville, with years of real tickets on institutional and music-industry PHP/SQL/JS stacks, aligned with what I publish on GitHub. I still care about boring reliability: migrations you can replay, queries you can explain, and UIs that do not ambush people who already have a full calendar.",
-        "Prague at Buinsoft was my Erasmus+ stretch: internal and client tools with AI-assisted delivery, without pretending fundamentals disappear. This page stays partly CV, partly lab log — scroll for selected work and contact."
+        "Prague at Buinsoft (Erasmus+) was my international stretch: internal and client tools with AI-assisted delivery. Scroll for selected projects, work experience, and contact."
       ],
       "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "AI"]
     },
@@ -255,7 +290,7 @@
         {
           "id": "s1",
           "title": "Web apps",
-          "blurb": "PHP and SQL first, JS where the browser needs it — CRUD, auth, reports, the unglamorous middle of a product.",
+          "blurb": "PHP and SQL first, JS where the browser needs it — CRUD, auth, reports, and the business logic that keeps a product running.",
           "bullets": ["Server-rendered patterns", "REST + JSON", "Responsive layouts"]
         },
         {
@@ -285,7 +320,7 @@
         {
           "id": "s6",
           "title": "Front-end lab",
-          "blurb": "This portfolio: Next.js, motion, a bit of WebGL — experiments that keep my JS/React muscles warm outside PHP day jobs.",
+          "blurb": "Next.js, motion, and a WebGL scene — experiments that extend my JS/React skills alongside the core PHP/SQL work.",
           "bullets": ["Next.js / React", "GSAP · R3F", "Tailwind"]
         }
       ]
@@ -294,7 +329,7 @@
       "heading": ["Public", "repos"],
       "kicker": "Projects",
       "indexLabel": "#4",
-      "intro": "Public repositories and live demos: this portfolio, TECHNOAPP on Vercel, and A Saturday Night of Angel (Unity, public on GitHub). Click a card for the full write-up; the small icon jumps straight to the external link. Client roles and the Erasmus+ placement at Buinsoft are under Process below as employment experience.",
+      "intro": "Selected public projects: CampusGo (web + Android, full multiplatform stack), TECHNOAPP (live on Vercel), A Saturday Night of Angel (Unity 2D), and this portfolio. Click a card for the full write-up; the icon jumps straight to the external link. Employment experience is in the next section.",
       "projectKindFallback": "Project",
       "caseStudyCta": "Read case study",
       "openDemo": "Open demo",
@@ -373,7 +408,7 @@
       "heading": ["Say", "hello"],
       "kicker": "Contact",
       "indexLabel": "#7",
-      "body": "If you want to compare notes on stacks, early-career delivery, or what Erasmus+ in Prague was like in practice — email is best. No pitch deck required; I read messages slowly and answer honestly."
+      "body": "If you want to compare notes on stacks, discuss a role, or ask what Erasmus+ in Prague was like in practice — email is best. I read every message and answer honestly."
     },
     "footer": {
       "tagline": "Developer portfolio — not an agency site",
@@ -381,7 +416,7 @@
         "Seville · Prague chapter 2026",
         "DAM · multiplatform",
         "Production tickets & clean handovers",
-        "This site is a lab log, not a pitch",
+        "Available for new opportunities",
         "Seville-built",
         "Erasmus+ Prague · 2026"
       ],

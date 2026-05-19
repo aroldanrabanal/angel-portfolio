@@ -11,6 +11,7 @@ import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Works } from "@/components/sections/Works";
 import { Process } from "@/components/sections/Process";
+import { Stack } from "@/components/sections/Stack";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -30,6 +31,7 @@ export function PortfolioShell({ data }: Props) {
         <Services data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
         <Works data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
         <Process data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
+        <Stack data={data} reduceMotion={motion.reduceMotion} />
         <CTA data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
       </main>
       <Footer data={data} liteMotion={motion.disableScrollSmoothing} />
