@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
+import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import type { Portfolio, PortfolioProject } from "@/types/portfolio";
@@ -8,6 +9,7 @@ import portfolioEn from "@/data/portfolio.en.json";
 import portfolioEs from "@/data/portfolio.es.json";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { LenisProvider } from "@/lib/lenis";
+import { useMotionProfile } from "@/lib/useMotionProfile";
 import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
 import { TopNav } from "@/components/ui/TopNav";
 import { Footer } from "@/components/sections/Footer";
@@ -28,6 +30,8 @@ export function ProjectDetailView({ projectId }: Props) {
   const data = locale === "es" ? dataEs : dataEn;
   const project = useMemo(() => findProject(data, projectId), [data, projectId]);
   const { works } = data.template;
+  const reduceMotion = useReducedMotion() ?? false;
+  const motion = useMotionProfile(reduceMotion);
 
   useEffect(() => {
     if (!project) return;
@@ -50,7 +54,7 @@ export function ProjectDetailView({ projectId }: Props) {
     : [];
 
   return (
-    <LenisProvider>
+    <LenisProvider disabled={motion.disableScrollSmoothing}>
       <BackgroundGrid />
       <TopNav data={data} />
       <main className="relative z-10 pt-28 md:pt-32">
@@ -185,7 +189,7 @@ export function ProjectDetailView({ projectId }: Props) {
           ) : null}
         </article>
       </main>
-      <Footer data={data} />
+      <Footer data={data} liteMotion={motion.disableScrollSmoothing} />
     </LenisProvider>
   );
 }
