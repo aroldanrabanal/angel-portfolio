@@ -5,7 +5,7 @@
     "tagline": "Desarrollador multiplataforma con experiencia real — PHP, SQL y JavaScript en el día a día; Next.js en los experimentos. Grado Superior DAM finalizado en mayo de 2026. Erasmus+ en Praga (Buinsoft) como último tramo formativo. Siempre aprendiendo.",
     "location": "Sevilla, España",
     "phone": "+34 640 280 151",
-    "email": "angelroldanrabanal@gmail.com",
+    "email": "angelroldan497@gmail.com",
     "github": "https://github.com/aroldanrabanal",
     "linkedin": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371",
     "available": true,
@@ -17,6 +17,7 @@
     {
       "id": "p4",
       "title": "CampusGo",
+      "impactContext": "Entrega multiplataforma completa — web + Android en un solo sprint académico",
       "kind": "Web + Android · Angular · IONIC · Java",
       "year": "2025 – 2026",
       "role": "Full-stack — web y móvil",
@@ -44,6 +45,12 @@
           "body": "Completado como proyecto de ciclo DAM. Ambos repositorios son públicos en GitHub."
         }
       ],
+      "keyDecisions": [
+        "IONIC + Angular para compartir código entre web y Android",
+        "Backend Java separado para aislar la superficie de API móvil",
+        "TypeScript en todo el stack para detectar desajustes de contrato pronto",
+        "API REST como contrato único entre repos web, Android y backend"
+      ],
       "links": [
         { "label": "Repositorio web (CampusGo)", "url": "https://github.com/aroldanrabanal/CampusGo", "external": true },
         { "label": "Repositorio Android (AppCampusGo)", "url": "https://github.com/aroldanrabanal/AppCampusGo", "external": true }
@@ -52,6 +59,7 @@
     {
       "id": "p2",
       "title": "TECHNOAPP",
+      "impactContext": "En vivo en Vercel — app web con Firebase, abierta a usuarios reales",
       "kind": "Web + Android · Next.js · Firebase",
       "year": "2024 – 2025",
       "role": "Full-stack y despliegue",
@@ -79,6 +87,12 @@
           "body": "Desplegado en Vercel — visita technoapp-red.vercel.app para ver eventos, social y calendario en acción."
         }
       ],
+      "keyDecisions": [
+        "Firebase para auth y tiempo real sin backend propio",
+        "Next.js para SSR y despliegue sencillo en Vercel",
+        "TypeScript en modo estricto para validar formas de documentos Firebase",
+        "Modo demo/mocks en APIs para probar scraping y admin con seguridad"
+      ],
       "links": [
         { "label": "Demo en Vercel", "url": "https://technoapp-red.vercel.app", "external": true },
         { "label": "Repositorio", "url": "https://github.com/aroldanrabanal/TECHNOAPP", "external": true }
@@ -87,6 +101,7 @@
     {
       "id": "p3",
       "title": "A Saturday Night of Angel",
+      "impactContext": "Juego Unity 2D publicado — build jugable en GitHub",
       "kind": "Juego 2D · Unity · C#",
       "year": "2024 – 2025",
       "role": "Desarrollo de gameplay y escenas",
@@ -114,6 +129,11 @@
           "body": "Bucle de juego completo en dos niveles: movimiento, combate, enemigos, sistema de vida y objetos."
         }
       ],
+      "keyDecisions": [
+        "URP 2D para iluminación moderna sin sobrecarga 3D",
+        "Patrones MonoBehaviour planos para añadir escenas con facilidad",
+        "Estructura por escenas (MainMenu, Nivel1, Nivel2) para aislar módulos de gameplay"
+      ],
       "links": [
         { "label": "Repositorio", "url": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel", "external": true }
       ]
@@ -121,6 +141,7 @@
     {
       "id": "p1",
       "title": "Este portfolio (código abierto)",
+      "impactContext": "Código abierto — Next.js + R3F + GSAP, desplegado en producción en Vercel",
       "kind": "Web · Next.js · 3D",
       "year": "2025 – 2026",
       "role": "Diseño y desarrollo",
@@ -148,6 +169,12 @@
           "body": "Activo: nuevas secciones, mejoras de copy y refactors pequeños cuando el tiempo lo permite."
         }
       ],
+      "keyDecisions": [
+        "R3F para WebGL sin salir del árbol de React",
+        "GSAP ScrollTrigger para animaciones al scroll sin pelear con el estado de React",
+        "next/image para optimizar automáticamente assets pesados",
+        "Contenido JSON tipado (ES/EN) para actualizar copy sin tocar componentes"
+      ],
       "links": [
         { "label": "Código en GitHub", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
         { "label": "Demo en vivo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
@@ -156,20 +183,21 @@
   ],
   "experience": [
     {
+      "id": 2,
+      "role": "Desarrollador de aplicaciones web",
+      "company": "Lanzadera Music",
+      "period": "Ene 2026 – Actualidad",
+      "description": "Desarrollo y mantenimiento de aplicaciones web sobre stacks PHP/SQL/JS. Mejoras de rendimiento en backend, desarrollo de nuevas funcionalidades y correcciones de UX en una plataforma del sector musical en producción.",
+      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"],
+      "highlightBadge": "Producción · Industria musical"
+    },
+    {
       "id": 1,
       "role": "Desarrollador de software (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
       "period": "Mar 2026 – May 2026",
       "description": "Prácticas Erasmus+ en Praga: desarrollo de herramientas internas y para clientes con integración de automatización asistida por IA. Trabajo en modalidad híbrida con equipo internacional.",
       "tags": ["IA", "Automatización", "Praga", "Híbrido", "Full-Stack"]
-    },
-    {
-      "id": 2,
-      "role": "Desarrollador de aplicaciones web",
-      "company": "Lanzadera Music",
-      "period": "Ene 2025 – Ene 2026",
-      "description": "Desarrollo y mantenimiento de aplicaciones web sobre stacks PHP/SQL/JS. Mejoras de rendimiento en backend, desarrollo de nuevas funcionalidades y correcciones de UX en una plataforma del sector musical en producción.",
-      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"]
     },
     {
       "id": 3,
@@ -223,6 +251,7 @@
     ],
     "cta": {
       "viewProjects": "Ver proyectos",
+      "seeMyWork": "Ver mi trabajo ↓",
       "github": "GitHub",
       "emailMe": "Escríbeme",
       "projectsHref": "#works",
@@ -265,10 +294,12 @@
       { "label": "Proceso", "href": "#process" }
     ],
     "hero": {
-      "words": ["CONSTRUIR", "APRENDER", "PUBLICAR"],
-      "kicker": "Ángel Roldán — Desarrollador Full-Stack y Multiplataforma, Sevilla. PHP · JavaScript · Angular · IONIC · MySQL. Grado Superior DAM (SAFA, mayo 2026). Disponible.",
-      "stats": "GS DAM (SAFA) · Erasmus+ Praga 2026 · publicando desde 2023",
-      "tagline": "DAM · Buinsoft · Lanzadera · SAFA",
+      "name": "Ángel Roldán Rabanal",
+      "subtitle": "Desarrollador Full-Stack y Multiplataforma",
+      "tagline": "Java · PHP · MySQL · JavaScript · React · Angular · C#",
+      "availabilityLine": "Disponible para nuevas oportunidades",
+      "location": "Sevilla, España",
+      "workCta": "Ver mi trabajo ↓",
       "indexLabel": "#1"
     },
     "about": {
@@ -339,6 +370,7 @@
       "detailOverviewHeading": "Resumen",
       "detailTechHeading": "Stack y herramientas",
       "detailHighlightsHeading": "En detalle",
+      "detailKeyDecisionsHeading": "Decisiones clave",
       "detailLinksHeading": "Enlaces"
     },
     "process": {
@@ -436,7 +468,7 @@
           "links": [
             { "label": "GitHub", "href": "https://github.com/aroldanrabanal" },
             { "label": "LinkedIn", "href": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371" },
-            { "label": "Correo", "href": "mailto:angelroldanrabanal@gmail.com" },
+            { "label": "Correo", "href": "mailto:angelroldan497@gmail.com" },
             { "label": "Teléfono", "href": "tel:+34640280151" }
           ]
         },

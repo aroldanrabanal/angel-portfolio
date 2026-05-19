@@ -1,8 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { Portfolio } from "@/types/portfolio";
 import { Monogram } from "@/components/ui/Monogram";
 import { Marquee } from "@/components/ui/Marquee";
+import { useSmoothScrollTo } from "@/lib/lenis";
 
 type Props = { data: Portfolio; liteMotion: boolean };
 
@@ -26,6 +28,20 @@ function PlanetGlyph({ className = "" }: { className?: string }) {
 
 export function Footer({ data, liteMotion }: Props) {
   const { footer, brand } = data.template;
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const scrollTo = useSmoothScrollTo();
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith("#")) return isHome ? href : `/${href}`;
+    return href;
+  };
+
+  const onHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome || !href.startsWith("#")) return;
+    e.preventDefault();
+    scrollTo(href);
+  };
 
   return (
     <footer
@@ -69,7 +85,8 @@ export function Footer({ data, liteMotion }: Props) {
                     <li key={l.label}>
                       {l.href ? (
                         <a
-                          href={l.href}
+                          href={resolveHref(l.href)}
+                          onClick={(e) => l.href && onHashClick(e, l.href)}
                           target={l.href.startsWith("http") ? "_blank" : undefined}
                           rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="font-mono text-[12px] text-white/85 transition-colors hover:text-[color:var(--lime)]"

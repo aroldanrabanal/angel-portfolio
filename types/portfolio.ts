@@ -35,6 +35,8 @@ export type PortfolioProjectHighlight = {
 export type PortfolioProject = {
   id: string;
   title: string;
+  /** Short impact line shown under the title on cards and case studies */
+  impactContext?: string;
   image: string;
   description?: string;
   /** Legacy primary URL; also surfaced as a link if `links` is omitted */
@@ -47,6 +49,8 @@ export type PortfolioProject = {
   content?: string[];
   tech?: string[];
   highlights?: PortfolioProjectHighlight[];
+  /** Architecture / stack decisions for the case study page */
+  keyDecisions?: string[];
   links?: PortfolioProjectLink[];
   year?: string;
   role?: string;
@@ -59,6 +63,8 @@ export type PortfolioExperience = {
   period: string;
   description: string;
   tags: string[];
+  /** Optional highlighted label (e.g. current production role) */
+  highlightBadge?: string;
 };
 
 export type PortfolioEducation = {
@@ -80,6 +86,7 @@ export type PortfolioExtra = {
 
 export type PortfolioUiCta = {
   viewProjects: string;
+  seeMyWork: string;
   github: string;
   emailMe: string;
   projectsHref: string;
@@ -124,10 +131,12 @@ export type PortfolioUi = {
 /* ---------------- Template (ZYLO-style copy) ---------------- */
 
 export type TemplateHero = {
-  words: [string, string, string];
-  kicker: string;
-  stats: string;
+  name: string;
+  subtitle: string;
   tagline: string;
+  availabilityLine: string;
+  location: string;
+  workCta: string;
   indexLabel: string;
 };
 
@@ -165,6 +174,7 @@ export type TemplateWorks = TemplateBlock & {
   detailOverviewHeading: string;
   detailTechHeading: string;
   detailHighlightsHeading: string;
+  detailKeyDecisionsHeading: string;
   detailLinksHeading: string;
 };
 

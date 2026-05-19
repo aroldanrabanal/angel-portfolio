@@ -10,6 +10,7 @@ import {
 } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { scrollToHash } from "@/lib/smoothScroll";
 
 type LenisContextValue = {
   lenis: Lenis | null;
@@ -19,6 +20,17 @@ const LenisContext = createContext<LenisContextValue>({ lenis: null });
 
 export function useLenis(): Lenis | null {
   return useContext(LenisContext).lenis;
+}
+
+export function useSmoothScrollTo() {
+  const lenis = useLenis();
+
+  return useCallback(
+    (hash: string) => {
+      scrollToHash(lenis, hash);
+    },
+    [lenis],
+  );
 }
 
 /**
@@ -83,6 +95,43 @@ export function LenisProvider({
       notifySubscribers();
     };
   }, [disabled, notifySubscribers]);
+
+  /* Smooth scroll to hash on load (e.g. /#works from a case study) */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const run = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      scrollToHash(lenis, hash);
+    };
+
+    run();
+    const t = window.setTimeout(run, 150);
+    return () => window.clearTimeout(t);
+  }, [lenis]);
+
+  /* Same-page anchor links → Lenis scrollTo, or native smooth fallback */
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      const anchor = (e.target as Element).closest("a");
+      if (!anchor) return;
+
+      const href = anchor.getAttribute("href");
+      if (!href?.startsWith("#")) return;
+
+      if (!document.getElementById(href.slice(1))) return;
+
+      e.preventDefault();
+      scrollToHash(lenis, href);
+    };
+
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [lenis]);
 
   return (
     <LenisContext.Provider value={{ lenis }}>{children}</LenisContext.Provider>

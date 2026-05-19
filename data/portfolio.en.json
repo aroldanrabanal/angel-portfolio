@@ -5,7 +5,7 @@
     "tagline": "Creative, curious developer — I like things that work beautifully in production. Mostly PHP, SQL and JavaScript on web and mobile; this site is my Next.js lab. Based in Seville; Erasmus+ in Prague was my 2026 international chapter. Always learning.",
     "location": "Seville, Spain",
     "phone": "+34 640 280 151",
-    "email": "aroldanrabanal@safareyes.es",
+    "email": "angelroldan497@gmail.com",
     "github": "https://github.com/aroldanrabanal",
     "linkedin": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371",
     "available": true,
@@ -17,6 +17,7 @@
     {
       "id": "p4",
       "title": "CampusGo",
+      "impactContext": "Full multiplatform delivery — web + Android from a single academic sprint",
       "kind": "Web + Android · Angular · IONIC · Java",
       "year": "2025 – 2026",
       "role": "Full-stack — web and mobile",
@@ -44,6 +45,12 @@
           "body": "Completed as a DAM cycle project. Both repositories are public on GitHub."
         }
       ],
+      "keyDecisions": [
+        "Chose IONIC + Angular for a shared codebase across web and Android",
+        "Java backend kept separate to isolate the mobile API surface",
+        "TypeScript throughout to catch contract mismatches early",
+        "REST API as the single contract between web, Android, and backend repos"
+      ],
       "links": [
         { "label": "Web repository (CampusGo)", "url": "https://github.com/aroldanrabanal/CampusGo", "external": true },
         { "label": "Android repository (AppCampusGo)", "url": "https://github.com/aroldanrabanal/AppCampusGo", "external": true }
@@ -52,6 +59,7 @@
     {
       "id": "p2",
       "title": "TECHNOAPP",
+      "impactContext": "Live on Vercel — Firebase-backed web app, open to real users",
       "kind": "Web + Android · Next.js · Firebase",
       "year": "2024 – 2025",
       "role": "Full-stack and deployment",
@@ -79,6 +87,12 @@
           "body": "Deployed on Vercel — visit technoapp-red.vercel.app to see events, social, and calendar in action."
         }
       ],
+      "keyDecisions": [
+        "Firebase chosen for zero-infra auth and realtime without a custom backend",
+        "Next.js for SSR and easy Vercel deployment",
+        "TypeScript strict mode to validate Firebase document shapes",
+        "Demo/mock mode on APIs so scraping and admin flows can be tested safely"
+      ],
       "links": [
         { "label": "Live demo (Vercel)", "url": "https://technoapp-red.vercel.app", "external": true },
         { "label": "Repository", "url": "https://github.com/aroldanrabanal/TECHNOAPP", "external": true }
@@ -87,6 +101,7 @@
     {
       "id": "p3",
       "title": "A Saturday Night of Angel",
+      "impactContext": "Released Unity 2D game — playable build on GitHub",
       "kind": "2D game · Unity · C#",
       "year": "2024 – 2025",
       "role": "Gameplay and scene work",
@@ -114,6 +129,11 @@
           "body": "Full game loop across two levels: movement, combat, enemies, health system, and pickups."
         }
       ],
+      "keyDecisions": [
+        "URP 2D for modern lighting without 3D overhead",
+        "C# MonoBehaviour patterns kept flat to ease future scene additions",
+        "Scene-per-level structure (MainMenu, Nivel1, Nivel2) so gameplay modules stay isolated"
+      ],
       "links": [
         { "label": "Repository", "url": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel", "external": true }
       ]
@@ -121,6 +141,7 @@
     {
       "id": "p1",
       "title": "This portfolio (open source)",
+      "impactContext": "Open source — Next.js + R3F + GSAP, production deployed on Vercel",
       "kind": "Web · Next.js · 3D",
       "year": "2025 – 2026",
       "role": "Design and development",
@@ -148,6 +169,12 @@
           "body": "Active: new sections, copy passes, and small refactors when time allows."
         }
       ],
+      "keyDecisions": [
+        "R3F for WebGL without leaving the React tree",
+        "GSAP ScrollTrigger for scroll-linked animations without fighting React state",
+        "next/image for automatic optimisation of heavy assets",
+        "Typed JSON content (EN/ES) so copy updates never touch component logic"
+      ],
       "links": [
         { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
         { "label": "Live demo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
@@ -156,20 +183,21 @@
   ],
   "experience": [
     {
+      "id": 2,
+      "role": "Web Application Developer",
+      "company": "Lanzadera Music",
+      "period": "Jan 2026 – Present",
+      "description": "Maintenance and feature development on PHP/SQL/JS stacks — performance passes, UX improvements, and backend fixes that keep a music-industry platform running reliably.",
+      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"],
+      "highlightBadge": "Production · Music Industry"
+    },
+    {
       "id": 1,
       "role": "Software Developer (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
       "period": "Mar 2026 – May 2026",
       "description": "Erasmus+ internship in Prague (completed May 2026): internal and client-facing tools with heavy AI-assisted delivery — automation, leaner iterations, hybrid cadence with the team.",
       "tags": ["AI", "Automation", "Prague", "Hybrid", "Full-Stack"]
-    },
-    {
-      "id": 2,
-      "role": "Web Application Developer",
-      "company": "Lanzadera Music",
-      "period": "Jan 2026 – Present",
-      "description": "Maintenance and feature development on PHP/SQL/JS stacks — performance passes, UX improvements, and backend fixes that keep a music-industry platform running reliably.",
-      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"]
     },
     {
       "id": 3,
@@ -223,6 +251,7 @@
     ],
     "cta": {
       "viewProjects": "View projects",
+      "seeMyWork": "See my work ↓",
       "github": "GitHub",
       "emailMe": "Email me",
       "projectsHref": "#works",
@@ -265,10 +294,12 @@
       { "label": "Experience", "href": "#process" }
     ],
     "hero": {
-      "words": ["BUILD", "LEARN", "SHIP"],
-      "kicker": "Ángel Roldán — Full-Stack & Multiplatform Developer, Seville. PHP · JavaScript · Angular · IONIC · MySQL. Degree: DAM (SAFA, May 2026). Available.",
-      "stats": "DAM (SAFA) · Erasmus+ Prague 2026 · shipping since 2023",
-      "tagline": "Buinsoft · Lanzadera Music · SAFA",
+      "name": "Ángel Roldán Rabanal",
+      "subtitle": "Full-Stack & Multiplatform Developer",
+      "tagline": "Java · PHP · MySQL · JavaScript · React · Angular · C#",
+      "availabilityLine": "Available for new opportunities",
+      "location": "Seville, Spain",
+      "workCta": "View my work ↓",
       "indexLabel": "#1"
     },
     "about": {
@@ -339,6 +370,7 @@
       "detailOverviewHeading": "Overview",
       "detailTechHeading": "Stack & tools",
       "detailHighlightsHeading": "Deep dive",
+      "detailKeyDecisionsHeading": "Key decisions",
       "detailLinksHeading": "Links"
     },
     "process": {
@@ -436,7 +468,7 @@
           "links": [
             { "label": "GitHub", "href": "https://github.com/aroldanrabanal" },
             { "label": "LinkedIn", "href": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371" },
-            { "label": "Email", "href": "mailto:aroldanrabanal@safareyes.es" },
+            { "label": "Email", "href": "mailto:angelroldan497@gmail.com" },
             { "label": "Phone", "href": "tel:+34640280151" }
           ]
         },

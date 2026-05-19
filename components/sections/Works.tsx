@@ -172,6 +172,9 @@ function WorkCardLarge({
           <h3 className="font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
             {project.title}
           </h3>
+          {project.impactContext ? (
+            <p className="text-sm leading-relaxed text-white/55">{project.impactContext}</p>
+          ) : null}
           {project.description ? (
             <p className="max-w-md font-mono text-[12px] leading-relaxed text-white/80">
               {project.description}
@@ -256,6 +259,9 @@ function WorkCardSmall({ data, project }: { data: Portfolio; project: PortfolioP
             <h4 className="mt-1 font-display text-xl uppercase leading-[0.95]">
               {project.title}
             </h4>
+            {project.impactContext ? (
+              <p className="mt-1 text-sm leading-snug text-white/55">{project.impactContext}</p>
+            ) : null}
             <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">
               {works.caseStudyCta}
             </p>

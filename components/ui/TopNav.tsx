@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import type { Portfolio } from "@/types/portfolio";
 import { Monogram } from "@/components/ui/Monogram";
 import { useLocale } from "@/components/i18n/LocaleProvider";
+import { useSmoothScrollTo } from "@/lib/lenis";
 
 type Props = {
   data: Portfolio;
@@ -41,13 +42,15 @@ export function TopNav({ data }: Props) {
     ? "color-mix(in srgb, var(--cream) 65%, transparent)"
     : "color-mix(in srgb, var(--ink) 50%, transparent)";
 
-  const handleNav = (href: string) => {
-    if (!href.startsWith("#")) return;
-    const el = document.getElementById(href.slice(1));
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const scrollTo = useSmoothScrollTo();
 
   const hashHref = (hash: string) => (isHome ? hash : `/${hash}`);
+
+  const onHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome || !href.startsWith("#")) return;
+    e.preventDefault();
+    scrollTo(href);
+  };
 
   return (
     <header
@@ -57,11 +60,7 @@ export function TopNav({ data }: Props) {
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-10">
         <a
           href={hashHref("#hero")}
-          onClick={(e) => {
-            if (!isHome) return;
-            e.preventDefault();
-            handleNav("#hero");
-          }}
+          onClick={(e) => onHashClick(e, "#hero")}
           className="group flex items-center gap-2"
           aria-label={data.template.brand.name}
         >
@@ -84,11 +83,7 @@ export function TopNav({ data }: Props) {
             <a
               key={item.href}
               href={hashHref(item.href)}
-              onClick={(e) => {
-                if (!isHome) return;
-                e.preventDefault();
-                handleNav(item.href);
-              }}
+              onClick={(e) => onHashClick(e, item.href)}
               className="rounded-full px-4 py-2 font-mono text-[12px] uppercase tracking-[0.18em] transition-colors hover:bg-current/10"
               style={{ color: fg }}
             >
@@ -134,11 +129,7 @@ export function TopNav({ data }: Props) {
 
           <a
             href={hashHref("#contact")}
-            onClick={(e) => {
-              if (!isHome) return;
-              e.preventDefault();
-              handleNav("#contact");
-            }}
+            onClick={(e) => onHashClick(e, "#contact")}
             className="group inline-flex h-11 w-11 items-center justify-center transition-transform hover:scale-105 sm:h-12 sm:w-12"
             style={{ background: "var(--violet-soft)", color: "#fff" }}
             aria-label={data.ui.aria.contactButton}
@@ -164,11 +155,7 @@ export function TopNav({ data }: Props) {
           <a
             key={item.href}
             href={hashHref(item.href)}
-            onClick={(e) => {
-              if (!isHome) return;
-              e.preventDefault();
-              handleNav(item.href);
-            }}
+            onClick={(e) => onHashClick(e, item.href)}
             className="rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em]"
             style={{ borderColor }}
           >

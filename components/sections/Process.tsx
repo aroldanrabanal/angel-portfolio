@@ -131,8 +131,17 @@ export function Process({ data, reduceMotion, liteMotion }: Props) {
               {data.experience.map((exp) => (
                 <article
                   key={exp.id}
-                  className="proc-exp relative border-l-2 border-[color:var(--violet)] bg-white/60 p-6 backdrop-blur-sm"
+                  className={`proc-exp relative p-6 backdrop-blur-sm ${
+                    exp.highlightBadge
+                      ? "border border-[color:var(--violet)]/35 bg-[color:var(--violet)]/[0.08] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4)]"
+                      : "border-l-2 border-[color:var(--violet)] bg-white/60"
+                  }`}
                 >
+                  {exp.highlightBadge ? (
+                    <span className="mb-4 inline-block border border-[color:var(--violet)]/40 bg-[color:var(--violet)]/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[color:var(--violet)]">
+                      {exp.highlightBadge}
+                    </span>
+                  ) : null}
                   <div className="flex items-baseline justify-between gap-4">
                     <h4 className="font-display text-xl uppercase leading-[0.95] text-[color:var(--ink)]">
                       {exp.role}

@@ -73,6 +73,11 @@ export function ProjectDetailView({ projectId }: Props) {
             <h1 className="mt-3 font-display text-4xl uppercase leading-[0.95] sm:text-5xl md:text-6xl">
               {project.title}
             </h1>
+            {project.impactContext ? (
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted)]">
+                {project.impactContext}
+              </p>
+            ) : null}
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[12px] text-[color:var(--muted)]">
               {project.year ? <span>{project.year}</span> : null}
               {project.role ? <span>{project.role}</span> : null}
@@ -185,6 +190,22 @@ export function ProjectDetailView({ projectId }: Props) {
                   );
                 })}
               </div>
+            </section>
+          ) : null}
+
+          {project.keyDecisions?.length ? (
+            <section className="mt-14" aria-labelledby="project-key-decisions">
+              <h2
+                id="project-key-decisions"
+                className="font-display text-xl uppercase tracking-wide text-[color:var(--fg)]"
+              >
+                {works.detailKeyDecisionsHeading}
+              </h2>
+              <ul className="mt-4 list-disc space-y-2 pl-5 font-mono text-[13px] leading-relaxed text-[color:var(--muted)] marker:text-[color:var(--lime)]">
+                {project.keyDecisions.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </section>
           ) : null}
         </article>

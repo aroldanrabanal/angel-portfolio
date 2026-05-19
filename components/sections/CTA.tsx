@@ -108,6 +108,7 @@ export function CTA({ data, reduceMotion, liteMotion }: Props) {
           </p>
 
           <div className="cta-extra mt-10 flex flex-wrap items-center justify-center gap-3">
+            {/* TODO: replace with professional email — sync with data/portfolio.*.json personal.email */}
             <a
               href={`mailto:${data.personal.email}`}
               className="inline-flex items-center gap-2 bg-[color:var(--lime)] px-6 py-3 font-mono text-[12px] uppercase tracking-[0.18em] text-[color:var(--ink)] transition-transform hover:-translate-y-0.5"
