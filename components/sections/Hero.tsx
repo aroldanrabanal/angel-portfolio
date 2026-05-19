@@ -16,9 +16,10 @@ const HeroKnot = dynamic(
 type Props = {
   data: Portfolio;
   reduceMotion: boolean;
+  liteMotion: boolean;
 };
 
-export function Hero({ data, reduceMotion }: Props) {
+export function Hero({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
   const w2 = useRef<HTMLSpanElement | null>(null);
@@ -28,13 +29,17 @@ export function Hero({ data, reduceMotion }: Props) {
     if (reduceMotion) return;
     if (!root.current) return;
 
-    const chars1 = splitChars(w1.current);
-    const chars2 = splitChars(w2.current);
-    const chars3 = splitChars(w3.current);
-    const allChars = [...chars1, ...chars2, ...chars3];
+    const headingTargets = liteMotion
+      ? [w1.current, w2.current, w3.current].filter((item): item is HTMLElement =>
+          Boolean(item),
+        )
+      : [...splitChars(w1.current), ...splitChars(w2.current), ...splitChars(w3.current)];
 
     const ctx = gsap.context(() => {
-      gsap.set(allChars, { yPercent: 110, opacity: 0 });
+      gsap.set(
+        headingTargets,
+        liteMotion ? { y: 24, opacity: 0 } : { yPercent: 110, opacity: 0 },
+      );
       gsap.set(".hero-kicker", { opacity: 0, y: 16 });
       gsap.set(".hero-utility > *", { opacity: 0, y: 12 });
       gsap.set(".hero-knot", { opacity: 0, scale: 0.7 });
@@ -44,13 +49,15 @@ export function Hero({ data, reduceMotion }: Props) {
 
       tl.to(".hero-knot", { opacity: 1, scale: 1, duration: 1.4 }, 0)
         .to(
-          allChars,
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: { each: 0.018, from: "start" },
-          },
+          headingTargets,
+          liteMotion
+            ? { y: 0, opacity: 1, duration: 0.55, stagger: 0.08, ease: "power2.out" }
+            : {
+                yPercent: 0,
+                opacity: 1,
+                duration: 0.9,
+                stagger: { each: 0.018, from: "start" },
+              },
           0.15,
         )
         .to(".hero-kicker", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.6)
@@ -67,7 +74,7 @@ export function Hero({ data, reduceMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion]);
+  }, [reduceMotion, liteMotion]);
 
   const { hero } = data.template;
   const [w1Text, w2Text, w3Text] = hero.words;
@@ -82,7 +89,7 @@ export function Hero({ data, reduceMotion }: Props) {
       <div ref={root} className="relative h-[100svh] w-full overflow-hidden">
         {/* 3D knot occupies the centre, behind text */}
         <div className="hero-knot absolute inset-0 z-10">
-          <HeroKnot reduceMotion={reduceMotion} />
+          <HeroKnot reduceMotion={reduceMotion} liteMotion={liteMotion} />
         </div>
 
         {/* hairline frame */}
