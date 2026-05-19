@@ -72,7 +72,7 @@ export function Hero({ data, reduceMotion, liteMotion }: Props) {
   }, [reduceMotion, liteMotion]);
 
   const { hero } = data.template;
-  const portrait = data.personal.portrait;
+  const portrait = hero.portrait ?? data.personal.portrait;
 
   return (
     <SectionFrame

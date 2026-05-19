@@ -138,6 +138,8 @@ export type TemplateHero = {
   location: string;
   workCta: string;
   indexLabel: string;
+  /** Public path under `/public` — hero-only portrait (About uses personal.portrait) */
+  portrait?: string;
 };
 
 export type TemplateBlock = {
@@ -178,11 +180,33 @@ export type TemplateWorks = TemplateBlock & {
   detailLinksHeading: string;
 };
 
+export type TemplateAboutEducation = {
+  title: string;
+  school: string;
+  period: string;
+  /** Highlight badge in accent color (e.g. completion date) */
+  badge?: string;
+};
+
+export type TemplateAboutLanguage = {
+  flag: string;
+  name: string;
+  badge: string;
+  subBadge?: string;
+  /** Visual proficiency 0–100 */
+  levelPercent: number;
+};
+
+export type TemplateAboutErasmus = {
+  title: string;
+  subtitle: string;
+};
+
 export type TemplateAbout = TemplateBlock & {
   body: string[];
-  trustStrip: string[];
-  /** Small label above the trust strip (e.g. "Often in commits") */
-  commitStripLabel: string;
+  education: TemplateAboutEducation[];
+  erasmus: TemplateAboutErasmus;
+  languages: TemplateAboutLanguage[];
 };
 
 export type TemplateStack = {

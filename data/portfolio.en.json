@@ -300,18 +300,48 @@
       "availabilityLine": "Available for new opportunities",
       "location": "Seville, Spain",
       "workCta": "View my work ↓",
-      "indexLabel": "#1"
+      "indexLabel": "#1",
+      "portrait": "/images/foto-hero.jpeg"
     },
     "about": {
       "heading": ["A bit", "about me"],
       "kicker": "About",
       "indexLabel": "#2",
-      "commitStripLabel": "Often in commits",
       "body": [
-        "I am Ángel — Multiplatform Application Developer out of SAFA Seville, with years of real tickets on institutional and music-industry PHP/SQL/JS stacks, aligned with what I publish on GitHub. I still care about boring reliability: migrations you can replay, queries you can explain, and UIs that do not ambush people who already have a full calendar.",
-        "Prague at Buinsoft (Erasmus+) was my international stretch: internal and client tools with AI-assisted delivery. Scroll for selected projects, work experience, and contact."
+        "I'm Ángel, a multiplatform developer from Seville. I just finished my Higher Vocational Degree in Multiplatform App Development and I've been working on real projects since 2023 — from institutional tools to a music platform. I like building things that actually get used. In early 2026 I did an Erasmus+ internship in Prague, which taught me a lot about working in an international team and about AI-driven development. I'm looking for a place where I can keep growing and contribute from day one."
       ],
-      "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "AI"]
+      "education": [
+        {
+          "title": "Higher Vocational Degree in Multiplatform App Development",
+          "school": "SAFA Nuestra Señora de los Reyes",
+          "period": "2024 – 2026",
+          "badge": "Completed May 2026"
+        },
+        {
+          "title": "Intermediate Degree in Microcomputer Systems & Networks",
+          "school": "SAFA Nuestra Señora de los Reyes",
+          "period": "2022 – 2024"
+        }
+      ],
+      "erasmus": {
+        "title": "Erasmus+ Internship · Buinsoft Technology · Prague, Czech Republic · 2026",
+        "subtitle": "International experience in AI-driven development"
+      },
+      "languages": [
+        {
+          "flag": "ES",
+          "name": "Spanish",
+          "badge": "Native",
+          "levelPercent": 100
+        },
+        {
+          "flag": "EN",
+          "name": "English",
+          "badge": "B2 — Trinity College Certified",
+          "subBadge": "C1 in progress",
+          "levelPercent": 67
+        }
+      ]
     },
     "services": {
       "heading": ["What I", "touch most"],

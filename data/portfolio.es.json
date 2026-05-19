@@ -300,18 +300,48 @@
       "availabilityLine": "Disponible para nuevas oportunidades",
       "location": "Sevilla, España",
       "workCta": "Ver mi trabajo ↓",
-      "indexLabel": "#1"
+      "indexLabel": "#1",
+      "portrait": "/images/foto-hero.jpeg"
     },
     "about": {
       "heading": ["Un poco", "sobre mí"],
       "kicker": "Sobre mí",
       "indexLabel": "#2",
-      "commitStripLabel": "Activo en commits",
       "body": [
-        "Soy Ángel — desarrollador de aplicaciones multiplataforma formado en SAFA Sevilla, con experiencia real en bases de código PHP/SQL/JS en entornos institucionales y del sector musical. Me importa escribir software mantenible: migraciones reproducibles, consultas explicables e interfaces que no sorprendan al usuario.",
-        "El Erasmus+ en Buinsoft (Praga) fue mi tramo internacional: herramientas internas y de cliente con entrega asistida por IA. Desplázate para ver proyectos seleccionados, experiencia laboral y contacto."
+        "Soy Ángel, desarrollador multiplataforma de Sevilla. Acabo de terminar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma y llevo desde 2023 trabajando en proyectos reales — desde herramientas institucionales hasta una plataforma musical. Me gusta construir cosas que se usen de verdad. A principios de 2026 hice mis prácticas Erasmus+ en Praga, lo que me enseñó mucho sobre trabajar en un equipo internacional y sobre el desarrollo con IA. Busco un sitio donde seguir creciendo y aportar desde el primer día."
       ],
-      "trustStrip": ["PHP", "MySQL", "REST", "Angular", "IONIC", "IA"]
+      "education": [
+        {
+          "title": "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+          "school": "SAFA Nuestra Señora de los Reyes",
+          "period": "2024 – 2026",
+          "badge": "Finalizado mayo 2026"
+        },
+        {
+          "title": "Grado Medio en Sistemas Microinformáticos y Redes",
+          "school": "SAFA Nuestra Señora de los Reyes",
+          "period": "2022 – 2024"
+        }
+      ],
+      "erasmus": {
+        "title": "Prácticas Erasmus+ · Buinsoft Technology · Praga, República Checa · 2026",
+        "subtitle": "Experiencia internacional en desarrollo con IA"
+      },
+      "languages": [
+        {
+          "flag": "ES",
+          "name":  "Español",
+          "badge": "Nativo",
+          "levelPercent": 100
+        },
+        {
+          "flag": "EN",
+          "name": "Inglés",
+          "badge": "B2 — Trinity College Certified",
+          "subBadge": "C1 en progreso",
+          "levelPercent": 67
+        }
+      ]
     },
     "services": {
       "heading": ["En lo que", "más trabajo"],

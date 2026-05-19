@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-const LITE_MOTION_QUERY =
-  "(max-width: 767px), (pointer: coarse) and (max-width: 1024px)";
+/** Mobile / narrow viewports only — avoid treating touch laptops as "lite" on wide screens */
+const LITE_MOTION_QUERY = "(max-width: 767px)";
 
 export type MotionProfile = {
   reduceMotion: boolean;

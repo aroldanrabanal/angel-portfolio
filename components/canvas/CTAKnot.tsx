@@ -60,13 +60,14 @@ function StaticCTAKnot({ className = "" }: { className?: string }) {
 }
 
 export function CTAKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
-  if (reduceMotion || liteMotion) {
+  if (reduceMotion) {
     return <StaticCTAKnot className={className} />;
   }
 
   return (
     <div className={`pointer-events-none absolute inset-0 ${className}`}>
       <WebGLCanvas
+        fallback={<StaticCTAKnot />}
         camera={{ position: [0, 0.3, 4], fov: 36 }}
         dpr={[1, 1.25]}
         gl={{

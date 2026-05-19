@@ -7,9 +7,26 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { Crosshair } from "@/components/ui/Crosshair";
-import { BrandWord } from "@/components/ui/BrandWord";
 
 type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
+
+function LevelBar({ percent, label }: { percent: number; label: string }) {
+  return (
+    <div
+      role="progressbar"
+      aria-valuenow={percent}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-label={label}
+      className="mt-4 h-1.5 w-full overflow-hidden bg-white/10"
+    >
+      <div
+        className="about-level-fill h-full bg-[color:var(--lime)]"
+        style={{ width: `${percent}%` }}
+      />
+    </div>
+  );
+}
 
 export function About({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
@@ -31,7 +48,8 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
       );
       gsap.set(".about-portrait", { opacity: 0, y: 40 });
       gsap.set(".about-body p", { opacity: 0, y: 20 });
-      gsap.set(".about-strip > *", { opacity: 0, y: 12 });
+      gsap.set(".about-block", { opacity: 0, y: 24 });
+      gsap.set(".about-level-fill", { scaleX: 0, transformOrigin: "left center" });
 
       ScrollTrigger.create({
         trigger: root.current!,
@@ -58,9 +76,14 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
               "<0.2",
             )
             .to(
-              ".about-strip > *",
-              { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" },
-              "<0.1",
+              ".about-block",
+              { opacity: 1, y: 0, duration: 0.65, stagger: 0.1, ease: "power2.out" },
+              "<0.15",
+            )
+            .to(
+              ".about-level-fill",
+              { scaleX: 1, duration: 0.9, stagger: 0.12, ease: "power2.out" },
+              "<0.2",
             );
         },
       });
@@ -94,7 +117,6 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
                   priority={false}
                 />
               ) : null}
-              {/* Duotone overlay */}
               <div
                 aria-hidden
                 className="absolute inset-0 mix-blend-color"
@@ -111,9 +133,7 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
                     "radial-gradient(120% 80% at 0% 0%, rgba(110,34,214,0.45), transparent 60%)",
                 }}
               />
-              {/* hairline frame */}
               <div className="pointer-events-none absolute inset-3 border border-white/20" />
-              {/* tag */}
               <div className="absolute bottom-3 left-3 right-3 flex min-w-0 flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
                 <span>{data.personal.location}</span>
                 <span>{data.template.brand.estYear}</span>
@@ -121,8 +141,8 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
             </div>
           </div>
 
-          {/* Heading + body */}
-          <div className="relative col-span-1 flex flex-col gap-8 lg:col-span-7 lg:pl-10">
+          {/* Heading + content */}
+          <div className="relative col-span-1 flex flex-col gap-10 lg:col-span-7 lg:pl-10">
             <div className="relative">
               <Crosshair
                 size={32}
@@ -148,49 +168,86 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
               ))}
             </div>
 
-            <div className="mt-6 space-y-4 border-t border-white/10 pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">
-              <p>{about.commitStripLabel}</p>
-              <div className="about-strip flex flex-wrap items-center gap-x-10 gap-y-4 text-white">
-                <BrandWord variant="sans" className="text-2xl">{about.trustStrip[0]}</BrandWord>
-                <BrandWord variant="serif" className="text-2xl">{about.trustStrip[1]}</BrandWord>
-                <BrandWord variant="mono" className="text-base">{about.trustStrip[2]}</BrandWord>
-                <BrandWord variant="italic" className="text-2xl">{about.trustStrip[3]}</BrandWord>
-                <BrandWord variant="display" className="text-xl">{about.trustStrip[4]}</BrandWord>
-                <BrandWord variant="sans" className="text-2xl">{about.trustStrip[5]}</BrandWord>
+            {/* Education */}
+            <div className="space-y-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                {data.ui.footer.educationTitle}
+              </p>
+              <div className="space-y-4">
+                {about.education.map((edu) => (
+                  <div
+                    key={edu.title}
+                    className="about-block flex gap-4 border border-[color:var(--violet-soft)]/50 bg-white/[0.03] p-5 sm:gap-5 sm:p-6"
+                  >
+                    <span className="shrink-0 text-2xl leading-none" aria-hidden>
+                      🎓
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <h3 className="font-display text-lg leading-tight text-white sm:text-xl">
+                          {edu.title}
+                        </h3>
+                        <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45 sm:text-right">
+                          {edu.period}
+                        </span>
+                      </div>
+                      <p className="mt-2 font-mono text-[11px] text-white/50">{edu.school}</p>
+                      {edu.badge ? (
+                        <p className="mt-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[color:var(--lime)]">
+                          {edu.badge}
+                        </p>
+                      ) : null}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Education + Languages */}
-            <div className="mt-8 grid grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-2">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  {data.ui.footer.educationTitle}
+            {/* Erasmus+ */}
+            <div
+              className="about-block flex gap-4 border border-[color:var(--lime)]/35 bg-gradient-to-r from-[color:var(--violet-deep)]/80 to-white/[0.04] p-5 sm:gap-5 sm:p-6"
+            >
+              <span className="shrink-0 text-2xl leading-none" aria-hidden>
+                🌍
+              </span>
+              <div className="min-w-0 flex-1 space-y-2">
+                <p className="font-mono text-[12px] leading-snug text-white/90 sm:text-[13px]">
+                  {about.erasmus.title}
                 </p>
-                <ul className="mt-3 space-y-3">
-                  {data.education.map((edu) => (
-                    <li key={edu.degree} className="flex flex-col gap-0.5">
-                      <span className="font-mono text-[12px] leading-snug text-white/85">
-                        {edu.degree}
-                      </span>
-                      <span className="font-mono text-[10px] text-white/45">
-                        {edu.school} · {edu.period}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="font-mono text-[11px] text-white/50">{about.erasmus.subtitle}</p>
               </div>
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  {data.ui.footer.languagesTitle}
-                </p>
-                <ul className="mt-3 space-y-3">
-                  {data.languages.map((lang) => (
-                    <li key={lang.lang} className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-2">
-                      <span className="font-mono text-[12px] text-white/85">{lang.lang}</span>
-                      <span className="font-mono text-[10px] text-white/50">{lang.level}</span>
-                    </li>
-                  ))}
-                </ul>
+            </div>
+
+            {/* Languages */}
+            <div className="space-y-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                {data.ui.footer.languagesTitle}
+              </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {about.languages.map((lang) => (
+                  <div
+                    key={lang.name}
+                    className="about-block flex flex-col border border-[color:var(--violet-soft)]/50 bg-white/[0.03] p-5 sm:p-6"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="text-3xl leading-none" aria-hidden>
+                        {lang.flag}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-mono text-[12px] text-white/85">{lang.name}</p>
+                        <p className="mt-3 font-display text-base uppercase leading-tight text-[color:var(--lime)] sm:text-lg">
+                          {lang.badge}
+                        </p>
+                        {lang.subBadge ? (
+                          <p className="mt-1.5 font-mono text-[10px] text-white/45">
+                            {lang.subBadge}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
+                    <LevelBar percent={lang.levelPercent} label={lang.name} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -199,3 +256,5 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
     </SectionFrame>
   );
 }
+
+
