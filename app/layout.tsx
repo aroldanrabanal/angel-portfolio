@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Tourney, Space_Mono } from "next/font/google";
 import portfolioEn from "@/data/portfolio.en.json";
 import portfolioEs from "@/data/portfolio.es.json";
@@ -45,6 +46,7 @@ export default function RootLayout({
     >
       <body>
         <AppProviders>{children}</AppProviders>
+        <Analytics />
       </body>
     </html>
   );
