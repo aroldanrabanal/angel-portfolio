@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Tourney, Space_Mono } from "next/font/google";
 import portfolioEn from "@/data/portfolio.en.json";
 import portfolioEs from "@/data/portfolio.es.json";
 import type { Portfolio } from "@/types/portfolio";
 import { AppProviders } from "@/components/providers/AppProviders";
+import { DeferredVercelMetrics } from "@/components/providers/DeferredVercelMetrics";
+import { resolveServerLocale } from "@/lib/portfolioLocale.server";
 import "./globals.css";
 
 const dataEn = portfolioEn as Portfolio;
@@ -34,21 +34,25 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const defaultLocale = await resolveServerLocale();
+
   return (
     <html
-      lang="en"
+      lang={defaultLocale}
       suppressHydrationWarning
       className={`${tourney.variable} ${spaceMono.variable}`}
     >
+      <head>
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+      </head>
       <body>
-        <AppProviders>{children}</AppProviders>
-        <Analytics />
-        <SpeedInsights />
+        <AppProviders defaultLocale={defaultLocale}>{children}</AppProviders>
+        <DeferredVercelMetrics />
       </body>
     </html>
   );

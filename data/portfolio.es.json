@@ -10,7 +10,7 @@
     "linkedin": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371",
     "available": true,
     "closing": "Carnet de conducir · disponible para desplazamientos.",
-    "portrait": "/images/IMG-20260514-WA0024.jpg"
+    "portrait": "/images/IMG-20260514-WA0024.webp"
   },
   "about": "Desarrollador de aplicaciones multiplataforma con experiencia en entornos reales de producción — terminé el Grado Superior en Desarrollo de Aplicaciones Multiplataforma en SAFA en mayo de 2026. He trabajado en stacks PHP/SQL/JS para proyectos institucionales y del sector musical, y completé un Erasmus+ en Praga (Buinsoft) integrando flujos asistidos por IA. Me interesa construir software que sea fácil de mantener: backends razonables, frontends que no peleen con el usuario e integraciones que se puedan retomar meses después.",
   "projects": [
@@ -360,7 +360,7 @@
       "location": "Sevilla, España",
       "workCta": "Ver mi trabajo ↓",
       "indexLabel": "#1",
-      "portrait": "/images/foto-hero.jpeg"
+      "portrait": "/images/foto-hero.webp"
     },
     "about": {
       "heading": ["Un poco", "sobre mí"],

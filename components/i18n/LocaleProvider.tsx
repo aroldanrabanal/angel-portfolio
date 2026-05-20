@@ -10,13 +10,12 @@ import {
   useState,
 } from "react";
 import type { Locale } from "@/types/portfolio";
-
-const STORAGE_KEY = "portfolio-locale";
+import { LOCALE_COOKIE, LOCALE_STORAGE_KEY } from "@/lib/portfolioLocaleConstants";
 
 function readStoredLocale(): Locale | null {
   if (typeof window === "undefined") return null;
   try {
-    const v = window.localStorage.getItem(STORAGE_KEY);
+    const v = window.localStorage.getItem(LOCALE_STORAGE_KEY);
     if (v === "en" || v === "es") return v;
   } catch {
     /* ignore */
@@ -29,8 +28,8 @@ function browserDefaultLocale(): Locale {
   return navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
 }
 
-function resolveInitialLocale(): Locale {
-  return readStoredLocale() ?? browserDefaultLocale();
+function persistLocaleCookie(locale: Locale) {
+  document.cookie = `${LOCALE_COOKIE}=${locale};path=/;max-age=31536000;SameSite=Lax`;
 }
 
 type LocaleContextValue = {
@@ -40,13 +39,18 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+type Props = {
+  children: React.ReactNode;
+  defaultLocale?: Locale;
+};
+
+export function LocaleProvider({ children, defaultLocale = "en" }: Props) {
+  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     startTransition(() => {
-      setLocaleState(resolveInitialLocale());
+      setLocaleState(readStoredLocale() ?? browserDefaultLocale());
       setHydrated(true);
     });
   }, []);
@@ -54,10 +58,11 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, locale);
+      window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
     } catch {
       /* ignore */
     }
+    persistLocaleCookie(locale);
     document.documentElement.lang = locale;
   }, [locale, hydrated]);
 
@@ -73,9 +78,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     [locale, setLocale],
   );
 
-  return (
-    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
-  );
+  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
 }
 
 export function useLocale(): LocaleContextValue {

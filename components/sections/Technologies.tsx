@@ -6,7 +6,7 @@ import type { Portfolio } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
-import { TechCarouselStaticGrid } from "@/components/canvas/TechCarouselCanvas";
+import { TechCarouselStaticGrid } from "@/components/canvas/TechCarouselStaticGrid";
 
 const TechCarouselCanvas = dynamic(
   () =>
@@ -31,7 +31,7 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
 
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry?.isIntersecting ?? false),
-      { rootMargin: "120px 0px", threshold: 0.05 },
+      { rootMargin: "200px 0px", threshold: 0.05 },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -102,8 +102,10 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
           <div className="tech-canvas-wrap">
             {useStatic ? (
               <TechCarouselStaticGrid />
-            ) : (
+            ) : inView ? (
               <TechCarouselCanvas active={inView} />
+            ) : (
+              <div className="min-h-[500px] w-full" aria-hidden />
             )}
           </div>
         </div>

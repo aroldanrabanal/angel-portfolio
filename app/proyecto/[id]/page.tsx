@@ -4,7 +4,9 @@ import portfolioEn from "@/data/portfolio.en.json";
 import portfolioEs from "@/data/portfolio.es.json";
 import type { Portfolio } from "@/types/portfolio";
 import { ProjectDetailView } from "@/components/project/ProjectDetailView";
+import { loadPortfolioServer } from "@/lib/loadPortfolio";
 import { findProject, getProjectIds } from "@/lib/portfolioProject";
+import { resolveServerLocale } from "@/lib/portfolioLocale.server";
 
 const dataEn = portfolioEn as Portfolio;
 const dataEs = portfolioEs as Portfolio;
@@ -41,5 +43,9 @@ export default async function ProyectoPage({
   if (!findProject(dataEs, id) || !findProject(dataEn, id)) {
     notFound();
   }
-  return <ProjectDetailView projectId={id} />;
+
+  const locale = await resolveServerLocale();
+  const initialData = await loadPortfolioServer(locale);
+
+  return <ProjectDetailView projectId={id} initialData={initialData} />;
 }

@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import type { Portfolio, PortfolioProject } from "@/types/portfolio";
-import portfolioEn from "@/data/portfolio.en.json";
-import portfolioEs from "@/data/portfolio.es.json";
 import { useLocale } from "@/components/i18n/LocaleProvider";
+import { loadPortfolio } from "@/lib/loadPortfolio";
 import { LenisProvider } from "@/lib/lenis";
 import { useMotionProfile } from "@/lib/useMotionProfile";
 import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
@@ -15,19 +14,27 @@ import { TopNav } from "@/components/ui/TopNav";
 import { Footer } from "@/components/sections/Footer";
 import { findProject } from "@/lib/portfolioProject";
 
-const dataEn = portfolioEn as Portfolio;
-const dataEs = portfolioEs as Portfolio;
-
-type Props = { projectId: string };
+type Props = { projectId: string; initialData: Portfolio };
 
 function bodyThemeFromAccent(accent: PortfolioProject["accent"]) {
   if (accent === "lime") return "violet-deep";
   return accent ?? "ink";
 }
 
-export function ProjectDetailView({ projectId }: Props) {
+export function ProjectDetailView({ projectId, initialData }: Props) {
   const { locale } = useLocale();
-  const data = locale === "es" ? dataEs : dataEn;
+  const [data, setData] = useState(initialData);
+
+  useEffect(() => {
+    let cancelled = false;
+    void loadPortfolio(locale).then((next) => {
+      if (!cancelled) setData(next);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [locale]);
+
   const project = useMemo(() => findProject(data, projectId), [data, projectId]);
   const { works } = data.template;
   const reduceMotion = useReducedMotion() ?? false;

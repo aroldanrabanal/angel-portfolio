@@ -96,19 +96,19 @@ function BadgeFallbackLabel({ item, y }: { item: TechCarouselItem; y: number }) 
   );
 }
 
-function BadgeLogo({ item }: { item: TechCarouselItem }) {
-  if (!item.icon) {
-    return <BadgeFallbackLabel item={item} y={0.1} />;
-  }
-
-  const texture = useTexture(deviconUrl(item.icon));
-  texture.colorSpace = THREE.SRGBColorSpace;
+function BadgeLogoWithIcon({ icon }: { icon: string }) {
+  const texture = useTexture(deviconUrl(icon));
+  const map = useMemo(() => {
+    const cloned = texture.clone();
+    cloned.colorSpace = THREE.SRGBColorSpace;
+    return cloned;
+  }, [texture]);
 
   return (
     <mesh position={[0, 0.1, 0.02]} renderOrder={1}>
       <planeGeometry args={[0.34, 0.34]} />
       <meshBasicMaterial
-        map={texture}
+        map={map}
         transparent
         opacity={0.95}
         toneMapped={false}
@@ -116,6 +116,14 @@ function BadgeLogo({ item }: { item: TechCarouselItem }) {
       />
     </mesh>
   );
+}
+
+function BadgeLogo({ item }: { item: TechCarouselItem }) {
+  if (!item.icon) {
+    return <BadgeFallbackLabel item={item} y={0.1} />;
+  }
+
+  return <BadgeLogoWithIcon icon={item.icon} />;
 }
 
 function TechSphere({ active }: { active: boolean }) {
