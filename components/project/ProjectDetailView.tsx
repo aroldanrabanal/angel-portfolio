@@ -210,7 +210,7 @@ export function ProjectDetailView({ projectId }: Props) {
           ) : null}
         </article>
       </main>
-      <Footer data={data} liteMotion={motion.disableScrollSmoothing} />
+      <Footer data={data} />
     </LenisProvider>
   );
 }

@@ -10,24 +10,6 @@ import { Crosshair } from "@/components/ui/Crosshair";
 
 type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
-function LevelBar({ percent, label }: { percent: number; label: string }) {
-  return (
-    <div
-      role="progressbar"
-      aria-valuenow={percent}
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-label={label}
-      className="mt-4 h-1.5 w-full overflow-hidden bg-white/10"
-    >
-      <div
-        className="about-level-fill h-full bg-[color:var(--lime)]"
-        style={{ width: `${percent}%` }}
-      />
-    </div>
-  );
-}
-
 export function About({ data, reduceMotion, liteMotion }: Props) {
   const root = useRef<HTMLDivElement | null>(null);
   const w1 = useRef<HTMLSpanElement | null>(null);
@@ -48,8 +30,6 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
       );
       gsap.set(".about-portrait", { opacity: 0, y: 40 });
       gsap.set(".about-body p", { opacity: 0, y: 20 });
-      gsap.set(".about-block", { opacity: 0, y: 24 });
-      gsap.set(".about-level-fill", { scaleX: 0, transformOrigin: "left center" });
 
       ScrollTrigger.create({
         trigger: root.current!,
@@ -73,16 +53,6 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
             .to(
               ".about-body p",
               { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" },
-              "<0.2",
-            )
-            .to(
-              ".about-block",
-              { opacity: 1, y: 0, duration: 0.65, stagger: 0.1, ease: "power2.out" },
-              "<0.15",
-            )
-            .to(
-              ".about-level-fill",
-              { scaleX: 1, duration: 0.9, stagger: 0.12, ease: "power2.out" },
               "<0.2",
             );
         },
@@ -166,89 +136,6 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
               {about.body.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
-            </div>
-
-            {/* Education */}
-            <div className="space-y-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                {data.ui.footer.educationTitle}
-              </p>
-              <div className="space-y-4">
-                {about.education.map((edu) => (
-                  <div
-                    key={edu.title}
-                    className="about-block flex gap-4 border border-[color:var(--violet-soft)]/50 bg-white/[0.03] p-5 sm:gap-5 sm:p-6"
-                  >
-                    <span className="shrink-0 text-2xl leading-none" aria-hidden>
-                      🎓
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <h3 className="font-display text-lg leading-tight text-white sm:text-xl">
-                          {edu.title}
-                        </h3>
-                        <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45 sm:text-right">
-                          {edu.period}
-                        </span>
-                      </div>
-                      <p className="mt-2 font-mono text-[11px] text-white/50">{edu.school}</p>
-                      {edu.badge ? (
-                        <p className="mt-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[color:var(--lime)]">
-                          {edu.badge}
-                        </p>
-                      ) : null}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Erasmus+ */}
-            <div
-              className="about-block flex gap-4 border border-[color:var(--lime)]/35 bg-gradient-to-r from-[color:var(--violet-deep)]/80 to-white/[0.04] p-5 sm:gap-5 sm:p-6"
-            >
-              <span className="shrink-0 text-2xl leading-none" aria-hidden>
-                🌍
-              </span>
-              <div className="min-w-0 flex-1 space-y-2">
-                <p className="font-mono text-[12px] leading-snug text-white/90 sm:text-[13px]">
-                  {about.erasmus.title}
-                </p>
-                <p className="font-mono text-[11px] text-white/50">{about.erasmus.subtitle}</p>
-              </div>
-            </div>
-
-            {/* Languages */}
-            <div className="space-y-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                {data.ui.footer.languagesTitle}
-              </p>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {about.languages.map((lang) => (
-                  <div
-                    key={lang.name}
-                    className="about-block flex flex-col border border-[color:var(--violet-soft)]/50 bg-white/[0.03] p-5 sm:p-6"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="text-3xl leading-none" aria-hidden>
-                        {lang.flag}
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-mono text-[12px] text-white/85">{lang.name}</p>
-                        <p className="mt-3 font-display text-base uppercase leading-tight text-[color:var(--lime)] sm:text-lg">
-                          {lang.badge}
-                        </p>
-                        {lang.subBadge ? (
-                          <p className="mt-1.5 font-mono text-[10px] text-white/45">
-                            {lang.subBadge}
-                          </p>
-                        ) : null}
-                      </div>
-                    </div>
-                    <LevelBar percent={lang.levelPercent} label={lang.name} />
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

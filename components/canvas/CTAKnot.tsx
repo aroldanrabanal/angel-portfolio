@@ -60,7 +60,7 @@ function StaticCTAKnot({ className = "" }: { className?: string }) {
 }
 
 export function CTAKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
-  if (reduceMotion) {
+  if (reduceMotion || liteMotion) {
     return <StaticCTAKnot className={className} />;
   }
 

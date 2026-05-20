@@ -10,12 +10,9 @@ import {
 import * as THREE from "three";
 import { WebGLCanvas } from "@/components/canvas/WebGLCanvas";
 
-function Knot({ reduceMotion, liteMotion }: { reduceMotion: boolean; liteMotion: boolean }) {
+function Knot({ reduceMotion }: { reduceMotion: boolean }) {
   const ref = useRef<THREE.Mesh>(null);
-  const geo = useMemo(
-    () => new THREE.TorusKnotGeometry(1, 0.34, liteMotion ? 64 : 128, liteMotion ? 16 : 24, 3, 4),
-    [liteMotion],
-  );
+  const geo = useMemo(() => new THREE.TorusKnotGeometry(1, 0.34, 128, 24, 3, 4), []);
 
   useFrame((state, delta) => {
     const m = ref.current;
@@ -42,8 +39,8 @@ function Knot({ reduceMotion, liteMotion }: { reduceMotion: boolean; liteMotion:
         distortionScale={0.4}
         temporalDistortion={0.1}
         backside
-        samples={liteMotion ? 2 : 4}
-        resolution={liteMotion ? 256 : 384}
+        samples={4}
+        resolution={384}
         clearcoat={1}
         clearcoatRoughness={0.05}
         attenuationColor="#a374ff"
@@ -82,7 +79,7 @@ function StaticHeroKnot({ className = "" }: { className?: string }) {
 }
 
 export function HeroKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
-  if (reduceMotion) {
+  if (reduceMotion || liteMotion) {
     return <StaticHeroKnot className={className} />;
   }
 
@@ -91,7 +88,7 @@ export function HeroKnot({ reduceMotion = false, liteMotion = false, className =
       <WebGLCanvas
         fallback={<StaticHeroKnot />}
         camera={{ position: [0, 0, 4.2], fov: 38 }}
-        dpr={liteMotion ? [1, 1] : [1, 1.25]}
+        dpr={[1, 1.25]}
         gl={{
           antialias: false,
           alpha: true,
@@ -108,11 +105,11 @@ export function HeroKnot({ reduceMotion = false, liteMotion = false, className =
 
         <Suspense fallback={null}>
           <Float
-            speed={liteMotion ? 0.6 : 1.1}
-            rotationIntensity={liteMotion ? 0.12 : 0.25}
-            floatIntensity={liteMotion ? 0.25 : 0.5}
+            speed={reduceMotion ? 0 : 1.1}
+            rotationIntensity={reduceMotion ? 0 : 0.25}
+            floatIntensity={reduceMotion ? 0 : 0.5}
           >
-            <Knot reduceMotion={reduceMotion} liteMotion={liteMotion} />
+            <Knot reduceMotion={reduceMotion} />
           </Float>
           <Environment preset="city" />
         </Suspense>

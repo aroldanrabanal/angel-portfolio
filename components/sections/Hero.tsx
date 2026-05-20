@@ -100,7 +100,7 @@ export function Hero({ data, reduceMotion, liteMotion }: Props) {
                       alt={hero.name}
                       fill
                       sizes="(max-width: 1024px) 180px, 300px"
-                      className="object-cover"
+                      className="object-cover object-[center_38%] scale-[1.32]"
                       style={{ filter: "contrast(1.05) brightness(0.78) saturate(1.05)" }}
                       priority
                     />

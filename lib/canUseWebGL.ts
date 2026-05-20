@@ -11,10 +11,13 @@ export function canUseWebGL(): boolean {
   try {
     const canvas = document.createElement("canvas");
     const options = { failIfMajorPerformanceCaveat: false } as const;
-    const gl =
-      canvas.getContext("webgl2", options) ??
+    const gl = (canvas.getContext("webgl2", options) ??
       canvas.getContext("webgl", options) ??
-      canvas.getContext("experimental-webgl", options);
+      canvas.getContext("experimental-webgl", options)) as WebGLRenderingContext | null;
+    if (gl) {
+      const ext = gl.getExtension("WEBGL_lose_context");
+      ext?.loseContext();
+    }
     cached = gl != null;
   } catch {
     cached = false;

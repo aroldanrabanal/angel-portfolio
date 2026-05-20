@@ -10,6 +10,8 @@ import {
   type ReactNode,
 } from "react";
 import { Canvas, type RootState } from "@react-three/fiber";
+import { canUseWebGL } from "@/lib/canUseWebGL";
+
 type CanvasProps = ComponentProps<typeof Canvas>;
 
 export type WebGLCanvasProps = Omit<CanvasProps, "children"> & {
@@ -57,7 +59,10 @@ export function WebGLCanvas({
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
-    const id = requestAnimationFrame(() => setReady(true));
+    const id = requestAnimationFrame(() => {
+      if (!canUseWebGL()) setBlocked(true);
+      setReady(true);
+    });
     return () => cancelAnimationFrame(id);
   }, []);
 

@@ -63,8 +63,27 @@ export type PortfolioExperience = {
   period: string;
   description: string;
   tags: string[];
-  /** Optional highlighted label (e.g. current production role) */
+  website?: string;
+  /** Optional highlighted label (e.g. Active, Erasmus+ · Prague) */
   highlightBadge?: string;
+  badgeTone?: "active" | "accent";
+};
+
+export type PortfolioRepoBadge = {
+  type: "live" | "android";
+  url?: string;
+};
+
+export type PortfolioRepo = {
+  id: string;
+  name: string;
+  description: string;
+  repoUrl: string;
+  tags: string[];
+  featured?: boolean;
+  featuredBadge?: string;
+  liveUrl?: string;
+  badges?: PortfolioRepoBadge[];
 };
 
 export type PortfolioEducation = {
@@ -94,11 +113,20 @@ export type PortfolioUiCta = {
   linkedin: string;
 };
 
+export type PortfolioUiFooterSocialAria = {
+  github: string;
+  linkedin: string;
+  email: string;
+  phone: string;
+};
+
 export type PortfolioUiFooter = {
   educationTitle: string;
   languagesTitle: string;
   softSkillsTitle: string;
+  hardSkillsTitle: string;
   availableSuffix: string;
+  socialAria: PortfolioUiFooterSocialAria;
 };
 
 export type PortfolioUiLabels = {
@@ -148,21 +176,19 @@ export type TemplateBlock = {
   indexLabel: string;
 };
 
-export type TemplateService = {
-  id: string;
-  title: string;
-  blurb: string;
-  bullets: string[];
-};
-
-export type TemplateProcessStep = {
-  id: string;
-  title: string;
-  body: string;
+export type TemplateExperience = TemplateBlock & {
+  visitSiteLabel: string;
 };
 
 export type TemplateWorks = TemplateBlock & {
-  intro: string;
+  /** Link text pointing to GitHub profile */
+  subtitle: string;
+  githubButton: string;
+  liveButton: string;
+  liveBadge: string;
+  androidBadge: string;
+  /** Use `{name}` as placeholder for repo name */
+  openRepoAria: string;
   /** Fallback when `project.kind` is missing */
   projectKindFallback: string;
   /** Primary CTA on project cards (links to case study) */
@@ -204,17 +230,78 @@ export type TemplateAboutErasmus = {
 
 export type TemplateAbout = TemplateBlock & {
   body: string[];
+};
+
+export type TemplateSoftSkill = {
+  icon: string;
+  label: string;
+};
+
+export type TemplateHardSkillCategory = {
+  title: string;
+  items: string[];
+};
+
+export type TemplateSkills = TemplateBlock & {
   education: TemplateAboutEducation[];
   erasmus: TemplateAboutErasmus;
   languages: TemplateAboutLanguage[];
+  softSkills: TemplateSoftSkill[];
+  hardSkills: TemplateHardSkillCategory[];
 };
 
-export type TemplateStack = {
-  kicker: string;
-  heading: string;
-  indexLabel: string;
-  intro: string;
-  items: string[];
+export type TemplateTechnologies = TemplateBlock;
+
+export type TemplateContactForm = {
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  messageLabel: string;
+  messagePlaceholder: string;
+  submit: string;
+  sending: string;
+  success: string;
+  error: string;
+};
+
+export type TemplateContact = TemplateBlock & {
+  body: string;
+  availabilityLine: string;
+  linkedinLabel: string;
+  githubDisplay: string;
+  form: TemplateContactForm;
+};
+
+export type TemplateFooterEducation = {
+  title: string;
+  subtitle: string;
+  meta: string;
+  badge?: string;
+};
+
+export type TemplateFooterLanguage = {
+  flag: string;
+  name: string;
+  level: string;
+  subLevel?: string;
+};
+
+export type TemplateFooterLink = {
+  label: string;
+  href: string;
+};
+
+export type TemplateFooter = {
+  identitySubtitle: string;
+  learningNote: string;
+  education: TemplateFooterEducation[];
+  erasmus: { title: string; meta: string };
+  languages: TemplateFooterLanguage[];
+  builtWithPrefix: string;
+  builtWith: TemplateFooterLink[];
+  locationLine: string;
+  copyrightName: string;
 };
 
 export type PortfolioTemplate = {
@@ -227,31 +314,19 @@ export type PortfolioTemplate = {
   nav: { label: string; href: string }[];
   hero: TemplateHero;
   about: TemplateAbout;
-  services: TemplateBlock & { items: TemplateService[] };
+  skills: TemplateSkills;
+  experience: TemplateExperience;
   works: TemplateWorks;
-  process: TemplateBlock & {
-    intro: string;
-    steps: TemplateProcessStep[];
-    experienceStripKicker: string;
-    experienceOngoingSuffix: string;
-  };
-  stack: TemplateStack;
-  cta: TemplateBlock & { body: string };
-  footer: {
-    tagline: string;
-    marqueeItems: string[];
-    columns: {
-      title: string;
-      links: { label: string; href?: string }[];
-    }[];
-    legal: string;
-  };
+  technologies: TemplateTechnologies;
+  cta: TemplateContact;
+  footer: TemplateFooter;
 };
 
 export type Portfolio = {
   personal: PortfolioPersonal;
   about: string;
   projects: PortfolioProject[];
+  repos: PortfolioRepo[];
   experience: PortfolioExperience[];
   education: PortfolioEducation[];
   softSkills: string[];

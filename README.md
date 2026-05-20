@@ -61,7 +61,13 @@ npx vercel link --yes
 npx vercel --prod --yes
 ```
 
-No environment variables are required for the default build. Keep secrets only in **Project → Settings → Environment Variables** — never commit `.env` files (they are gitignored).
+Most of the site needs no env vars. The **contact form** (`/api/contact`, [Resend](https://resend.com)) requires:
+
+| Variable | Where |
+|----------|--------|
+| `RESEND_API_KEY` | `.env.local` for `npm run dev`; Vercel **Project → Settings → Environment Variables** for production |
+
+Copy [`.env.example`](.env.example) to `.env.local` and paste your key. Never commit `.env` files (they are gitignored).
 
 See also [`docs/OTHER-REPOS.md`](docs/OTHER-REPOS.md) for related public projects (TECHNOAPP, A-Saturday-Night-of-Angel, etc.).
 

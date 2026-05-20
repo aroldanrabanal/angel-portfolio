@@ -140,8 +140,8 @@
     },
     {
       "id": "p1",
-      "title": "Este portfolio (código abierto)",
-      "impactContext": "Código abierto — Next.js + R3F + GSAP, desplegado en producción en Vercel",
+      "title": "Este portfolio",
+      "impactContext": "Next.js + R3F + GSAP, desplegado en producción en Vercel",
       "kind": "Web · Next.js · 3D",
       "year": "2025 – 2026",
       "role": "Diseño y desarrollo",
@@ -183,29 +183,82 @@
   ],
   "experience": [
     {
-      "id": 2,
-      "role": "Desarrollador de aplicaciones web",
+      "id": 1,
+      "role": "Desarrollador de Aplicaciones Web",
       "company": "Lanzadera Music",
-      "period": "Ene 2026 – Actualidad",
-      "description": "Desarrollo y mantenimiento de aplicaciones web sobre stacks PHP/SQL/JS. Mejoras de rendimiento en backend, desarrollo de nuevas funcionalidades y correcciones de UX en una plataforma del sector musical en producción.",
-      "tags": ["PHP", "SQL", "JavaScript", "Backend", "UX"],
-      "highlightBadge": "Producción · Industria musical"
+      "period": "Ene 2025 – Ene 2026",
+      "description": "Desarrollé el flujo de creación de lanzamientos — formulario multi-paso con validación dinámica y vista previa en tiempo real — además de paneles de administración y vistas del cliente. Gran cuidado en la experiencia de usuario; optimicé funciones y consultas a la base de datos para reducir tiempos de carga y ganar escalabilidad.",
+      "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "Formularios dinámicos", "Paneles de administración"],
+      "website": "https://www.lanzaderamusic.com"
     },
     {
-      "id": 1,
-      "role": "Desarrollador de software (Erasmus+)",
+      "id": 2,
+      "role": "Desarrollador de Software (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
       "period": "Mar 2026 – May 2026",
-      "description": "Prácticas Erasmus+ en Praga: desarrollo de herramientas internas y para clientes con integración de automatización asistida por IA. Trabajo en modalidad híbrida con equipo internacional.",
-      "tags": ["IA", "Automatización", "Praga", "Híbrido", "Full-Stack"]
+      "description": "Rediseñé dos webs en producción con Next.js desde cero usando flujos asistidos por IA — buinsoft.com e itsalesaas.com. También desarrollé y publiqué la app Android de buinsoft.com en Play Store. Primera app móvil en producción en un entorno internacional, con gran cuidado en la experiencia de usuario en web y móvil.",
+      "tags": ["Next.js", "Android", "Asistido por IA", "TypeScript", "Mobile"],
+      "website": "https://www.buinsoft.com",
+      "highlightBadge": "Erasmus+ · Praga 🌍",
+      "badgeTone": "accent"
     },
     {
       "id": 3,
-      "role": "Desarrollador de aplicaciones web",
+      "role": "Desarrollador de Aplicaciones Web",
       "company": "Central Loyola SAFA",
       "period": "Abr 2023 – Ago 2025",
-      "description": "Desarrollo de soluciones web a medida para proyectos institucionales. Gestión y optimización de bases de datos MySQL, integración frontend/servidor y trabajo con APIs externas (Google, REST).",
-      "tags": ["PHP", "MySQL", "Google APIs", "REST", "Full-Stack"]
+      "website": "https://www.fundacionsafa.es/",
+      "description": "Empecé en prácticas y acabé contratado en el centro. Desarrollé herramientas web internas para todos los centros SAFA de Andalucía — informes, paneles de administración y vistas de gestión — usando APIs externas cuando hacía falta. Prioricé la experiencia de usuario y dejé funciones y acceso a la base de datos lo más eficiente posible: menos tiempos de carga y más escalabilidad.",
+      "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "APIs", "REST"]
+    }
+  ],
+  "repos": [
+    {
+      "id": "angel-portfolio",
+      "name": "angel-portfolio",
+      "description": "Mi portfolio personal — construido con Next.js, R3F y GSAP. El proyecto que estás viendo ahora mismo.",
+      "repoUrl": "https://github.com/aroldanrabanal/angel-portfolio",
+      "tags": ["Next.js", "R3F", "GSAP", "TypeScript"],
+      "featured": true,
+      "featuredBadge": "Lo estás viendo",
+      "liveUrl": "/"
+    },
+    {
+      "id": "campusgo-frontend",
+      "name": "CampusGo",
+      "description": "App de campus multiplataforma — web + Android con Angular e IONIC.",
+      "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
+      "tags": ["Angular", "IONIC", "TypeScript"],
+      "badges": [{ "type": "android" }]
+    },
+    {
+      "id": "campusgo-backend",
+      "name": "CampusGo — Backend",
+      "description": "API REST en Java que alimenta la app CampusGo.",
+      "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
+      "tags": ["Java", "REST API", "Backend"]
+    },
+    {
+      "id": "technoapp",
+      "name": "TECHNOAPP",
+      "description": "App web con Firebase y Next.js. Publicada en Vercel.",
+      "repoUrl": "https://github.com/aroldanrabanal/TECHNOAPP",
+      "tags": ["Next.js", "Firebase", "TypeScript"],
+      "badges": [{ "type": "live", "url": "https://technoapp-red.vercel.app" }]
+    },
+    {
+      "id": "saturday-night",
+      "name": "A Saturday Night of Angel",
+      "description": "Juego 2D en Unity — build jugable disponible en GitHub.",
+      "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
+      "tags": ["Unity", "C#", "2D", "Game"]
+    },
+    {
+      "id": "pymongo",
+      "name": "PyMongo Project",
+      "description": "Proyecto Python + MongoDB explorando gestión de datos NoSQL.",
+      "repoUrl": "https://github.com/aroldanrabanal/pymongoproject",
+      "tags": ["Python", "MongoDB", "NoSQL"]
     }
   ],
   "education": [
@@ -243,10 +296,10 @@
     "sections": [
       { "id": "hero", "label": "Inicio" },
       { "id": "about", "label": "Sobre mí" },
-      { "id": "services", "label": "Capacidades" },
+      { "id": "skills", "label": "Habilidades" },
       { "id": "works", "label": "Trabajos" },
-      { "id": "process", "label": "Proceso" },
-      { "id": "stack", "label": "Stack" },
+      { "id": "technologies", "label": "Tecnologías" },
+      { "id": "experience", "label": "Experiencia" },
       { "id": "contact", "label": "Contacto" }
     ],
     "cta": {
@@ -262,7 +315,14 @@
       "educationTitle": "Formación",
       "languagesTitle": "Idiomas",
       "softSkillsTitle": "Habilidades blandas",
-      "availableSuffix": " · Abierto a nuevas oportunidades"
+      "hardSkillsTitle": "Habilidades técnicas",
+      "availableSuffix": " · Abierto a nuevas oportunidades",
+      "socialAria": {
+        "github": "Perfil de GitHub",
+        "linkedin": "Perfil de LinkedIn",
+        "email": "Enviar correo",
+        "phone": "Llamar por teléfono"
+      }
     },
     "labels": {
       "aboutHeading": "Sobre mí",
@@ -289,9 +349,10 @@
     },
     "nav": [
       { "label": "Sobre mí", "href": "#about" },
-      { "label": "Capacidades", "href": "#services" },
+      { "label": "Habilidades", "href": "#skills" },
       { "label": "Trabajo", "href": "#works" },
-      { "label": "Proceso", "href": "#process" }
+      { "label": "Experiencia", "href": "#experience" },
+      { "label": "Contacto", "href": "#contact" }
     ],
     "hero": {
       "name": "Ángel Roldán Rabanal",
@@ -309,7 +370,12 @@
       "indexLabel": "#2",
       "body": [
         "Soy Ángel, desarrollador multiplataforma de Sevilla. Acabo de terminar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma y llevo desde 2023 trabajando en proyectos reales — desde herramientas institucionales hasta una plataforma musical. Me gusta construir cosas que se usen de verdad. A principios de 2026 hice mis prácticas Erasmus+ en Praga, lo que me enseñó mucho sobre trabajar en un equipo internacional y sobre el desarrollo con IA. Busco un sitio donde seguir creciendo y aportar desde el primer día."
-      ],
+      ]
+    },
+    "skills": {
+      "heading": ["Habilidades y", "Formación"],
+      "kicker": "Habilidades",
+      "indexLabel": "#3",
       "education": [
         {
           "title": "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
@@ -320,17 +386,18 @@
         {
           "title": "Grado Medio en Sistemas Microinformáticos y Redes",
           "school": "SAFA Nuestra Señora de los Reyes",
-          "period": "2022 – 2024"
+          "period": "2022 – 2024",
+          "badge": "Matrícula de honor"
         }
       ],
       "erasmus": {
-        "title": "Prácticas Erasmus+ · Buinsoft Technology · Praga, República Checa · 2026",
+        "title": "Prácticas Erasmus+ · Buinsoft Technology · Praga · 2026",
         "subtitle": "Experiencia internacional en desarrollo con IA"
       },
       "languages": [
         {
           "flag": "ES",
-          "name":  "Español",
+          "name": "Español",
           "badge": "Nativo",
           "levelPercent": 100
         },
@@ -339,58 +406,86 @@
           "name": "Inglés",
           "badge": "B2 — Trinity College Certified",
           "subBadge": "C1 en progreso",
-          "levelPercent": 67
+          "levelPercent": 75
+        }
+      ],
+      "softSkills": [
+        { "icon": "🧩", "label": "Resolución de problemas" },
+        { "icon": "💡", "label": "Creatividad" },
+        { "icon": "🤝", "label": "Trabajo en equipo" },
+        { "icon": "🔄", "label": "Adaptabilidad" },
+        { "icon": "⏱️", "label": "Gestión del tiempo" },
+        { "icon": "✅", "label": "Responsabilidad" },
+        { "icon": "🚀", "label": "Iniciativa" },
+        { "icon": "💬", "label": "Comunicación" }
+      ],
+      "hardSkills": [
+        {
+          "title": "Lenguajes",
+          "items": [
+            "PHP",
+            "Java",
+            "JavaScript",
+            "TypeScript",
+            "Python",
+            "SQL",
+            "HTML",
+            "CSS",
+            "Kotlin",
+            "C#"
+          ]
+        },
+        {
+          "title": "Frameworks y herramientas",
+          "items": [
+            "Angular",
+            "IONIC",
+            "React",
+            "Next.js",
+            "Bootstrap",
+            "Firebase",
+            "Git",
+            "Metronic",
+            "Capacitor",
+            "GSAP",
+            "R3F"
+          ]
+        },
+        {
+          "title": "Bases de datos",
+          "items": ["MySQL", "Oracle", "MariaDB", "SQL Server", "MongoDB"]
+        },
+        {
+          "title": "Otros",
+          "items": [
+            "REST APIs",
+            "Google APIs",
+            "Diseño responsive",
+            "UI/UX básico",
+            "Gestión de servidores",
+            "Automatización con IA",
+            "Desarrollo Android",
+            "Linux"
+          ]
         }
       ]
     },
-    "services": {
-      "heading": ["En lo que", "más trabajo"],
-      "kicker": "Capacidades",
-      "indexLabel": "#3",
-      "items": [
-        {
-          "id": "s1",
-          "title": "Aplicaciones web",
-          "blurb": "PHP y SQL como base, JavaScript donde el navegador lo requiere — CRUD, autenticación, informes y la lógica de negocio que mantiene un producto funcionando.",
-          "bullets": ["Renderizado en servidor", "REST + JSON", "Diseño responsive"]
-        },
-        {
-          "id": "s2",
-          "title": "Móvil e Ionic",
-          "blurb": "Aplicaciones híbridas con Angular y Capacitor — una sola base de código para web y móvil, con soporte offline cuando es necesario.",
-          "bullets": ["IONIC + Angular", "Capacitor", "Flujos offline"]
-        },
-        {
-          "id": "s3",
-          "title": "Backends y APIs",
-          "blurb": "Servicios conectados a MySQL u Oracle con logging, versionado y contratos claros — fáciles de depurar y extender.",
-          "bullets": ["MySQL · Oracle", "Google APIs", "Roles y sesiones"]
-        },
-        {
-          "id": "s4",
-          "title": "Modelado de datos",
-          "blurb": "Esquemas y migraciones que aguantan nuevos requisitos — normalización, optimización de consultas lentas y backfills controlados.",
-          "bullets": ["Normalización", "Optimización de consultas", "Backfills"]
-        },
-        {
-          "id": "s5",
-          "title": "Integraciones",
-          "blurb": "OAuth, webhooks, tareas programadas — código de integración limpio y documentado, pensado para ser retomado meses después.",
-          "bullets": ["Clientes OAuth", "Webhooks", "Tareas programadas"]
-        },
-        {
-          "id": "s6",
-          "title": "Laboratorio front-end",
-          "blurb": "Next.js, animaciones con GSAP y WebGL con React Three Fiber — experimentos que amplían mis habilidades en JS/React junto al trabajo principal en PHP/SQL.",
-          "bullets": ["Next.js / React", "GSAP · R3F", "Tailwind"]
-        }
-      ]
+    "experience": {
+      "heading": ["Dónde he trabajado", "de verdad"],
+      "kicker": "Experiencia",
+      "indexLabel": "#6",
+      "visitSiteLabel": "Visitar web"
     },
     "works": {
-      "heading": ["Repos y", "demos"],
+      "heading": ["Proyectos personales"],
       "kicker": "Proyectos",
       "indexLabel": "#4",
-      "intro": "Proyectos públicos seleccionados: CampusGo (web + Android, pila multiplataforma completa), TECHNOAPP (en vivo en Vercel), A Saturday Night of Angel (Unity 2D) y este portfolio. Pulsa una tarjeta para leer el caso completo; el icono abre el enlace externo. La experiencia laboral está en la siguiente sección.",
+      "subtitle": "Todos los repos públicos en github.com/aroldanrabanal",
+      "githubButton": "GitHub ↗",
+      "liveButton": "Live ↗",
+      "liveBadge": "Live",
+      "androidBadge": "Android",
+      "openRepoAria": "Abrir {name} en GitHub",
       "projectKindFallback": "Proyecto",
       "caseStudyCta": "Ver caso",
       "openDemo": "Abrir demo",
@@ -403,124 +498,73 @@
       "detailKeyDecisionsHeading": "Decisiones clave",
       "detailLinksHeading": "Enlaces"
     },
-    "process": {
-      "heading": ["Cómo", "trabajo"],
-      "kicker": "Proceso",
-      "indexLabel": "#5",
-      "intro": "Hábitos que aplico para mantener la calidad tanto en proyectos del ciclo formativo como en encargos reales y experimentos personales.",
-      "experienceStripKicker": "Experiencia reciente",
-      "experienceOngoingSuffix": "roles activos",
-      "steps": [
-        {
-          "id": "p1",
-          "title": "Entender el sistema",
-          "body": "Antes de cambiar nada, reviso logs, capturas y quién es responsable de cada parte. Entender lo que ya funciona evita romper lo que no hay que tocar."
-        },
-        {
-          "id": "p2",
-          "title": "Cambios pequeños e incrementales",
-          "body": "Commits y PRs revisables — backend y UI en paralelo para evitar bloqueos y facilitar la revisión de código."
-        },
-        {
-          "id": "p3",
-          "title": "Publicar y verificar",
-          "body": "Staging cuando está disponible, copias de seguridad cuando corresponde y una verificación rápida con datos reales antes de cerrar."
-        },
-        {
-          "id": "p4",
-          "title": "Dejar documentación útil",
-          "body": "Fragmentos de README, notas en el ticket, una línea en el changelog — documentación mínima pero suficiente para el siguiente desarrollador."
-        }
-      ]
-    },
-    "stack": {
-      "kicker": "Habilidades técnicas",
-      "heading": "Stack actual",
-      "indexLabel": "#6",
-      "intro": "Lenguajes, frameworks e infraestructura con los que trabajo habitualmente — presentes en proyectos del ciclo, herramientas institucionales, mantenimiento en el sector musical, el sprint Erasmus+ en Praga y este portfolio en Next.js.",
-      "items": [
-        "PHP",
-        "TypeScript",
-        "JavaScript",
-        "Java",
-        "Python",
-        "SQL",
-        "React",
-        "Next.js",
-        "Angular",
-        "IONIC",
-        "Tailwind",
-        "Node.js",
-        "Docker",
-        "Linux",
-        "MySQL",
-        "MariaDB",
-        "Oracle",
-        "REST",
-        "Git",
-        "CI/CD",
-        "Firebase",
-        "GSAP",
-        "R3F",
-        "Kotlin",
-        "Capacitor"
-      ]
+    "technologies": {
+      "heading": ["Tecnologías", "con las que trabajo"],
+      "kicker": "Stack",
+      "indexLabel": "#5"
     },
     "cta": {
-      "heading": ["Hablamos", ""],
+      "heading": ["Hablemos", ""],
       "kicker": "Contacto",
       "indexLabel": "#7",
-      "body": "Si quieres hablar sobre un proyecto, una oportunidad laboral o intercambiar notas sobre tecnología — el correo es la mejor vía. Leo todos los mensajes y respondo con sinceridad."
+      "body": "Estoy buscando mi primer trabajo a jornada completa. Respondo a todos los mensajes, normalmente el mismo día.",
+      "availabilityLine": "Disponible para nuevas oportunidades",
+      "linkedinLabel": "LinkedIn",
+      "githubDisplay": "github.com/aroldanrabanal",
+      "form": {
+        "nameLabel": "Nombre",
+        "namePlaceholder": "Tu nombre",
+        "emailLabel": "Email",
+        "emailPlaceholder": "tu@email.com",
+        "messageLabel": "Mensaje",
+        "messagePlaceholder": "¿En qué puedo ayudarte?",
+        "submit": "Enviar mensaje →",
+        "sending": "Enviando...",
+        "success": "¡Mensaje enviado! Te responderé pronto.",
+        "error": "Algo falló. Prueba a escribirme directamente."
+      }
     },
     "footer": {
-      "tagline": "Portfolio de desarrollador — proyectos reales y experimentos propios",
-      "marqueeItems": [
-        "Sevilla · Erasmus+ Praga 2026",
-        "DAM · Multiplataforma",
-        "Experiencia en producción real",
-        "Disponible para nuevas oportunidades",
-        "Desarrollado desde Sevilla",
-        "Grado Superior DAM · 2026"
-      ],
-      "columns": [
+      "identitySubtitle": "Desarrollador Full-Stack y Multiplataforma — Sevilla, España",
+      "learningNote": "Siempre aprendiendo — explorando el desarrollo con IA",
+      "education": [
         {
-          "title": "Especialidades",
-          "links": [
-            { "label": "Web y PHP" },
-            { "label": "Móvil · Ionic" },
-            { "label": "APIs y datos" },
-            { "label": "Lab · Next.js" },
-            { "label": "Integraciones" }
-          ]
+          "title": "Grado Superior",
+          "subtitle": "Desarrollo de Aplicaciones Multiplataforma",
+          "meta": "SAFA · 2024 – 2026",
+          "badge": "2026"
         },
         {
-          "title": "Enlaces",
-          "links": [
-            { "label": "GitHub", "href": "https://github.com/aroldanrabanal" },
-            { "label": "LinkedIn", "href": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371" },
-            { "label": "Correo", "href": "mailto:angelroldan497@gmail.com" },
-            { "label": "Teléfono", "href": "tel:+34640280151" }
-          ]
-        },
-        {
-          "title": "En esta página",
-          "links": [
-            { "label": "Sobre mí", "href": "#about" },
-            { "label": "Capacidades", "href": "#services" },
-            { "label": "Trabajo", "href": "#works" },
-            { "label": "Contacto", "href": "#contact" }
-          ]
-        },
-        {
-          "title": "Meta",
-          "links": [
-            { "label": "Formación" },
-            { "label": "Idiomas" },
-            { "label": "Hecho con Next.js" }
-          ]
+          "title": "Grado Medio",
+          "subtitle": "Sistemas Microinformáticos y Redes",
+          "meta": "SAFA · 2022 – 2024"
         }
       ],
-      "legal": "Desarrollado con Next.js, React Three Fiber y GSAP — Sevilla · Erasmus+ Praga (2026)."
+      "erasmus": {
+        "title": "Erasmus+ · Praga",
+        "meta": "Buinsoft Technology · 2026"
+      },
+      "languages": [
+        {
+          "flag": "ES",
+          "name": "Español",
+          "level": "Nativo"
+        },
+        {
+          "flag": "EN",
+          "name": "Inglés",
+          "level": "B2 — Trinity College Certified",
+          "subLevel": "C1 en progreso"
+        }
+      ],
+      "builtWithPrefix": "Construido con",
+      "builtWith": [
+        { "label": "Next.js", "href": "https://nextjs.org" },
+        { "label": "R3F", "href": "https://docs.pmnd.rs/react-three-fiber" },
+        { "label": "GSAP", "href": "https://gsap.com" }
+      ],
+      "locationLine": "Sevilla · Erasmus+ Praga 2026",
+      "copyrightName": "© 2026 Ángel Roldán Rabanal"
     }
   }
 }

@@ -1,22 +1,43 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import type { Portfolio, PortfolioProject } from "@/types/portfolio";
+import type { Portfolio, PortfolioRepo, TemplateWorks } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 
 type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 
-const projectKind = (data: Portfolio, project: PortfolioProject) =>
-  project.kind ?? data.template.works.projectKindFallback;
+const cardSurface =
+  "radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.11), transparent 55%), linear-gradient(180deg, var(--violet-deep) 0%, color-mix(in srgb, var(--violet-deep) 72%, black) 100%)";
 
-function primaryExternalHref(project: PortfolioProject): string | undefined {
-  if (project.href) return project.href;
-  const hit = project.links?.find((l) => /^https?:\/\//i.test(l.url));
-  return hit?.url;
+function GitHubIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+    </svg>
+  );
+}
+
+function ExternalArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden className={className}>
+      <path
+        d="M3 11 L11 3 M4 3 H11 V10"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
+
+function limeBadgeClass() {
+  return "border border-[color:var(--lime)]/45 bg-[color:var(--lime)]/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[color:var(--lime)]";
+}
+
+function accentBadgeClass() {
+  return "border border-[color:var(--violet-soft)]/50 bg-[color:var(--violet-soft)]/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[color:var(--violet-soft)]";
 }
 
 export function Works({ data, reduceMotion, liteMotion }: Props) {
@@ -36,7 +57,7 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
         headingTargets,
         liteMotion ? { y: 28, opacity: 0 } : { yPercent: 110, opacity: 0 },
       );
-      gsap.set(".work-card", { opacity: 0, y: 80 });
+      gsap.set(".repo-card", { opacity: 0, y: 60 });
 
       ScrollTrigger.create({
         trigger: root.current!,
@@ -55,8 +76,8 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
                   stagger: { each: 0.02 },
                 },
           ).to(
-            ".work-card",
-            { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" },
+            ".repo-card",
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power3.out" },
             "<0.2",
           );
         },
@@ -67,8 +88,6 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
   }, [reduceMotion, liteMotion]);
 
   const { works } = data.template;
-  const projects = data.projects;
-  const [hero, ...rest] = projects;
 
   return (
     <SectionFrame
@@ -91,20 +110,20 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
                 {works.heading[1]}
               </span>
             </h2>
-            <p className="max-w-md font-mono text-[12px] leading-relaxed text-white/70 lg:col-span-5">
-              {works.intro}
-            </p>
+            <a
+              href={data.personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="max-w-md font-mono text-[12px] leading-relaxed text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline lg:col-span-5"
+            >
+              {works.subtitle} ↗
+            </a>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-            {hero ? (
-              <WorkCardLarge data={data} project={hero} className="lg:col-span-7" />
-            ) : null}
-            <div className="grid grid-cols-1 gap-4 lg:col-span-5 lg:grid-rows-2">
-              {rest.map((p) => (
-                <WorkCardSmall key={p.id} data={data} project={p} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {data.repos.map((repo) => (
+              <RepoCard key={repo.id} repo={repo} works={works} />
+            ))}
           </div>
         </div>
       </div>
@@ -112,194 +131,101 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
   );
 }
 
-function WorkCardLarge({
-  data,
-  project,
-  className = "",
-}: {
-  data: Portfolio;
-  project: PortfolioProject;
-  className?: string;
-}) {
-  const { works } = data.template;
-  const ext = primaryExternalHref(project);
+function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }) {
+  const ariaLabel = works.openRepoAria.replace("{name}", repo.name);
+  const liveBadge = repo.badges?.find((b) => b.type === "live");
+  const androidBadge = repo.badges?.find((b) => b.type === "android");
+  const isExternalLive = repo.liveUrl?.startsWith("http");
 
   return (
-    <div
-      className={`work-card group relative block overflow-hidden border border-white/10 bg-[color:var(--violet-deep)] ${className}`}
+    <article
+      className={`repo-card group relative min-h-[240px] overflow-hidden border transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(138,63,232,0.12)] ${
+        repo.featured
+          ? "border-[color:var(--violet-soft)]/40 hover:border-[color:var(--violet-soft)]/55"
+          : "border-white/10 hover:border-[color:var(--violet-soft)]/35"
+      }`}
     >
-      <Link
-        href={`/proyecto/${project.id}`}
+      <a
+        href={repo.repoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={ariaLabel}
         className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[color:var(--lime)]"
-        aria-label={`${works.caseStudyCta}: ${project.title}`}
       />
 
-      <div className="pointer-events-none relative">
-        <div className="relative aspect-[5/4] w-full overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%)",
-            }}
-          />
-        </div>
+      <div
+        className="pointer-events-none relative flex h-full min-h-[240px] flex-col p-6 sm:p-7"
+        style={{ background: cardSurface }}
+      >
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        />
+        <div
+          aria-hidden
+          className="absolute left-0 top-0 h-0 w-[2px] bg-[color:var(--lime)] transition-[height] duration-300 group-hover:h-full"
+        />
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-6 sm:gap-3 sm:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--lime)]">
-            {projectKind(data, project)}
-          </p>
-          {project.tech?.length ? (
-            <ul className="flex max-w-md flex-wrap gap-1.5" aria-hidden>
-              {project.tech.slice(0, 5).map((t) => (
-                <li
-                  key={t}
-                  className="border border-white/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/85"
+        <div className="flex items-start justify-between gap-3">
+          <span className="inline-flex h-9 w-9 items-center justify-center border border-white/12 bg-white/[0.05] text-white/55 transition-[border-color,color,background-color] duration-300 group-hover:border-white/25 group-hover:bg-white/[0.08] group-hover:text-white/85">
+            <GitHubIcon className="h-4 w-4" />
+          </span>
+          <div className="flex items-start gap-2">
+            <div className="flex flex-wrap justify-end gap-2">
+              {repo.featuredBadge ? (
+                <span className={accentBadgeClass()}>{repo.featuredBadge}</span>
+              ) : null}
+              {androidBadge ? (
+                <span className={limeBadgeClass()}>{works.androidBadge}</span>
+              ) : null}
+              {liveBadge?.url ? (
+                <a
+                  href={liveBadge.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`pointer-events-auto relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  {t}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          <h3 className="font-display text-3xl uppercase leading-[0.95] sm:text-4xl">
-            {project.title}
-          </h3>
-          {project.impactContext ? (
-            <p className="text-sm leading-relaxed text-white/55">{project.impactContext}</p>
-          ) : null}
-          {project.description ? (
-            <p className="max-w-md font-mono text-[12px] leading-relaxed text-white/80">
-              {project.description}
-            </p>
-          ) : null}
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
-            {works.caseStudyCta}
+                  {works.liveBadge} ↗
+                </a>
+              ) : null}
+              {repo.liveUrl ? (
+                <a
+                  href={repo.liveUrl}
+                  {...(isExternalLive
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className={`pointer-events-auto relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {works.liveBadge} ↗
+                </a>
+              ) : null}
+            </div>
+            <ExternalArrow className="mt-0.5 shrink-0 text-white/25 transition-[transform,color] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[color:var(--lime)]" />
+          </div>
+        </div>
+
+        <div className="mt-5 flex flex-1 flex-col">
+          <h4 className="font-display text-xl uppercase leading-[0.95] tracking-tight text-white">
+            {repo.name}
+          </h4>
+          <p className="mt-3 line-clamp-2 font-mono text-[12px] leading-[1.65] text-white/68">
+            {repo.description}
           </p>
         </div>
-      </div>
 
-      {ext ? (
-        <a
-          href={ext}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center bg-[color:var(--lime)] text-[color:var(--ink)] transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          aria-label={works.externalLinkAria}
-        >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path
-              d="M3 11 L11 3 M4 3 H11 V10"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="square"
-            />
-          </svg>
-        </a>
-      ) : null}
-    </div>
-  );
-}
-
-function WorkCardSmall({ data, project }: { data: Portfolio; project: PortfolioProject }) {
-  const { works } = data.template;
-  const ext = primaryExternalHref(project);
-
-  return (
-    <div className="work-card group relative block overflow-hidden border border-white/10 bg-[color:var(--violet-deep)]">
-      <Link
-        href={`/proyecto/${project.id}`}
-        className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[color:var(--lime)]"
-        aria-label={`${works.caseStudyCta}: ${project.title}`}
-      />
-
-      <div className="pointer-events-none relative">
-        <div className="relative aspect-[5/3] w-full overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.55) 100%)",
-            }}
-          />
-        </div>
-
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
-          <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
-              {projectKind(data, project)}
-            </p>
-            {project.tech?.length ? (
-              <ul className="mt-1 flex flex-wrap gap-1" aria-hidden>
-                {project.tech.slice(0, 3).map((t) => (
-                  <li
-                    key={t}
-                    className="border border-white/12 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-white/75"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-            <h4 className="mt-1 font-display text-xl uppercase leading-[0.95]">
-              {project.title}
-            </h4>
-            {project.impactContext ? (
-              <p className="mt-1 text-sm leading-snug text-white/55">{project.impactContext}</p>
-            ) : null}
-            <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">
-              {works.caseStudyCta}
-            </p>
-          </div>
-          {ext ? (
-            <a
-              href={ext}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pointer-events-auto relative z-20 inline-flex h-8 w-8 shrink-0 items-center justify-center border border-white/30 text-white transition-colors hover:bg-white hover:text-[color:var(--ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--lime)]"
-              aria-label={works.externalLinkAria}
+        <ul className="mt-5 flex flex-wrap gap-1.5 border-t border-white/[0.07] pt-4">
+          {repo.tags.map((tag) => (
+            <li
+              key={tag}
+              className="border border-white/12 bg-black/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/58"
             >
-              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>
-                <path
-                  d="M3 11 L11 3 M4 3 H11 V10"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </a>
-          ) : (
-            <span
-              className="inline-flex h-8 w-8 shrink-0 items-center justify-center border border-white/30 text-white opacity-40"
-              aria-hidden
-            >
-              <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M3 11 L11 3 M4 3 H11 V10"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </span>
-          )}
-        </div>
+              {tag}
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </article>
   );
 }
