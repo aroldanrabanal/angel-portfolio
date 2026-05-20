@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -19,10 +20,30 @@ import { TopNav } from "@/components/ui/TopNav";
 import { Footer } from "@/components/sections/Footer";
 import { findProject, getAdjacentProjectIds } from "@/lib/portfolioProject";
 
+const ProjectBackground = dynamic(
+  () => import("@/components/ProjectBackground").then((m) => m.ProjectBackground),
+  { ssr: false },
+);
+
 type Props = { projectId: string; initialData: Portfolio };
 
 const pillClass =
   "rounded-full border border-[color:var(--violet-soft)]/35 bg-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[color:var(--fg)]/80 backdrop-blur-sm";
+
+const projectGlassHeader =
+  "rounded-sm border border-white/[0.06] bg-[color-mix(in_srgb,var(--bg)_40%,transparent)] px-6 py-8 backdrop-blur-[12px] sm:px-8";
+
+const projectGlassSection =
+  "rounded-r-sm border-l-2 border-[color:var(--violet-soft)] bg-[color-mix(in_srgb,var(--bg)_30%,transparent)] py-8 pl-6 pr-6 backdrop-blur-[8px] sm:pl-8 sm:pr-8";
+
+const projectGlassNav =
+  "rounded-sm border border-white/[0.06] bg-[color-mix(in_srgb,var(--bg)_40%,transparent)] px-6 py-8 backdrop-blur-[12px] sm:px-8";
+
+const sectionIndexClass =
+  "pointer-events-none absolute -left-1 -top-2 font-display text-4xl leading-none text-[color:var(--fg)]/15 sm:-left-2 sm:text-5xl lg:text-6xl";
+
+const projectImageGlow =
+  "border-[color:var(--violet-soft)]/35 shadow-[0_0_48px_color-mix(in_srgb,var(--violet-soft)_18%,transparent)]";
 
 function bodyThemeFromAccent(accent: PortfolioProject["accent"]) {
   if (accent === "lime") return "violet-deep";
@@ -78,7 +99,7 @@ function ProjectHero({ project }: { project: PortfolioProject }) {
 
   return (
     <div
-      className={`relative mt-10 overflow-hidden border border-current/10 bg-[color:var(--violet-soft)]/8 ${
+      className={`relative mt-10 overflow-hidden border bg-[color:var(--violet-soft)]/8 ${projectImageGlow} ${
         portrait ? "mx-auto aspect-[9/16] w-full max-w-[320px]" : "aspect-[16/9] w-full"
       }`}
     >
@@ -139,22 +160,35 @@ function ProjectGallery({
 function ProseSection({
   id,
   heading,
+  sectionNumber,
+  glass = false,
   children,
 }: {
   id: string;
   heading: string;
+  sectionNumber?: string;
+  glass?: boolean;
   children: React.ReactNode;
 }) {
+  const sectionClass = glass ? "relative mt-20 md:mt-24" : "mt-16 md:mt-20";
+
   return (
-    <section className="mt-16 md:mt-20" aria-labelledby={id}>
-      <h2
-        id={id}
-        className="font-display text-xl uppercase tracking-wide text-[color:var(--fg)]"
-      >
-        {heading}
-      </h2>
-      <div className="mt-5 max-w-prose font-mono text-[13px] leading-relaxed text-[color:var(--muted)]">
-        {children}
+    <section className={sectionClass} aria-labelledby={id}>
+      <div className={glass ? projectGlassSection : undefined}>
+        {sectionNumber ? (
+          <span aria-hidden className={sectionIndexClass}>
+            {sectionNumber}
+          </span>
+        ) : null}
+        <h2
+          id={id}
+          className={`font-display text-xl uppercase tracking-wide text-[color:var(--fg)] ${glass ? "relative" : ""}`}
+        >
+          {heading}
+        </h2>
+        <div className="mt-5 max-w-prose font-mono text-[13px] leading-relaxed text-[color:var(--muted)]">
+          {children}
+        </div>
       </div>
     </section>
   );
@@ -208,55 +242,68 @@ export function ProjectDetailView({ projectId, initialData }: Props) {
 
   return (
     <LenisProvider disabled={motion.disableScrollSmoothing}>
+      <ProjectBackground reduceMotion={reduceMotion || motion.liteMotion} />
       <BackgroundGrid />
       <TopNav data={data} />
-      <main className="relative z-10 pt-28 md:pt-32">
+      <main className="relative z-[2] bg-transparent pt-28 md:pt-32">
         <article className="mx-auto max-w-[900px] px-4 pb-24 sm:px-8 lg:px-12">
           {/* Section 1 — Header */}
-          <header className="border-b border-current/10 pb-10">
-            <h1 className="font-display text-4xl uppercase leading-[0.95] sm:text-5xl md:text-6xl">
-              {project.title}
-            </h1>
-            <div className="mt-5">
-              <TechPills items={project.tech} />
-            </div>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[color:var(--lime)]">
-              {project.badge}
-            </p>
-            {headerLinks.length > 0 ? (
-              <div className="mt-5 flex flex-wrap gap-2">
-                {headerLinks.map((link) => {
-                  const ext = link.external !== false;
-                  return (
-                    <a
-                      key={link.url + link.label}
-                      href={link.url}
-                      {...(ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-current/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
-                    >
-                      {linkButtonLabel(link, works)}
-                      <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden>
-                        <path
-                          d="M3 11 L11 3 M4 3 H11 V10"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="square"
-                        />
-                      </svg>
-                    </a>
-                  );
-                })}
+          <header>
+            <div className={projectGlassHeader}>
+              <h1 className="font-display text-4xl uppercase leading-[0.95] sm:text-5xl md:text-6xl">
+                {project.title}
+              </h1>
+              <div className="mt-5">
+                <TechPills items={project.tech} />
               </div>
-            ) : null}
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[color:var(--lime)]">
+                {project.badge}
+              </p>
+              {headerLinks.length > 0 ? (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {headerLinks.map((link) => {
+                    const ext = link.external !== false;
+                    return (
+                      <a
+                        key={link.url + link.label}
+                        href={link.url}
+                        {...(ext ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-current/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
+                      >
+                        {linkButtonLabel(link, works)}
+                        <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden>
+                          <path
+                            d="M3 11 L11 3 M4 3 H11 V10"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="square"
+                          />
+                        </svg>
+                      </a>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </div>
           </header>
 
           <ProjectHero project={project} />
 
-          <ProseSection id="project-what-is" heading={works.detailWhatIsHeading}>
+          <ProseSection
+            id="project-what-is"
+            heading={works.detailWhatIsHeading}
+            sectionNumber="01"
+            glass
+          >
             <p>{project.whatIs}</p>
           </ProseSection>
 
-          <ProseSection id="project-what-built" heading={works.detailWhatBuiltHeading}>
+          <ProseSection
+            id="project-what-built"
+            heading={works.detailWhatBuiltHeading}
+            sectionNumber="02"
+            glass
+          >
             <p>{project.whatBuilt}</p>
           </ProseSection>
 
@@ -352,7 +399,12 @@ export function ProjectDetailView({ projectId, initialData }: Props) {
             </section>
           ) : null}
 
-          <ProseSection id="project-key-decisions" heading={works.detailKeyDecisionsHeading}>
+          <ProseSection
+            id="project-key-decisions"
+            heading={works.detailKeyDecisionsHeading}
+            sectionNumber="03"
+            glass
+          >
             <div className="space-y-4">
               {project.keyDecisions.map((para) => (
                 <p key={para.slice(0, 48)}>{para}</p>
@@ -361,51 +413,59 @@ export function ProjectDetailView({ projectId, initialData }: Props) {
           </ProseSection>
 
           {/* Section 5 — Built with */}
-          <section className="mt-16 md:mt-20" aria-labelledby="project-built-with">
-            <h2
-              id="project-built-with"
-              className="font-display text-xl uppercase tracking-wide text-[color:var(--fg)]"
-            >
-              {works.detailBuiltWithHeading}
-            </h2>
-            <div className="mt-5">
-              <TechPills items={project.tech} />
+          <section className="relative mt-20 md:mt-24" aria-labelledby="project-built-with">
+            <div className={projectGlassSection}>
+              <span aria-hidden className={sectionIndexClass}>
+                04
+              </span>
+              <h2
+                id="project-built-with"
+                className="relative font-display text-xl uppercase tracking-wide text-[color:var(--fg)]"
+              >
+                {works.detailBuiltWithHeading}
+              </h2>
+              <div className="mt-5">
+                <TechPills items={project.tech} />
+              </div>
             </div>
           </section>
 
           {/* Section 6 — Navigation */}
-          <nav
-            className="mt-20 flex flex-col gap-6 border-t border-current/10 pt-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between"
-            aria-label="Project navigation"
-          >
-            <div className="flex flex-wrap gap-3">
-              {prevId && prevProject ? (
-                <Link
-                  href={`/proyecto/${prevId}`}
-                  className="inline-flex items-center border border-current/20 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
-                >
-                  ← {works.previousProject}
-                </Link>
-              ) : null}
-              {nextId && nextProject ? (
-                <Link
-                  href={`/proyecto/${nextId}`}
-                  className="inline-flex items-center border border-current/20 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
-                >
-                  {works.nextProject} →
-                </Link>
-              ) : null}
-            </div>
-            <Link
-              href="/#works"
-              className="font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
+          <nav className="mt-20 md:mt-24" aria-label="Project navigation">
+            <div
+              className={`${projectGlassNav} flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between`}
             >
-              {works.backToAllWork}
-            </Link>
+              <div className="flex flex-wrap gap-3">
+                {prevId && prevProject ? (
+                  <Link
+                    href={`/proyecto/${prevId}`}
+                    className="inline-flex items-center border border-current/20 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
+                  >
+                    ← {works.previousProject}
+                  </Link>
+                ) : null}
+                {nextId && nextProject ? (
+                  <Link
+                    href={`/proyecto/${nextId}`}
+                    className="inline-flex items-center border border-current/20 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--fg)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
+                  >
+                    {works.nextProject} →
+                  </Link>
+                ) : null}
+              </div>
+              <Link
+                href="/#works"
+                className="font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--muted)] transition-colors hover:text-[color:var(--fg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--violet-soft)]"
+              >
+                {works.backToAllWork}
+              </Link>
+            </div>
           </nav>
         </article>
       </main>
-      <Footer data={data} />
+      <div className="relative z-[2]">
+        <Footer data={data} />
+      </div>
     </LenisProvider>
   );
 }
