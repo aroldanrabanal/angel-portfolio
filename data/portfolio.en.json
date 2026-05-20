@@ -17,167 +17,177 @@
     {
       "id": "p4",
       "title": "CampusGo",
-      "impactContext": "Full multiplatform delivery — web + Android from a single academic sprint",
-      "kind": "Web + Android · Angular · IONIC · Java",
-      "year": "2025 – 2026",
-      "role": "Full-stack — web and mobile",
-      "description": "Campus management platform built as a multiplatform project: a Next.js/TypeScript web app (CampusGo) and a companion Android app in Java (AppCampusGo). Demonstrates the full DAM stack — web, mobile, and backend in one delivery.",
-      "image": "/images/project-4.svg",
-      "href": "https://github.com/aroldanrabanal/CampusGo",
+      "badge": "Individual project",
+      "image": "/images/campusgo-app.png",
+      "imageLayout": "portrait",
       "accent": "ink",
-      "tech": ["TypeScript", "Next.js", "Angular", "IONIC", "Java", "Android", "MySQL", "REST"],
-      "content": [
-        "CampusGo is a campus management platform delivered as two separate repos: a web front-end in TypeScript/Next.js and a native Android app in Java. The project covers the full scope of Multiplatform Application Development — one data layer, two runtimes.",
-        "The web app handles campus resources, scheduling, and user management via a REST API. The Android companion (AppCampusGo) consumes the same API through a native Java client, giving the same workflows on mobile.",
-        "The project is the clearest example of my DAM specialisation: a shared backend, a browser client, and a mobile client maintained in parallel."
-      ],
-      "highlights": [
-        {
-          "title": "Why it matters",
-          "body": "Shows the full multiplatform triangle: web app, Android app, and shared REST backend — all from a single academic cycle."
-        },
-        {
-          "title": "Stack",
-          "body": "TypeScript + Next.js for web; Java for Android; MySQL + REST for the shared backend."
-        },
-        {
-          "title": "Status",
-          "body": "Completed as a DAM cycle project. Both repositories are public on GitHub."
-        }
-      ],
+      "tech": ["Angular", "IONIC", "Java", "REST API", "TypeScript", "MySQL"],
+      "whatIs": "An individual academic project, but I treated it like a real product. Schools can post, edit and delete events. Students can browse them, subscribe, cancel, and pay for paid events. There is also a social layer, posting photos from past events, liking and commenting, and a ranking of the most popular events. Two roles, teachers and students, each with their own permissions and views.",
+      "whatBuilt": "I built CampusGo as two separate repos: an Angular and IONIC front for web and Android, and a Java backend with a REST API and MySQL. I wired the full event lifecycle on the school side and subscriptions, payments, and cancellations on the student side. I also added the social layer — photo uploads from past events, likes, comments, and a ranking of the most attended events — with separate permissions and views for teachers and students.",
       "keyDecisions": [
-        "Chose IONIC + Angular for a shared codebase across web and Android",
-        "Java backend kept separate to isolate the mobile API surface",
-        "TypeScript throughout to catch contract mismatches early",
-        "REST API as the single contract between web, Android, and backend repos"
+        "Two separate repos, one for the web and mobile front in Angular and IONIC, one for the Java backend. Keeping them separate made it easier to work on both without breaking the other.",
+        "Java for the backend because it was what I knew deepest at the time and I wanted to build something I could trust.",
+        "IONIC let me ship the same codebase to web and Android without maintaining two separate projects."
       ],
       "links": [
-        { "label": "Web repository (CampusGo)", "url": "https://github.com/aroldanrabanal/CampusGo", "external": true },
-        { "label": "Android repository (AppCampusGo)", "url": "https://github.com/aroldanrabanal/AppCampusGo", "external": true }
+        { "label": "GitHub", "url": "https://github.com/aroldanrabanal/CampusGo", "external": true },
+        { "label": "Backend", "url": "https://github.com/aroldanrabanal/AppCampusGo", "external": true }
       ]
     },
     {
       "id": "p2",
-      "title": "TECHNOAPP",
-      "impactContext": "Live on Vercel — Firebase-backed web app, open to real users",
-      "kind": "Web + Android · Next.js · Firebase",
-      "year": "2024 – 2025",
-      "role": "Full-stack and deployment",
-      "description": "Social guide for Prague techno events: events, venues, agenda, profiles, friends, chats, and an admin panel. Next.js 16, Firebase, Resident Advisor scraping, AI classification, and an Android build via Capacitor.",
-      "image": "/images/project-1.png",
-      "href": "https://technoapp-red.vercel.app",
+      "title": "TechnoApp",
+      "badge": "Personal project · In progress",
+      "image": "/images/technoapp-app.png",
       "accent": "cream",
-      "tech": ["Next.js 16", "Firebase", "TypeScript", "Capacitor", "Vercel"],
-      "content": [
-        "TECHNOAPP is a social guide for Prague techno events — public routes for events, calendar, profile, social, and chats, with guarded admin tooling behind the scenes.",
-        "The App Router exposes APIs for events, venues, agenda, attendees, friendships, chats, and scheduled scraping, with demo/mock mode for safer iteration.",
-        "Capacitor scripts support an Android pipeline on top of the web build when a native shell is needed for demos."
-      ],
-      "highlights": [
-        {
-          "title": "Product scope",
-          "body": "Events, venues, agenda, profiles, friends, chats, and admin flows in one codebase."
-        },
-        {
-          "title": "Stack",
-          "body": "Next.js 16, Firebase, Resident Advisor scraping, AI classification, and Capacitor for Android output."
-        },
-        {
-          "title": "Live demo",
-          "body": "Deployed on Vercel — visit technoapp-red.vercel.app to see events, social, and calendar in action."
-        }
-      ],
+      "tech": ["Next.js", "Firebase", "TypeScript", "AI", "Vercel"],
+      "whatIs": "A personal project I built because I wanted it to exist. A web app for techno fans where you can browse events, subscribe to them, and get AI-powered predictions on the music style for each venue that night. It also recommends events based on your preferences, lets you send friend requests and chat in real time. Built with Next.js and Firebase. Deployed on Vercel and still getting updates.",
+      "whatBuilt": "I built the full product in Next.js and Firebase: public routes for events, calendar, profile, social, and real-time chat, plus guarded admin tooling behind the scenes. I exposed APIs for events, venues, agenda, friendships, and chats, and I added an AI layer that reads user preferences and event data to predict the music style for each venue. I deploy on Vercel and keep shipping updates as I refine the experience.",
       "keyDecisions": [
-        "Firebase chosen for zero-infra auth and realtime without a custom backend",
-        "Next.js for SSR and easy Vercel deployment",
-        "TypeScript strict mode to validate Firebase document shapes",
-        "Demo/mock mode on APIs so scraping and admin flows can be tested safely"
+        "Firebase for auth, real-time chat and database without managing a backend myself. It let me focus on the product instead of infrastructure.",
+        "Next.js for fast page loads and easy Vercel deployment. The combination of both meant I could go from idea to deployed in a single day.",
+        "The AI layer was the part I enjoyed building most. It reads user preferences and event data to generate style predictions for each venue. It is the feature that makes the app feel different from a regular event listing."
       ],
       "links": [
-        { "label": "Live demo (Vercel)", "url": "https://technoapp-red.vercel.app", "external": true },
-        { "label": "Repository", "url": "https://github.com/aroldanrabanal/TECHNOAPP", "external": true }
+        { "label": "GitHub", "url": "https://github.com/aroldanrabanal/TECHNOAPP", "external": true },
+        { "label": "Live demo", "url": "https://technoapp-red.vercel.app", "external": true }
       ]
     },
     {
       "id": "p3",
       "title": "A Saturday Night of Angel",
-      "impactContext": "Released Unity 2D game — playable build on GitHub",
-      "kind": "2D game · Unity · C#",
-      "year": "2024 – 2025",
-      "role": "Gameplay and scene work",
-      "description": "Unity 2D platformer in C# with menu and level scenes, movement, double jump, shooting, enemy patrols, health, pickups, and game-over state.",
-      "image": "/images/project-2.svg",
-      "href": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel",
+      "badge": "Team project · Led by me",
+      "image": "/images/saturday-night/hero.webp",
+      "imageLayout": "landscape",
       "accent": "lime",
-      "tech": ["Unity", "C#", "URP 2D", "Git"],
-      "content": [
-        "A complete Unity 2D platformer in C# — menu scene, two gameplay levels, and a full game loop: movement, double jump, shooting, enemy patrols, health, pickups, and game over.",
-        "C# scripts cover movement, shooting, enemies, health, pickups, and moving platforms across MainMenu, Nivel1, and Nivel2.",
-        "The repository is public so reviews can focus on folder structure, naming, and gameplay code clarity."
+      "tech": ["Unity", "C#", "2D", "Pixel Art", "Parallax", "Game Design", "Git"],
+      "whatIs": "A 2D pixel-art platformer with a cyberpunk tone, built with Julián Navas Medina and Jose Antonio Campos Rueda for our Multimedia Programming course (2º DAM, 2025–26). The player fights or dodges enemies across three levels until reaching the bar — the goal. Along the way you pick up health and collectible pills. We organized everything in Unity with Tags and Layers so scripts, physics materials and collisions stayed predictable.",
+      "whatBuilt": "I led the team of three and kept the pieces compatible across MainMenu, three levels and the game-over / win flows. I built Level 2 and the main menu, and wrote the core C# scripts: player movement, double jump, shooting, health and respawn, enemy behaviour, level transitions, parallax scrolling (front, middle, back), DeathZone, camera follow, and life pickups with their HUD container. Julián handled Level 1, moving platforms and collectible logic; Jose Antonio designed the levels, built Level 3, wired menu / game over / end-game flows and added the music and SFX. We used Git from day one so we would not overwrite each other's scenes.",
+      "gallery": [
+        {
+          "src": "/images/saturday-night/mechanics-player.webp",
+          "alt": "Player character animations and movement in A Saturday Night of Angel",
+          "caption": "Player — movement, double jump, shooting and animations tied to each action."
+        },
+        {
+          "src": "/images/saturday-night/mechanics-enemies.webp",
+          "alt": "Enemy sprites and behaviours in the 2D platformer",
+          "caption": "Enemies — patrol, shoot in range, damage the player and react to hits."
+        },
+        {
+          "src": "/images/saturday-night/level-hud.webp",
+          "alt": "Level layout with HUD for health and collectibles",
+          "caption": "Level & HUD — moving platforms, pickups, life UI and parallax background."
+        },
+        {
+          "src": "/images/saturday-night/enemies-highlight.webp",
+          "alt": "Different enemy types including a turret with detection range",
+          "caption": "Enemy variety — blockers, runners and a turret that only fires inside its range."
+        }
       ],
+      "mechanics": [
+        {
+          "title": "Player",
+          "items": [
+            "Horizontal movement, jump and double jump",
+            "Shoot weapon; lose and recover health",
+            "Damage enemies; fall off the map with respawn point",
+            "Pick up collectibles; animations for every action"
+          ]
+        },
+        {
+          "title": "Enemies",
+          "items": [
+            "Horizontal patrol; shoot when the player is in range",
+            "Lose health; damage the player",
+            "Movement animations; turret uses a detection radius so it does not shoot across the whole level"
+          ]
+        },
+        {
+          "title": "Environment",
+          "items": [
+            "Platforms moving horizontally and vertically",
+            "Health pickups (+1 life) and pill collectibles",
+            "Death zone on falls; goal triggers next level or game end",
+            "HUD for life and collectibles; main menu, game over and win screens",
+            "Parallax background in three layers (front, middle, back)"
+          ]
+        }
+      ],
+      "teamRoles": [
+        {
+          "member": "Ángel Roldán Rabanal",
+          "tasks": [
+            "Level 2 and main menu",
+            "Player, enemy, level-change, parallax, DeathZone and camera-follow scripts",
+            "Life items and HUD container"
+          ]
+        },
+        {
+          "member": "Julián Navas Medina",
+          "tasks": [
+            "Level 1",
+            "Moving platform scripts and collectible / heal logic",
+            "Collectibles and their HUD container"
+          ]
+        },
+        {
+          "member": "Jose Antonio Campos Rueda",
+          "tasks": [
+            "Level design across the game",
+            "Level 3",
+            "Main menu actions, game over, end game and in-game flow",
+            "Music and sound effects"
+          ]
+        }
+      ],
+      "challenges": "C# and the Unity editor were new to all of us — prefabs, the Hierarchy, panels for game over, life and collectibles felt opaque at first. Scripts were the hardest part until we understood how Tags, Layers and physics materials connected.",
+      "solutions": "We relied on course documentation and classes, tutorials and AI assistants for basics, and constant knowledge-sharing between the three of us so we learned faster and retained more.",
       "highlights": [
         {
-          "title": "Context",
-          "body": "End-of-cycle game-engine project demonstrating logic, scene management, and version control discipline."
+          "title": "Cyberpunk pixel art",
+          "body": "Retro web-game aesthetic — simple mechanics, strong mood. Not pixel-perfect, but cohesive and fun to play for hours."
         },
         {
-          "title": "Code",
-          "body": "Modular C# scripts where possible, with comments explaining design choices."
+          "title": "Animation & audio",
+          "body": "Character animations match every action. Original music and SFX make a simple game feel alive and much more immersive."
         },
         {
-          "title": "Scope",
-          "body": "Full game loop across two levels: movement, combat, enemies, health system, and pickups."
+          "title": "Enemy design",
+          "body": "Several enemy types block the path, chase platforms or shoot — the turret only fires inside its detection range so it cannot snipe you from the end of the level."
         }
       ],
       "keyDecisions": [
-        "URP 2D for modern lighting without 3D overhead",
-        "C# MonoBehaviour patterns kept flat to ease future scene additions",
-        "Scene-per-level structure (MainMenu, Nivel1, Nivel2) so gameplay modules stay isolated"
+        "Tags and Layers everywhere — player, enemies, pickups and triggers stayed organized so scripts and physics stayed maintainable as scenes grew.",
+        "Pixel art on purpose: limited scope, finished look. We wanted a complete mini-game, not a greyboxed prototype.",
+        "First time leading a trio — coordination cost as much as coding. Git and clear ownership per level/system kept us from breaking each other's work.",
+        "When stuck on Unity or C#, we mixed official material, peer explanation and targeted AI help instead of guessing in isolation."
       ],
       "links": [
-        { "label": "Repository", "url": "https://github.com/aroldanrabanal/A-Saturday-Night-of-Angel", "external": true }
+        { "label": "GitHub", "url": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel", "external": true }
       ]
     },
     {
       "id": "p1",
-      "title": "This portfolio",
-      "impactContext": "Next.js + R3F + GSAP, production deployed on Vercel",
-      "kind": "Web · Next.js · 3D",
-      "year": "2025 – 2026",
-      "role": "Design and development",
-      "description": "The site you are on: Next.js 16, React Three Fiber, GSAP, Lenis, EN/ES i18n. Source on GitHub; deployed on Vercel.",
-      "image": "/images/project-3.png",
-      "href": "https://github.com/aroldanrabanal/angel-portfolio",
-      "accent": "violet",
-      "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber", "Lenis", "EN/ES i18n"],
-      "content": [
-        "This portfolio is a CV and a lab in one: GSAP scroll-linked animations, Lenis smooth-scrolling, and a WebGL scene with React Three Fiber — while keeping the content fast to scan and easy to maintain.",
-        "The stack is Next.js 16 with the App Router: a single landing with anchored sections plus dedicated project pages. Copy lives in typed JSON (English and Spanish) so content updates don't touch component code.",
-        "The repo is public — it shows how I structure styles, sections, and data, and how I document decisions so the project stays readable months later."
-      ],
-      "highlights": [
+      "title": "PyMongo Project",
+      "badge": "Individual project",
+      "image": "/images/pymongo-rankings-home.png",
+      "gallery": [
         {
-          "title": "Goal",
-          "body": "Show real shipping experience and recent experiments with a consistent look, two languages, and frictionless Vercel deploys."
-        },
-        {
-          "title": "Technical challenge",
-          "body": "Balance motion and 3D with sensible first-load behaviour, strict typing, and small, focused components."
-        },
-        {
-          "title": "Status",
-          "body": "Active: new sections, copy passes, and small refactors when time allows."
+          "src": "/images/pymongo-rankings-detail.png",
+          "alt": "Rankings SAFA — game detail page with ratings and community reviews"
         }
       ],
+      "accent": "violet",
+      "tech": ["Python", "MongoDB", "PyMongo", "NoSQL"],
+      "whatIs": "An individual project to learn NoSQL data management. Built a Python app connected to MongoDB using PyMongo. Small scope but it changed how I think about data, understanding when a document model makes more sense than a relational one.",
+      "whatBuilt": "I built a Python app that talks to MongoDB through PyMongo with no ORM in between — just direct queries so I could see exactly what was happening to the data. I designed document shapes without a fixed schema and learned when that trade-off beats a relational model with joins. The scope stayed small on purpose; the payoff was understanding NoSQL from the inside, not shipping a large product.",
       "keyDecisions": [
-        "R3F for WebGL without leaving the React tree",
-        "GSAP ScrollTrigger for scroll-linked animations without fighting React state",
-        "next/image for automatic optimisation of heavy assets",
-        "Typed JSON content (EN/ES) so copy updates never touch component logic"
+        "Choosing MongoDB over a relational database forced me to think differently about data structure. No joins, no fixed schema. It was uncomfortable at first and useful after.",
+        "PyMongo kept things close to the metal. No ORM, just direct queries, which helped me understand what was actually happening with the data."
       ],
       "links": [
-        { "label": "GitHub repository", "url": "https://github.com/aroldanrabanal/angel-portfolio", "external": true },
-        { "label": "Live demo", "url": "https://angel-portfolio-virid.vercel.app", "external": true }
+        { "label": "GitHub", "url": "https://github.com/aroldanrabanal/pymongoproject", "external": true }
       ]
     }
   ],
@@ -228,6 +238,7 @@
       "name": "CampusGo",
       "description": "Multiplatform campus app — web + Android built with Angular and IONIC.",
       "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
+      "caseStudyId": "p4",
       "tags": ["Angular", "IONIC", "TypeScript"],
       "badges": [{ "type": "android" }]
     },
@@ -236,6 +247,7 @@
       "name": "CampusGo — Backend",
       "description": "Java REST API backend powering the CampusGo app.",
       "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
+      "caseStudyId": "p4",
       "tags": ["Java", "REST API", "Backend"]
     },
     {
@@ -243,6 +255,7 @@
       "name": "TECHNOAPP",
       "description": "Firebase-backed web app built with Next.js. Live on Vercel.",
       "repoUrl": "https://github.com/aroldanrabanal/TECHNOAPP",
+      "caseStudyId": "p2",
       "tags": ["Next.js", "Firebase", "TypeScript"],
       "badges": [{ "type": "live", "url": "https://technoapp-red.vercel.app" }]
     },
@@ -251,6 +264,7 @@
       "name": "A Saturday Night of Angel",
       "description": "2D Unity game — playable build available on GitHub.",
       "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
+      "caseStudyId": "p3",
       "tags": ["Unity", "C#", "2D", "Game"]
     },
     {
@@ -258,6 +272,7 @@
       "name": "PyMongo Project",
       "description": "Python + MongoDB project exploring NoSQL data management.",
       "repoUrl": "https://github.com/aroldanrabanal/pymongoproject",
+      "caseStudyId": "p1",
       "tags": ["Python", "MongoDB", "NoSQL"]
     }
   ],
@@ -442,11 +457,20 @@
       "openRepo": "Open repository",
       "backToWorks": "Back to projects",
       "externalLinkAria": "Open project external link",
-      "detailOverviewHeading": "Overview",
-      "detailTechHeading": "Stack & tools",
-      "detailHighlightsHeading": "Deep dive",
+      "detailWhatIsHeading": "What is it",
+      "detailWhatBuiltHeading": "What I built",
+      "detailBuiltWithHeading": "Built with",
       "detailKeyDecisionsHeading": "Key decisions",
-      "detailLinksHeading": "Links"
+      "detailFiguresHeading": "Screenshots",
+      "detailMechanicsHeading": "Mechanics",
+      "detailTeamHeading": "Team & roles",
+      "detailChallengesHeading": "Challenges",
+      "detailSolutionsHeading": "Solutions",
+      "detailHighlightsHeading": "Highlights",
+      "previousProject": "Previous project",
+      "nextProject": "Next project",
+      "backToAllWork": "Back to all work",
+      "openGithub": "GitHub"
     },
     "technologies": {
       "heading": ["Technologies", "I work with"],

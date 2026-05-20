@@ -26,11 +26,11 @@ export async function generateMetadata({
   if (!pEs || !pEn) {
     return { title: "Proyecto — Ángel Roldán Rabanal" };
   }
-  const title = `${pEs.title} · ${pEn.title}`;
-  const description = [pEs.description, pEn.description].filter(Boolean).join(" · ");
+  const locale = await resolveServerLocale();
+  const project = locale === "es" ? pEs : pEn;
   return {
-    title: `${title} — ${dataEs.personal.name}`,
-    description: description.slice(0, 180),
+    title: `${project.title} — ${dataEs.personal.name}`,
+    description: project.whatIs.slice(0, 180),
   };
 }
 

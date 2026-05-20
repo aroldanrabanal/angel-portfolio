@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import type { Portfolio, PortfolioRepo, TemplateWorks } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
@@ -131,30 +132,58 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
   );
 }
 
+function repoCardHref(repo: PortfolioRepo): string {
+  if (repo.caseStudyId) return `/proyecto/${repo.caseStudyId}`;
+  if (repo.liveUrl && !repo.liveUrl.startsWith("http")) return repo.liveUrl;
+  return repo.repoUrl;
+}
+
+function stopCardNavigation(e: React.MouseEvent) {
+  e.stopPropagation();
+}
+
 function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }) {
-  const ariaLabel = works.openRepoAria.replace("{name}", repo.name);
+  const router = useRouter();
+  const githubAria = works.openRepoAria.replace("{name}", repo.name);
+  const caseStudyAria = `${works.caseStudyCta} — ${repo.name}`;
+  const isCaseStudy = Boolean(repo.caseStudyId);
   const liveBadge = repo.badges?.find((b) => b.type === "live");
   const androidBadge = repo.badges?.find((b) => b.type === "android");
   const isExternalLive = repo.liveUrl?.startsWith("http");
 
+  const navigateCard = useCallback(() => {
+    if (repo.caseStudyId) {
+      router.push(`/proyecto/${repo.caseStudyId}`);
+      return;
+    }
+    const fallback = repoCardHref(repo);
+    if (fallback.startsWith("http")) {
+      window.open(fallback, "_blank", "noopener,noreferrer");
+      return;
+    }
+    router.push(fallback);
+  }, [repo, router]);
+
   return (
     <article
-      className={`repo-card group relative min-h-[240px] overflow-hidden border transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(138,63,232,0.12)] ${
+      role="link"
+      tabIndex={0}
+      aria-label={isCaseStudy ? caseStudyAria : githubAria}
+      onClick={navigateCard}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          navigateCard();
+        }
+      }}
+      className={`repo-card group relative min-h-[240px] cursor-pointer overflow-hidden border transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),0_0_0_1px_rgba(138,63,232,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--lime)] ${
         repo.featured
           ? "border-[color:var(--violet-soft)]/40 hover:border-[color:var(--violet-soft)]/55"
           : "border-white/10 hover:border-[color:var(--violet-soft)]/35"
       }`}
     >
-      <a
-        href={repo.repoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={ariaLabel}
-        className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[color:var(--lime)]"
-      />
-
       <div
-        className="pointer-events-none relative flex h-full min-h-[240px] flex-col p-6 sm:p-7"
+        className="relative flex h-full min-h-[240px] flex-col p-6 sm:p-7"
         style={{ background: cardSurface }}
       >
         <div
@@ -167,9 +196,17 @@ function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }
         />
 
         <div className="flex items-start justify-between gap-3">
-          <span className="inline-flex h-9 w-9 items-center justify-center border border-white/12 bg-white/[0.05] text-white/55 transition-[border-color,color,background-color] duration-300 group-hover:border-white/25 group-hover:bg-white/[0.08] group-hover:text-white/85">
+          <a
+            href={repo.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={githubAria}
+            className="relative z-20 inline-flex h-9 w-9 items-center justify-center border border-white/12 bg-white/[0.05] text-white/55 transition-[border-color,color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] hover:text-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color:var(--lime)]"
+            onClick={stopCardNavigation}
+            onMouseDown={stopCardNavigation}
+          >
             <GitHubIcon className="h-4 w-4" />
-          </span>
+          </a>
           <div className="flex items-start gap-2">
             <div className="flex flex-wrap justify-end gap-2">
               {repo.featuredBadge ? (
@@ -183,8 +220,9 @@ function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }
                   href={liveBadge.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`pointer-events-auto relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
-                  onClick={(e) => e.stopPropagation()}
+                  className={`relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
+                  onClick={stopCardNavigation}
+                  onMouseDown={stopCardNavigation}
                 >
                   {works.liveBadge} ↗
                 </a>
@@ -195,8 +233,9 @@ function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }
                   {...(isExternalLive
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className={`pointer-events-auto relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
-                  onClick={(e) => e.stopPropagation()}
+                  className={`relative z-20 ${limeBadgeClass()} transition-colors hover:bg-[color:var(--lime)]/20`}
+                  onClick={stopCardNavigation}
+                  onMouseDown={stopCardNavigation}
                 >
                   {works.liveBadge} ↗
                 </a>

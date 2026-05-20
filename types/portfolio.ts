@@ -32,26 +32,59 @@ export type PortfolioProjectHighlight = {
   body: string;
 };
 
+export type PortfolioProjectGalleryImage = {
+  src: string;
+  alt?: string;
+  caption?: string;
+};
+
+export type PortfolioProjectMechanicsGroup = {
+  title: string;
+  items: string[];
+};
+
+export type PortfolioProjectTeamRole = {
+  member: string;
+  tasks: string[];
+};
+
 export type PortfolioProject = {
   id: string;
   title: string;
-  /** Short impact line shown under the title on cards and case studies */
-  impactContext?: string;
   image: string;
-  description?: string;
-  /** Legacy primary URL; also surfaced as a link if `links` is omitted */
-  href?: string;
-  /** Optional short label shown as overline (e.g. "Web", "Mobile") */
-  kind?: string;
-  /** Optional accent color hint */
-  accent?: "violet" | "cream" | "ink" | "lime";
-  /** Long-form paragraphs for the project detail page */
-  content?: string[];
-  tech?: string[];
-  highlights?: PortfolioProjectHighlight[];
-  /** Architecture / stack decisions for the case study page */
-  keyDecisions?: string[];
+  /** Case study hero framing — portrait for mobile app screenshots */
+  imageLayout?: "landscape" | "portrait";
+  /** Extra screenshots shown below the hero on the case study page */
+  gallery?: PortfolioProjectGalleryImage[];
+  /** Gameplay / design mechanics grouped by area (e.g. player, enemies, level) */
+  mechanics?: PortfolioProjectMechanicsGroup[];
+  /** Team task split for group projects */
+  teamRoles?: PortfolioProjectTeamRole[];
+  /** Challenges faced during the project */
+  challenges?: string;
+  /** How challenges were addressed */
+  solutions?: string;
+  /** Project type badge (e.g. Individual project, Team project · Led by me) */
+  badge: string;
+  /** Case study — What is it */
+  whatIs: string;
+  /** Case study — What I built (first person) */
+  whatBuilt: string;
+  /** Case study — Key decisions (2–3 prose paragraphs) */
+  keyDecisions: string[];
+  /** Stack pills for header and Built with section */
+  tech: string[];
   links?: PortfolioProjectLink[];
+  /** Optional accent color hint for page theme */
+  accent?: "violet" | "cream" | "ink" | "lime";
+  /** @deprecated Legacy fields — not used on case study pages */
+  impactContext?: string;
+  description?: string;
+  href?: string;
+  kind?: string;
+  content?: string[];
+  /** Notable aspects (visual, audio, design) — used on rich case studies */
+  highlights?: PortfolioProjectHighlight[];
   year?: string;
   role?: string;
 };
@@ -80,6 +113,8 @@ export type PortfolioRepo = {
   description: string;
   repoUrl: string;
   tags: string[];
+  /** Case study page id — main card links to `/proyecto/[caseStudyId]` */
+  caseStudyId?: string;
   featured?: boolean;
   featuredBadge?: string;
   liveUrl?: string;
@@ -200,11 +235,24 @@ export type TemplateWorks = TemplateBlock & {
   /** Screen reader / title for external shortcut on cards */
   externalLinkAria: string;
   /** Project detail page section headings */
-  detailOverviewHeading: string;
-  detailTechHeading: string;
-  detailHighlightsHeading: string;
+  detailWhatIsHeading: string;
+  detailWhatBuiltHeading: string;
+  detailBuiltWithHeading: string;
   detailKeyDecisionsHeading: string;
-  detailLinksHeading: string;
+  detailFiguresHeading: string;
+  detailMechanicsHeading: string;
+  detailTeamHeading: string;
+  detailChallengesHeading: string;
+  detailSolutionsHeading: string;
+  detailHighlightsHeading: string;
+  previousProject: string;
+  nextProject: string;
+  backToAllWork: string;
+  openGithub: string;
+  /** @deprecated Legacy detail headings */
+  detailOverviewHeading?: string;
+  detailTechHeading?: string;
+  detailLinksHeading?: string;
 };
 
 export type TemplateAboutEducation = {
