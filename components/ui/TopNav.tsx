@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useReducedMotion } from "framer-motion";
 import type { Portfolio } from "@/types/portfolio";
 import { Monogram } from "@/components/ui/Monogram";
 import { useLocale } from "@/components/i18n/LocaleProvider";
@@ -16,6 +17,10 @@ export function TopNav({ data }: Props) {
   const isHome = pathname === "/";
   const { locale, setLocale } = useLocale();
   const lt = data.ui.languageToggle;
+  const aria = data.ui.aria;
+  const menuId = useId();
+  const reduceMotion = useReducedMotion();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"ink" | "violet" | "cream" | "violet-deep">(
     "ink",
   );
@@ -35,12 +40,33 @@ export function TopNav({ data }: Props) {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
+
   const onLight = theme === "cream";
   const fg = onLight ? "var(--ink)" : "#fff";
   const borderColor = onLight ? "rgba(10,10,15,0.12)" : "rgba(255,255,255,0.12)";
   const navBg = onLight
     ? "color-mix(in srgb, var(--cream) 65%, transparent)"
     : "color-mix(in srgb, var(--ink) 50%, transparent)";
+  const panelBg = onLight
+    ? "color-mix(in srgb, var(--cream) 92%, transparent)"
+    : "color-mix(in srgb, var(--ink) 88%, transparent)";
+  const overlayBg = onLight ? "rgba(10,10,15,0.35)" : "rgba(0,0,0,0.55)";
 
   const scrollTo = useSmoothScrollTo();
 
@@ -52,6 +78,18 @@ export function TopNav({ data }: Props) {
     scrollTo(href);
   };
 
+  const onNavLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    onHashClick(e, href);
+    setMenuOpen(false);
+  };
+
+  const motionClass = reduceMotion
+    ? ""
+    : "transition-opacity duration-300 ease-out";
+
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 transition-colors duration-500"
@@ -60,7 +98,7 @@ export function TopNav({ data }: Props) {
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-10">
         <a
           href={hashHref("#hero")}
-          onClick={(e) => onHashClick(e, "#hero")}
+          onClick={(e) => onNavLinkClick(e, "#hero")}
           className="group flex items-center gap-2"
           aria-label={data.template.brand.name}
         >
@@ -78,12 +116,13 @@ export function TopNav({ data }: Props) {
             background: navBg,
             border: `1px solid ${borderColor}`,
           }}
+          aria-label={aria.mobileNavLabel}
         >
           {data.template.nav.map((item) => (
             <a
               key={item.href}
               href={hashHref(item.href)}
-              onClick={(e) => onHashClick(e, item.href)}
+              onClick={(e) => onNavLinkClick(e, item.href)}
               className="rounded-full px-4 py-2 font-mono text-[12px] uppercase tracking-[0.18em] transition-colors hover:bg-current/10"
               style={{ color: fg }}
             >
@@ -93,6 +132,56 @@ export function TopNav({ data }: Props) {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md md:hidden"
+            style={{ borderColor, background: navBg, color: fg }}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            aria-label={menuOpen ? aria.closeMenu : aria.openMenu}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden
+              className={reduceMotion ? "" : "transition-transform duration-300"}
+              style={{ transform: menuOpen ? "rotate(90deg)" : undefined }}
+            >
+              {menuOpen ? (
+                <path
+                  d="M5 5 L15 15 M15 5 L5 15"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="square"
+                />
+              ) : (
+                <>
+                  <path
+                    d="M3 6 H17"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="square"
+                  />
+                  <path
+                    d="M3 10 H17"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="square"
+                  />
+                  <path
+                    d="M3 14 H17"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="square"
+                  />
+                </>
+              )}
+            </svg>
+          </button>
+
           <div
             role="group"
             aria-label={lt.groupAriaLabel}
@@ -129,10 +218,10 @@ export function TopNav({ data }: Props) {
 
           <a
             href={hashHref("#contact")}
-            onClick={(e) => onHashClick(e, "#contact")}
+            onClick={(e) => onNavLinkClick(e, "#contact")}
             className="group inline-flex h-11 w-11 items-center justify-center transition-transform hover:scale-105 sm:h-12 sm:w-12"
             style={{ background: "var(--violet-soft)", color: "#fff" }}
-            aria-label={data.ui.aria.contactButton}
+            aria-label={aria.contactButton}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path
@@ -146,23 +235,51 @@ export function TopNav({ data }: Props) {
         </div>
       </div>
 
-      {/* Mobile nav drawer trigger replaced by simple inline links under the bar on small screens */}
-      <nav
-        className="flex items-center justify-center gap-1 px-4 pb-3 md:hidden"
-        style={{ color: fg }}
-      >
-        {data.template.nav.map((item) => (
-          <a
-            key={item.href}
-            href={hashHref(item.href)}
-            onClick={(e) => onHashClick(e, item.href)}
-            className="rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em]"
-            style={{ borderColor }}
+      {menuOpen ? (
+        <>
+          <button
+            type="button"
+            className={`fixed inset-0 top-16 z-40 sm:top-20 md:hidden ${motionClass}`}
+            style={{
+              background: overlayBg,
+              opacity: menuOpen ? 1 : 0,
+            }}
+            aria-label={aria.closeMenu}
+            onClick={() => setMenuOpen(false)}
+          />
+          <nav
+            id={menuId}
+            aria-label={aria.mobileNavLabel}
+            className={`fixed inset-x-0 top-16 z-[45] border-b px-4 py-6 backdrop-blur-xl sm:top-20 sm:px-6 md:hidden ${motionClass}`}
+            style={{
+              background: panelBg,
+              borderColor,
+              color: fg,
+            }}
           >
-            {item.label}
-          </a>
-        ))}
-      </nav>
+            <ul className="mx-auto flex max-w-[1600px] flex-col gap-1">
+              {data.template.nav.map((item, index) => (
+                <li key={item.href}>
+                  <a
+                    href={hashHref(item.href)}
+                    onClick={(e) => onNavLinkClick(e, item.href)}
+                    className="flex min-h-12 items-center justify-between rounded-xl border px-4 py-3 font-mono text-[13px] uppercase tracking-[0.2em] transition-colors hover:bg-current/8 sm:min-h-14 sm:text-[14px]"
+                    style={{ borderColor }}
+                  >
+                    <span>{item.label}</span>
+                    <span
+                      className="text-[11px] tracking-[0.14em] opacity-50"
+                      aria-hidden
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </>
+      ) : null}
     </header>
   );
 }

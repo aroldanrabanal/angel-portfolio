@@ -7,6 +7,10 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { TechCarouselStaticGrid } from "@/components/canvas/TechCarouselStaticGrid";
+import {
+  preloadTechCarouselChunk,
+  preloadTechCarouselIcons,
+} from "@/lib/techCarouselPreload";
 
 const TechCarouselCanvas = dynamic(
   () =>
@@ -26,14 +30,30 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
   const useStatic = reduceMotion || liteMotion;
 
   useEffect(() => {
+    if (useStatic) return;
+    preloadTechCarouselChunk();
+    void preloadTechCarouselIcons();
+  }, [useStatic]);
+
+  useEffect(() => {
     const node = root.current;
     if (!node) return;
 
+    const updateInView = (intersecting: boolean) => {
+      setInView(intersecting);
+    };
+
     const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry?.isIntersecting ?? false),
-      { rootMargin: "200px 0px", threshold: 0.05 },
+      ([entry]) => updateInView(entry?.isIntersecting ?? false),
+      { rootMargin: "280px 0px", threshold: 0.01 },
     );
     observer.observe(node);
+
+    const rect = node.getBoundingClientRect();
+    const nearViewport =
+      rect.top < window.innerHeight + 280 && rect.bottom > -280;
+    if (nearViewport) updateInView(true);
+
     return () => observer.disconnect();
   }, []);
 
@@ -102,10 +122,8 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
           <div className="tech-canvas-wrap">
             {useStatic ? (
               <TechCarouselStaticGrid />
-            ) : inView ? (
-              <TechCarouselCanvas active={inView} />
             ) : (
-              <div className="min-h-[500px] w-full" aria-hidden />
+              <TechCarouselCanvas active={inView} />
             )}
           </div>
         </div>

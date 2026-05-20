@@ -330,7 +330,10 @@
       "contactHeading": "Contacto"
     },
     "aria": {
-      "contactButton": "Ir a la sección de contacto"
+      "contactButton": "Ir a la sección de contacto",
+      "openMenu": "Abrir menú de navegación",
+      "closeMenu": "Cerrar menú de navegación",
+      "mobileNavLabel": "Navegación principal"
     },
     "languageToggle": {
       "groupAriaLabel": "Idioma del sitio",

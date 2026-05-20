@@ -27,7 +27,7 @@ export function TechCarouselCanvas({ active, className = "" }: Props) {
           style={{ background: "transparent", touchAction: "none" }}
           className="!h-full !w-full"
         >
-          <Suspense fallback={null}>
+          <Suspense fallback={<TechCarouselStaticGrid className="absolute inset-0" />}>
             <TechCarouselScene active={active} />
           </Suspense>
         </WebGLCanvas>

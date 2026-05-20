@@ -15,6 +15,12 @@ const AUTO_ROTATE_Y = 0.003;
 const SPHERE_RADIUS = 2.35;
 const DAMPING = 0.04;
 
+const ITEMS_WITH_ICONS = TECH_CAROUSEL_ITEMS.filter(
+  (item): item is TechCarouselItem & { icon: string } => Boolean(item.icon),
+);
+
+const TECH_ICON_URLS = ITEMS_WITH_ICONS.map((item) => deviconUrl(item.icon));
+
 class TextureErrorBoundary extends Component<
   { fallback: ReactNode; children: ReactNode },
   { hasError: boolean }
@@ -45,7 +51,35 @@ type CarouselState = {
   lastY: number;
 };
 
-function TechBadge({ item, position }: { item: TechCarouselItem; position: [number, number, number] }) {
+function buildTextureMap(textures: THREE.Texture[]): Map<string, THREE.Texture> {
+  const map = new Map<string, THREE.Texture>();
+  ITEMS_WITH_ICONS.forEach((item, index) => {
+    const texture = textures[index];
+    if (texture) map.set(item.icon, texture);
+  });
+  return map;
+}
+
+function TechCarouselTextures({
+  children,
+}: {
+  children: (textureMap: Map<string, THREE.Texture>) => ReactNode;
+}) {
+  const textures = useTexture(TECH_ICON_URLS) as THREE.Texture[];
+  const textureMap = useMemo(() => buildTextureMap(textures), [textures]);
+
+  return <>{children(textureMap)}</>;
+}
+
+function TechBadge({
+  item,
+  position,
+  textureMap,
+}: {
+  item: TechCarouselItem;
+  position: [number, number, number];
+  textureMap: Map<string, THREE.Texture>;
+}) {
   return (
     <Billboard position={position} follow>
       <group>
@@ -67,11 +101,9 @@ function TechBadge({ item, position }: { item: TechCarouselItem; position: [numb
             depthWrite={false}
           />
         </mesh>
-        <Suspense fallback={<BadgeFallbackLabel item={item} y={0.1} />}>
-          <TextureErrorBoundary fallback={<BadgeFallbackLabel item={item} y={0.1} />}>
-            <BadgeLogo item={item} />
-          </TextureErrorBoundary>
-        </Suspense>
+        <TextureErrorBoundary fallback={<BadgeFallbackLabel item={item} y={0.1} />}>
+          <BadgeLogo item={item} textureMap={textureMap} />
+        </TextureErrorBoundary>
         <Text
           position={[0, -0.28, 0.03]}
           fontSize={0.085}
@@ -96,13 +128,21 @@ function BadgeFallbackLabel({ item, y }: { item: TechCarouselItem; y: number }) 
   );
 }
 
-function BadgeLogoWithIcon({ icon }: { icon: string }) {
-  const texture = useTexture(deviconUrl(icon));
-  const map = useMemo(() => {
-    const cloned = texture.clone();
-    cloned.colorSpace = THREE.SRGBColorSpace;
-    return cloned;
-  }, [texture]);
+function BadgeLogo({
+  item,
+  textureMap,
+}: {
+  item: TechCarouselItem;
+  textureMap: Map<string, THREE.Texture>;
+}) {
+  if (!item.icon) {
+    return <BadgeFallbackLabel item={item} y={0.1} />;
+  }
+
+  const map = textureMap.get(item.icon);
+  if (!map) {
+    return <BadgeFallbackLabel item={item} y={0.1} />;
+  }
 
   return (
     <mesh position={[0, 0.1, 0.02]} renderOrder={1}>
@@ -118,15 +158,13 @@ function BadgeLogoWithIcon({ icon }: { icon: string }) {
   );
 }
 
-function BadgeLogo({ item }: { item: TechCarouselItem }) {
-  if (!item.icon) {
-    return <BadgeFallbackLabel item={item} y={0.1} />;
-  }
-
-  return <BadgeLogoWithIcon icon={item.icon} />;
-}
-
-function TechSphere({ active }: { active: boolean }) {
+function TechSphere({
+  active,
+  textureMap,
+}: {
+  active: boolean;
+  textureMap: Map<string, THREE.Texture>;
+}) {
   const groupRef = useRef<THREE.Group>(null);
   const state = useRef<CarouselState>({
     rotY: 0,
@@ -208,7 +246,12 @@ function TechSphere({ active }: { active: boolean }) {
 
       <group ref={groupRef}>
         {TECH_CAROUSEL_ITEMS.map((item, i) => (
-          <TechBadge key={item.name} item={item} position={positions[i]!} />
+          <TechBadge
+            key={item.name}
+            item={item}
+            position={positions[i]!}
+            textureMap={textureMap}
+          />
         ))}
       </group>
     </>
@@ -223,7 +266,9 @@ export function TechCarouselScene({ active }: SceneProps) {
       <directionalLight position={[-4, -2, -3]} intensity={0.45} color="#7c2fe8" />
       <pointLight position={[0, 0, 3]} intensity={0.35} color="#d6ff3e" />
       <Suspense fallback={null}>
-        <TechSphere active={active} />
+        <TechCarouselTextures>
+          {(textureMap) => <TechSphere active={active} textureMap={textureMap} />}
+        </TechCarouselTextures>
       </Suspense>
     </>
   );

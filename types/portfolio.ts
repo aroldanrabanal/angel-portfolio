@@ -137,6 +137,9 @@ export type PortfolioUiLabels = {
 
 export type PortfolioUiAria = {
   contactButton: string;
+  openMenu: string;
+  closeMenu: string;
+  mobileNavLabel: string;
 };
 
 export type PortfolioUiLanguageToggle = {
