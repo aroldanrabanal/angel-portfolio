@@ -314,8 +314,6 @@
     "footer": {
       "educationTitle": "Education",
       "languagesTitle": "Languages",
-      "softSkillsTitle": "Soft Skills",
-      "hardSkillsTitle": "Hard Skills",
       "availableSuffix": " · Open to interesting conversations",
       "socialAria": {
         "github": "GitHub profile",
@@ -409,66 +407,15 @@
           "levelPercent": 75
         }
       ],
-      "softSkills": [
-        { "icon": "🧩", "label": "Problem Solving" },
-        { "icon": "💡", "label": "Creativity" },
-        { "icon": "🤝", "label": "Teamwork" },
-        { "icon": "🔄", "label": "Adaptability" },
-        { "icon": "⏱️", "label": "Time Management" },
-        { "icon": "✅", "label": "Responsibility" },
-        { "icon": "🚀", "label": "Initiative" },
-        { "icon": "💬", "label": "Communication" }
-      ],
-      "hardSkills": [
-        {
-          "title": "Languages",
-          "items": [
-            "PHP",
-            "Java",
-            "JavaScript",
-            "TypeScript",
-            "Python",
-            "SQL",
-            "HTML",
-            "CSS",
-            "Kotlin",
-            "C#"
-          ]
-        },
-        {
-          "title": "Frameworks & Tools",
-          "items": [
-            "Angular",
-            "IONIC",
-            "React",
-            "Next.js",
-            "Bootstrap",
-            "Firebase",
-            "Git",
-            "Metronic",
-            "Capacitor",
-            "GSAP",
-            "R3F"
-          ]
-        },
-        {
-          "title": "Databases",
-          "items": ["MySQL", "Oracle", "MariaDB", "SQL Server", "MongoDB"]
-        },
-        {
-          "title": "Other",
-          "items": [
-            "REST APIs",
-            "Google APIs",
-            "Responsive Design",
-            "UI/UX Basics",
-            "Server Management",
-            "AI Automation",
-            "Android Development",
-            "Linux"
-          ]
-        }
-      ]
+      "teamBring": {
+        "title": "What I bring to a team",
+        "items": [
+          "I'm comfortable leading and being led. I've worked in real teams where both happened in the same week.",
+          "Java is my strongest language. It's where I've gone deepest and where I feel most confident solving complex problems.",
+          "When I joined my first real project at SAFA I had to pick things up fast with no handover. I did, and I stayed three years.",
+          "What drives me is working on hard things. A complex problem gives me more energy than an easy task."
+        ]
+      }
     },
     "experience": {
       "heading": ["Where I've shipped", "real work"],

@@ -314,8 +314,6 @@
     "footer": {
       "educationTitle": "Formación",
       "languagesTitle": "Idiomas",
-      "softSkillsTitle": "Habilidades blandas",
-      "hardSkillsTitle": "Habilidades técnicas",
       "availableSuffix": " · Abierto a nuevas oportunidades",
       "socialAria": {
         "github": "Perfil de GitHub",
@@ -409,66 +407,15 @@
           "levelPercent": 75
         }
       ],
-      "softSkills": [
-        { "icon": "🧩", "label": "Resolución de problemas" },
-        { "icon": "💡", "label": "Creatividad" },
-        { "icon": "🤝", "label": "Trabajo en equipo" },
-        { "icon": "🔄", "label": "Adaptabilidad" },
-        { "icon": "⏱️", "label": "Gestión del tiempo" },
-        { "icon": "✅", "label": "Responsabilidad" },
-        { "icon": "🚀", "label": "Iniciativa" },
-        { "icon": "💬", "label": "Comunicación" }
-      ],
-      "hardSkills": [
-        {
-          "title": "Lenguajes",
-          "items": [
-            "PHP",
-            "Java",
-            "JavaScript",
-            "TypeScript",
-            "Python",
-            "SQL",
-            "HTML",
-            "CSS",
-            "Kotlin",
-            "C#"
-          ]
-        },
-        {
-          "title": "Frameworks y herramientas",
-          "items": [
-            "Angular",
-            "IONIC",
-            "React",
-            "Next.js",
-            "Bootstrap",
-            "Firebase",
-            "Git",
-            "Metronic",
-            "Capacitor",
-            "GSAP",
-            "R3F"
-          ]
-        },
-        {
-          "title": "Bases de datos",
-          "items": ["MySQL", "Oracle", "MariaDB", "SQL Server", "MongoDB"]
-        },
-        {
-          "title": "Otros",
-          "items": [
-            "REST APIs",
-            "Google APIs",
-            "Diseño responsive",
-            "UI/UX básico",
-            "Gestión de servidores",
-            "Automatización con IA",
-            "Desarrollo Android",
-            "Linux"
-          ]
-        }
-      ]
+      "teamBring": {
+        "title": "Lo que aporto a un equipo",
+        "items": [
+          "Me siento igual de cómodo liderando que recibiendo órdenes. He trabajado en equipos reales donde las dos cosas pasaban en la misma semana.",
+          "Java es el lenguaje en el que más he profundizado y donde me siento más seguro resolviendo problemas complejos.",
+          "Cuando entré en mi primer proyecto real en SAFA tuve que ponerme al día solo y rápido, sin nadie que me explicara nada. Lo hice, y estuve tres años.",
+          "Lo que me mueve es trabajar en cosas difíciles. Un problema complejo me da más energía que una tarea fácil."
+        ]
+      }
     },
     "experience": {
       "heading": ["Dónde he trabajado", "de verdad"],

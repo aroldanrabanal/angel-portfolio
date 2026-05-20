@@ -123,8 +123,6 @@ export type PortfolioUiFooterSocialAria = {
 export type PortfolioUiFooter = {
   educationTitle: string;
   languagesTitle: string;
-  softSkillsTitle: string;
-  hardSkillsTitle: string;
   availableSuffix: string;
   socialAria: PortfolioUiFooterSocialAria;
 };
@@ -232,22 +230,16 @@ export type TemplateAbout = TemplateBlock & {
   body: string[];
 };
 
-export type TemplateSoftSkill = {
-  icon: string;
-  label: string;
-};
-
-export type TemplateHardSkillCategory = {
+export type TemplateTeamBring = {
   title: string;
-  items: string[];
+  items: [string, string, string, string];
 };
 
 export type TemplateSkills = TemplateBlock & {
   education: TemplateAboutEducation[];
   erasmus: TemplateAboutErasmus;
   languages: TemplateAboutLanguage[];
-  softSkills: TemplateSoftSkill[];
-  hardSkills: TemplateHardSkillCategory[];
+  teamBring: TemplateTeamBring;
 };
 
 export type TemplateTechnologies = TemplateBlock;

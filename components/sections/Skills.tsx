@@ -11,9 +11,6 @@ type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
 const illuminateCard =
   "skills-block group relative overflow-hidden border bg-white/[0.03] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[color:var(--lime)]/45 hover:bg-[color:var(--lime)]/[0.04] hover:shadow-[0_0_28px_rgba(214,255,62,0.12),0_0_48px_rgba(110,34,214,0.06)]";
 
-const illuminatePill =
-  "skills-block group relative overflow-hidden rounded-full border border-[color:var(--violet-soft)]/35 bg-white/5 font-mono uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm transition-[border-color,box-shadow,background-color,color] duration-300 hover:border-[color:var(--lime)]/50 hover:bg-[color:var(--lime)]/10 hover:text-[color:var(--lime)] hover:shadow-[0_0_18px_rgba(214,255,62,0.18)]";
-
 function IlluminateOverlay() {
   return (
     <span
@@ -211,49 +208,29 @@ export function Skills({ data, reduceMotion, liteMotion }: Props) {
               </div>
             </div>
 
-            {/* Soft + Hard skills — two columns */}
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 lg:items-start">
-              <div className="space-y-4">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  {uiFooter.softSkillsTitle}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {skills.softSkills.map((skill) => (
+            {/* What I bring to a team */}
+            <div className="space-y-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                {skills.teamBring.title}
+              </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6">
+                {skills.teamBring.items.map((text, i) => (
+                  <div
+                    key={i}
+                    className={`${illuminateCard} min-h-[8.5rem] border-[color:var(--violet-soft)]/50 p-5 sm:min-h-[9rem] sm:p-6`}
+                  >
+                    <IlluminateOverlay />
                     <span
-                      key={skill.label}
-                      className={`${illuminatePill} px-3 py-1.5 text-[10px]`}
+                      aria-hidden
+                      className="pointer-events-none absolute bottom-2 right-3 font-display text-5xl leading-none text-white/10 select-none sm:text-6xl lg:text-7xl"
                     >
-                      <IlluminateOverlay />
-                      <span className="relative">{skill.label}</span>
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
-                  {uiFooter.hardSkillsTitle}
-                </p>
-                <div className="space-y-5">
-                  {skills.hardSkills.map((category) => (
-                    <div key={category.title} className="space-y-2.5">
-                      <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
-                        {category.title}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {category.items.map((item) => (
-                          <span
-                            key={item}
-                            className={`${illuminatePill} px-2.5 py-1 text-[9px] tracking-[0.16em]`}
-                          >
-                            <IlluminateOverlay />
-                            <span className="relative">{item}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    <p className="relative z-10 text-sm leading-relaxed text-white sm:text-[15px]">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
