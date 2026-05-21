@@ -2,7 +2,7 @@
   "personal": {
     "name": "Ángel Roldán Rabanal",
     "title": "Desarrollador de Aplicaciones Multiplataforma",
-    "tagline": "Desarrollador multiplataforma con experiencia real — PHP, SQL y JavaScript en el día a día; Next.js en los experimentos. Grado Superior DAM finalizado en mayo de 2026. Erasmus+ en Praga (Buinsoft) como último tramo formativo. Siempre aprendiendo.",
+    "tagline": "Desarrollador multiplataforma con experiencia real, PHP, SQL y JavaScript en el día a día; Next.js en los experimentos. Grado Superior DAM finalizado en mayo de 2026. Erasmus+ en Praga (Buinsoft) como último tramo formativo. Siempre aprendiendo.",
     "location": "Sevilla, España",
     "phone": "+34 640 280 151",
     "email": "angelroldan497@gmail.com",
@@ -12,7 +12,7 @@
     "closing": "Carnet de conducir · disponible para desplazamientos.",
     "portrait": "/images/IMG-20260514-WA0024.webp"
   },
-  "about": "Desarrollador de aplicaciones multiplataforma con experiencia en entornos reales de producción — terminé el Grado Superior en Desarrollo de Aplicaciones Multiplataforma en SAFA en mayo de 2026. He trabajado en stacks PHP/SQL/JS para proyectos institucionales y del sector musical, y completé un Erasmus+ en Praga (Buinsoft) integrando flujos asistidos por IA. Me interesa construir software que sea fácil de mantener: backends razonables, frontends que no peleen con el usuario e integraciones que se puedan retomar meses después.",
+  "about": "Desarrollador de aplicaciones multiplataforma con experiencia en entornos reales de producción, terminé el Grado Superior en Desarrollo de Aplicaciones Multiplataforma en SAFA en mayo de 2026. He trabajado en stacks PHP/SQL/JS para proyectos institucionales y del sector musical, y completé un Erasmus+ en Praga (Buinsoft) integrando flujos asistidos por IA. Me interesa construir software que sea fácil de mantener: backends razonables, frontends que no peleen con el usuario e integraciones que se puedan retomar meses después.",
   "projects": [
     {
       "id": "p4",
@@ -23,7 +23,7 @@
       "accent": "ink",
       "tech": ["Angular", "IONIC", "Java", "REST API", "TypeScript", "MySQL"],
       "whatIs": "Un proyecto académico individual, pero lo traté como un producto real. Los centros pueden publicar, editar y borrar eventos. Los alumnos pueden verlos, inscribirse, cancelar la inscripción y pagar si el evento es de pago. También tiene una capa social, subir fotos de eventos pasados, dar likes y comentar, y un ranking de los eventos con más asistentes. Dos roles, profesores y alumnos, cada uno con sus propios permisos y vistas.",
-      "whatBuilt": "Construí CampusGo en dos repos separados: un front en Angular e IONIC para web y Android, y un backend en Java con API REST y MySQL. Implementé el ciclo completo de eventos en el lado del centro y las inscripciones, pagos y cancelaciones en el lado del alumno. También añadí la capa social — subida de fotos de eventos pasados, likes, comentarios y un ranking de los eventos con más asistentes — con permisos y vistas distintas para profesores y alumnos.",
+      "whatBuilt": "Construí CampusGo en dos repos separados: un front en Angular e IONIC para web y Android, y un backend en Java con API REST y MySQL. Implementé el ciclo completo de eventos en el lado del centro y las inscripciones, pagos y cancelaciones en el lado del alumno. También añadí la capa social, subida de fotos de eventos pasados, likes, comentarios y un ranking de los eventos con más asistentes, con permisos y vistas distintas para profesores y alumnos.",
       "keyDecisions": [
         "Dos repos separados, uno para el front web y móvil en Angular e IONIC, otro para el backend en Java. Mantenerlos separados me permitió trabajar en los dos sin que uno rompiera al otro.",
         "Java para el backend porque era el lenguaje en el que más confiaba en ese momento y quería construir algo sólido.",
@@ -67,22 +67,22 @@
         {
           "src": "/images/saturday-night/mechanics-player.webp",
           "alt": "Animaciones y movimiento del personaje en A Saturday Night of Angel",
-          "caption": "Personaje — movimiento, doble salto, disparo y animaciones acordes a cada acción."
+          "caption": "Personaje, movimiento, doble salto, disparo y animaciones acordes a cada acción."
         },
         {
           "src": "/images/saturday-night/mechanics-enemies.webp",
           "alt": "Sprites y comportamientos de enemigos en el plataformas 2D",
-          "caption": "Enemigos — patrulla, disparo en rango, daño al jugador y reacción a los impactos."
+          "caption": "Enemigos, patrulla, disparo en rango, daño al jugador y reacción a los impactos."
         },
         {
           "src": "/images/saturday-night/level-hud.webp",
           "alt": "Diseño de nivel con HUD de vida y coleccionables",
-          "caption": "Nivel y HUD — plataformas móviles, pickups, UI de vida y fondo en parallax."
+          "caption": "Nivel y HUD, plataformas móviles, pickups, UI de vida y fondo en parallax."
         },
         {
           "src": "/images/saturday-night/enemies-highlight.webp",
           "alt": "Varios tipos de enemigos, incluida una torreta con rango de detección",
-          "caption": "Variedad de enemigos — bloqueadores, corredores y torreta que solo dispara en su rango."
+          "caption": "Variedad de enemigos, bloqueadores, corredores y torreta que solo dispara en su rango."
         }
       ],
       "mechanics": [
@@ -141,12 +141,12 @@
           ]
         }
       ],
-      "challenges": "C# y el editor de Unity eran nuevos para los tres — prefabs, Hierarchy y paneles de game over, vida y coleccionables costaban al principio. Los scripts fueron lo más difícil hasta entender cómo encajaban Tags, Layers y materiales físicos.",
+      "challenges": "C# y el editor de Unity eran nuevos para los tres, prefabs, Hierarchy y paneles de game over, vida y coleccionables costaban al principio. Los scripts fueron lo más difícil hasta entender cómo encajaban Tags, Layers y materiales físicos.",
       "solutions": "Usamos la documentación y las clases del profesor, tutoriales y asistentes de IA para lo básico, y nos explicábamos constantemente entre los tres para aprender más rápido y retener mejor.",
       "highlights": [
         {
           "title": "Pixel art cyberpunk",
-          "body": "Estética de juegos retro en portales web — pocas mecánicas, mucho ambiente. No es pixel-perfect, pero es coherente y entretenido durante horas."
+          "body": "Estética de juegos retro en portales web, pocas mecánicas, mucho ambiente. No es pixel-perfect, pero es coherente y entretenido durante horas."
         },
         {
           "title": "Animación y audio",
@@ -154,13 +154,13 @@
         },
         {
           "title": "Diseño de enemigos",
-          "body": "Varios tipos bloquean el camino, corren por las plataformas o disparan — la torreta solo abre fuego dentro de su rango de detección, sin dispararte desde el final del nivel."
+          "body": "Varios tipos bloquean el camino, corren por las plataformas o disparan, la torreta solo abre fuego dentro de su rango de detección, sin dispararte desde el final del nivel."
         }
       ],
       "keyDecisions": [
-        "Tags y Layers en todo — jugador, enemigos, pickups y triggers organizados para que scripts y física siguieran siendo mantenibles al crecer las escenas.",
+        "Tags y Layers en todo, jugador, enemigos, pickups y triggers organizados para que scripts y física siguieran siendo mantenibles al crecer las escenas.",
         "Pixel art a propósito: alcance acotado y aspecto terminado. Queríamos un minijuego completo, no un prototipo en gris.",
-        "Primera vez liderando a tres — coordinar costó tanto como programar. Git y dueño claro por nivel/sistema evitaron romper el trabajo del otro.",
+        "Primera vez liderando a tres, coordinar costó tanto como programar. Git y dueño claro por nivel/sistema evitaron romper el trabajo del otro.",
         "Cuando Unity o C# se atascaban, mezclamos material oficial, explicación entre compañeros y ayuda puntual de IA en lugar de adivinar solos."
       ],
       "links": [
@@ -175,13 +175,13 @@
       "gallery": [
         {
           "src": "/images/pymongo-rankings-detail.png",
-          "alt": "Rankings SAFA — ficha de juego con valoraciones y reseñas de la comunidad"
+          "alt": "Rankings SAFA, ficha de juego con valoraciones y reseñas de la comunidad"
         }
       ],
       "accent": "violet",
       "tech": ["Python", "MongoDB", "PyMongo", "NoSQL"],
       "whatIs": "Un proyecto individual para aprender gestión de datos NoSQL. Construí una app en Python conectada a MongoDB usando PyMongo. Alcance pequeño pero cambió cómo pienso sobre los datos, entendiendo cuándo un modelo de documentos tiene más sentido que uno relacional.",
-      "whatBuilt": "Construí una app en Python que habla con MongoDB a través de PyMongo sin ORM de por medio — solo consultas directas para ver exactamente qué le pasaba a los datos. Diseñé documentos sin esquema fijo y aprendí cuándo ese intercambio compensa un modelo relacional con joins. Mantuve el alcance pequeño a propósito; lo que me importaba era entender NoSQL por dentro, no lanzar un producto grande.",
+      "whatBuilt": "Construí una app en Python que habla con MongoDB a través de PyMongo sin ORM de por medio, solo consultas directas para ver exactamente qué le pasaba a los datos. Diseñé documentos sin esquema fijo y aprendí cuándo ese intercambio compensa un modelo relacional con joins. Mantuve el alcance pequeño a propósito; lo que me importaba era entender NoSQL por dentro, no lanzar un producto grande.",
       "keyDecisions": [
         "Elegir MongoDB sobre una base de datos relacional me obligó a pensar de forma diferente sobre la estructura de datos. Sin joins, sin esquema fijo. Incómodo al principio y útil después.",
         "PyMongo me mantuvo cerca del nivel bajo. Sin ORM, solo consultas directas, lo que me ayudó a entender qué estaba pasando realmente con los datos."
@@ -197,7 +197,7 @@
       "role": "Desarrollador de Aplicaciones Web",
       "company": "Lanzadera Music",
       "period": "Ene 2025 – Ene 2026",
-      "description": "Desarrollé el flujo de creación de lanzamientos — formulario multi-paso con validación dinámica y vista previa en tiempo real — además de paneles de administración y vistas del cliente. Gran cuidado en la experiencia de usuario; optimicé funciones y consultas a la base de datos para reducir tiempos de carga y ganar escalabilidad.",
+      "description": "Desarrollé el flujo de creación de lanzamientos, formulario multi-paso con validación dinámica y vista previa en tiempo real, además de paneles de administración y vistas del cliente. Gran cuidado en la experiencia de usuario; optimicé funciones y consultas a la base de datos para reducir tiempos de carga y ganar escalabilidad.",
       "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "Formularios dinámicos", "Paneles de administración"],
       "website": "https://www.lanzaderamusic.com"
     },
@@ -206,7 +206,7 @@
       "role": "Desarrollador de Software (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
       "period": "Mar 2026 – May 2026",
-      "description": "Rediseñé dos webs en producción con Next.js desde cero usando flujos asistidos por IA — buinsoft.com e itsalesaas.com. También desarrollé y publiqué la app Android de buinsoft.com en Play Store. Primera app móvil en producción en un entorno internacional, con gran cuidado en la experiencia de usuario en web y móvil.",
+      "description": "Rediseñé dos webs en producción con Next.js desde cero usando flujos asistidos por IA, buinsoft.com e itsalesaas.com. También desarrollé y publiqué la app Android de buinsoft.com en Play Store. Primera app móvil en producción en un entorno internacional, con gran cuidado en la experiencia de usuario en web y móvil.",
       "tags": ["Next.js", "Android", "Asistido por IA", "TypeScript", "Mobile"],
       "website": "https://www.buinsoft.com",
       "highlightBadge": "Erasmus+ · Praga 🌍",
@@ -218,7 +218,7 @@
       "company": "Central Loyola SAFA",
       "period": "Abr 2023 – Ago 2025",
       "website": "https://www.fundacionsafa.es/",
-      "description": "Empecé en prácticas y acabé contratado en el centro. Desarrollé herramientas web internas para todos los centros SAFA de Andalucía — informes, paneles de administración y vistas de gestión — usando APIs externas cuando hacía falta. Prioricé la experiencia de usuario y dejé funciones y acceso a la base de datos lo más eficiente posible: menos tiempos de carga y más escalabilidad.",
+      "description": "Empecé en prácticas y acabé contratado en el centro. Desarrollé herramientas web internas para todos los centros SAFA de Andalucía, informes, paneles de administración y vistas de gestión, usando APIs externas cuando hacía falta. Prioricé la experiencia de usuario y dejé funciones y acceso a la base de datos lo más eficiente posible: menos tiempos de carga y más escalabilidad.",
       "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "APIs", "REST"]
     }
   ],
@@ -226,7 +226,7 @@
     {
       "id": "angel-portfolio",
       "name": "angel-portfolio",
-      "description": "Mi portfolio personal — construido con Next.js, R3F y GSAP. El proyecto que estás viendo ahora mismo.",
+      "description": "Mi portfolio personal, construido con Next.js, R3F y GSAP. El proyecto que estás viendo ahora mismo.",
       "repoUrl": "https://github.com/aroldanrabanal/angel-portfolio",
       "tags": ["Next.js", "R3F", "GSAP", "TypeScript"],
       "featured": true,
@@ -236,7 +236,7 @@
     {
       "id": "campusgo-frontend",
       "name": "CampusGo",
-      "description": "App de campus multiplataforma — web + Android con Angular e IONIC.",
+      "description": "App de campus multiplataforma, web + Android con Angular e IONIC.",
       "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
       "caseStudyId": "p4",
       "tags": ["Angular", "IONIC", "TypeScript"],
@@ -244,7 +244,7 @@
     },
     {
       "id": "campusgo-backend",
-      "name": "CampusGo — Backend",
+      "name": "CampusGo, Backend",
       "description": "API REST en Java que alimenta la app CampusGo.",
       "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
       "caseStudyId": "p4",
@@ -262,7 +262,7 @@
     {
       "id": "saturday-night",
       "name": "A Saturday Night of Angel",
-      "description": "Juego 2D en Unity — build jugable disponible en GitHub.",
+      "description": "Juego 2D en Unity, build jugable disponible en GitHub.",
       "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
       "caseStudyId": "p3",
       "tags": ["Unity", "C#", "2D", "Game"]
@@ -278,12 +278,12 @@
   ],
   "education": [
     {
-      "degree": "Grado Superior — Desarrollo de Aplicaciones Multiplataforma",
+      "degree": "Grado Superior, Desarrollo de Aplicaciones Multiplataforma",
       "school": "SAFA Nuestra Señora de los Reyes",
       "period": "2024 – 2026"
     },
     {
-      "degree": "Grado Medio — Sistemas Microinformáticos y Redes",
+      "degree": "Grado Medio, Sistemas Microinformáticos y Redes",
       "school": "SAFA Nuestra Señora de los Reyes",
       "period": "2022 – 2024"
     }
@@ -300,7 +300,7 @@
   ],
   "languages": [
     { "lang": "Español", "level": "Nativo" },
-    { "lang": "Inglés", "level": "B2 — certificado Trinity (C1 en curso)" }
+    { "lang": "Inglés", "level": "B2, certificado Trinity (C1 en curso)" }
   ],
   "extra": {
     "license": true,
@@ -360,7 +360,7 @@
     "brand": {
       "monogram": "Á",
       "name": "ANGEL.DEV",
-      "tagline": "Portfolio — proyectos y experimentos",
+      "tagline": "Portfolio, proyectos y experimentos",
       "estYear": "desde 2023"
     },
     "nav": [
@@ -385,7 +385,7 @@
       "kicker": "Sobre mí",
       "indexLabel": "#2",
       "body": [
-        "Soy Ángel, desarrollador multiplataforma de Sevilla. Acabo de terminar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma y llevo desde 2023 trabajando en proyectos reales — desde herramientas institucionales hasta una plataforma musical. Me gusta construir cosas que se usen de verdad. A principios de 2026 hice mis prácticas Erasmus+ en Praga, lo que me enseñó mucho sobre trabajar en un equipo internacional y sobre el desarrollo con IA. Busco un sitio donde seguir creciendo y aportar desde el primer día."
+        "Soy Ángel, desarrollador multiplataforma de Sevilla. Acabo de terminar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma y llevo desde 2023 trabajando en proyectos reales, desde herramientas institucionales hasta una plataforma musical. Me gusta construir cosas que se usen de verdad. A principios de 2026 hice mis prácticas Erasmus+ en Praga, lo que me enseñó mucho sobre trabajar en un equipo internacional y sobre el desarrollo con IA. Busco un sitio donde seguir creciendo y aportar desde el primer día."
       ]
     },
     "skills": {
@@ -420,7 +420,7 @@
         {
           "flag": "EN",
           "name": "Inglés",
-          "badge": "B2 — Trinity College Certified",
+          "badge": "B2, Trinity College Certified",
           "subBadge": "C1 en progreso",
           "levelPercent": 75
         }
@@ -499,8 +499,8 @@
       }
     },
     "footer": {
-      "identitySubtitle": "Desarrollador Full-Stack y Multiplataforma — Sevilla, España",
-      "learningNote": "Siempre aprendiendo — explorando el desarrollo con IA",
+      "identitySubtitle": "Desarrollador Full-Stack y Multiplataforma, Sevilla, España",
+      "learningNote": "Siempre aprendiendo, explorando el desarrollo con IA",
       "education": [
         {
           "title": "Grado Superior",
@@ -527,7 +527,7 @@
         {
           "flag": "EN",
           "name": "Inglés",
-          "level": "B2 — Trinity College Certified",
+          "level": "B2, Trinity College Certified",
           "subLevel": "C1 en progreso"
         }
       ],

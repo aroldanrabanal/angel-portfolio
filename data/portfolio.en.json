@@ -2,17 +2,17 @@
   "personal": {
     "name": "Ángel Roldán Rabanal",
     "title": "Multiplatform Application Developer",
-    "tagline": "Creative, curious developer — I like things that work beautifully in production. Mostly PHP, SQL and JavaScript on web and mobile; this site is my Next.js lab. Based in Seville; Erasmus+ in Prague was my 2026 international chapter. Always learning.",
+    "tagline": "Creative, curious developer, I like things that work beautifully in production. Mostly PHP, SQL and JavaScript on web and mobile; this site is my Next.js lab. Based in Seville; Erasmus+ in Prague was my 2026 international chapter. Always learning.",
     "location": "Seville, Spain",
     "phone": "+34 640 280 151",
     "email": "angelroldan497@gmail.com",
     "github": "https://github.com/aroldanrabanal",
     "linkedin": "https://www.linkedin.com/in/%C3%A1ngel-rold%C3%A1n-rabanal-a76925371",
     "available": true,
-    "closing": "Driving licence · fine with travel when it makes sense — write if you want to compare notes or talk roles.",
+    "closing": "Driving licence · fine with travel when it makes sense, write if you want to compare notes or talk roles.",
     "portrait": "/images/IMG-20260514-WA0024.webp"
   },
-  "about": "Passionate, creative multiplatform application developer — I completed the Higher Vocational Degree in Multiplatform Application Development at SAFA (May 2026). I ship web and mobile work with PHP, JavaScript, SQL and more: user-centred delivery is still the thread through my GitHub and paid roles. I love building things that work beautifully, learning fast, and contributing to real projects with genuine curiosity. I like systems that stay understandable — backends you can reason about, front-ends that do not fight the user, integrations you can reopen months later. Erasmus+ in Prague (Buinsoft, through May 2026) layered AI-assisted workflows and an international cadence on top of the same obsession: how software actually behaves in production.",
+  "about": "Passionate, creative multiplatform application developer, I completed the Higher Vocational Degree in Multiplatform Application Development at SAFA (May 2026). I ship web and mobile work with PHP, JavaScript, SQL and more: user-centred delivery is still the thread through my GitHub and paid roles. I love building things that work beautifully, learning fast, and contributing to real projects with genuine curiosity. I like systems that stay understandable, backends you can reason about, front-ends that do not fight the user, integrations you can reopen months later. Erasmus+ in Prague (Buinsoft, through May 2026) layered AI-assisted workflows and an international cadence on top of the same obsession: how software actually behaves in production.",
   "projects": [
     {
       "id": "p4",
@@ -23,7 +23,7 @@
       "accent": "ink",
       "tech": ["Angular", "IONIC", "Java", "REST API", "TypeScript", "MySQL"],
       "whatIs": "An individual academic project, but I treated it like a real product. Schools can post, edit and delete events. Students can browse them, subscribe, cancel, and pay for paid events. There is also a social layer, posting photos from past events, liking and commenting, and a ranking of the most popular events. Two roles, teachers and students, each with their own permissions and views.",
-      "whatBuilt": "I built CampusGo as two separate repos: an Angular and IONIC front for web and Android, and a Java backend with a REST API and MySQL. I wired the full event lifecycle on the school side and subscriptions, payments, and cancellations on the student side. I also added the social layer — photo uploads from past events, likes, comments, and a ranking of the most attended events — with separate permissions and views for teachers and students.",
+      "whatBuilt": "I built CampusGo as two separate repos: an Angular and IONIC front for web and Android, and a Java backend with a REST API and MySQL. I wired the full event lifecycle on the school side and subscriptions, payments, and cancellations on the student side. I also added the social layer, photo uploads from past events, likes, comments, and a ranking of the most attended events, with separate permissions and views for teachers and students.",
       "keyDecisions": [
         "Two separate repos, one for the web and mobile front in Angular and IONIC, one for the Java backend. Keeping them separate made it easier to work on both without breaking the other.",
         "Java for the backend because it was what I knew deepest at the time and I wanted to build something I could trust.",
@@ -61,28 +61,28 @@
       "imageLayout": "landscape",
       "accent": "lime",
       "tech": ["Unity", "C#", "2D", "Pixel Art", "Parallax", "Game Design", "Git"],
-      "whatIs": "A 2D pixel-art platformer with a cyberpunk tone, built with Julián Navas Medina and Jose Antonio Campos Rueda for our Multimedia Programming course (2º DAM, 2025–26). The player fights or dodges enemies across three levels until reaching the bar — the goal. Along the way you pick up health and collectible pills. We organized everything in Unity with Tags and Layers so scripts, physics materials and collisions stayed predictable.",
+      "whatIs": "A 2D pixel-art platformer with a cyberpunk tone, built with Julián Navas Medina and Jose Antonio Campos Rueda for our Multimedia Programming course (2º DAM, 2025–26). The player fights or dodges enemies across three levels until reaching the bar, the goal. Along the way you pick up health and collectible pills. We organized everything in Unity with Tags and Layers so scripts, physics materials and collisions stayed predictable.",
       "whatBuilt": "I led the team of three and kept the pieces compatible across MainMenu, three levels and the game-over / win flows. I built Level 2 and the main menu, and wrote the core C# scripts: player movement, double jump, shooting, health and respawn, enemy behaviour, level transitions, parallax scrolling (front, middle, back), DeathZone, camera follow, and life pickups with their HUD container. Julián handled Level 1, moving platforms and collectible logic; Jose Antonio designed the levels, built Level 3, wired menu / game over / end-game flows and added the music and SFX. We used Git from day one so we would not overwrite each other's scenes.",
       "gallery": [
         {
           "src": "/images/saturday-night/mechanics-player.webp",
           "alt": "Player character animations and movement in A Saturday Night of Angel",
-          "caption": "Player — movement, double jump, shooting and animations tied to each action."
+          "caption": "Player, movement, double jump, shooting and animations tied to each action."
         },
         {
           "src": "/images/saturday-night/mechanics-enemies.webp",
           "alt": "Enemy sprites and behaviours in the 2D platformer",
-          "caption": "Enemies — patrol, shoot in range, damage the player and react to hits."
+          "caption": "Enemies, patrol, shoot in range, damage the player and react to hits."
         },
         {
           "src": "/images/saturday-night/level-hud.webp",
           "alt": "Level layout with HUD for health and collectibles",
-          "caption": "Level & HUD — moving platforms, pickups, life UI and parallax background."
+          "caption": "Level & HUD, moving platforms, pickups, life UI and parallax background."
         },
         {
           "src": "/images/saturday-night/enemies-highlight.webp",
           "alt": "Different enemy types including a turret with detection range",
-          "caption": "Enemy variety — blockers, runners and a turret that only fires inside its range."
+          "caption": "Enemy variety, blockers, runners and a turret that only fires inside its range."
         }
       ],
       "mechanics": [
@@ -141,12 +141,12 @@
           ]
         }
       ],
-      "challenges": "C# and the Unity editor were new to all of us — prefabs, the Hierarchy, panels for game over, life and collectibles felt opaque at first. Scripts were the hardest part until we understood how Tags, Layers and physics materials connected.",
+      "challenges": "C# and the Unity editor were new to all of us, prefabs, the Hierarchy, panels for game over, life and collectibles felt opaque at first. Scripts were the hardest part until we understood how Tags, Layers and physics materials connected.",
       "solutions": "We relied on course documentation and classes, tutorials and AI assistants for basics, and constant knowledge-sharing between the three of us so we learned faster and retained more.",
       "highlights": [
         {
           "title": "Cyberpunk pixel art",
-          "body": "Retro web-game aesthetic — simple mechanics, strong mood. Not pixel-perfect, but cohesive and fun to play for hours."
+          "body": "Retro web-game aesthetic, simple mechanics, strong mood. Not pixel-perfect, but cohesive and fun to play for hours."
         },
         {
           "title": "Animation & audio",
@@ -154,13 +154,13 @@
         },
         {
           "title": "Enemy design",
-          "body": "Several enemy types block the path, chase platforms or shoot — the turret only fires inside its detection range so it cannot snipe you from the end of the level."
+          "body": "Several enemy types block the path, chase platforms or shoot, the turret only fires inside its detection range so it cannot snipe you from the end of the level."
         }
       ],
       "keyDecisions": [
-        "Tags and Layers everywhere — player, enemies, pickups and triggers stayed organized so scripts and physics stayed maintainable as scenes grew.",
+        "Tags and Layers everywhere, player, enemies, pickups and triggers stayed organized so scripts and physics stayed maintainable as scenes grew.",
         "Pixel art on purpose: limited scope, finished look. We wanted a complete mini-game, not a greyboxed prototype.",
-        "First time leading a trio — coordination cost as much as coding. Git and clear ownership per level/system kept us from breaking each other's work.",
+        "First time leading a trio, coordination cost as much as coding. Git and clear ownership per level/system kept us from breaking each other's work.",
         "When stuck on Unity or C#, we mixed official material, peer explanation and targeted AI help instead of guessing in isolation."
       ],
       "links": [
@@ -175,13 +175,13 @@
       "gallery": [
         {
           "src": "/images/pymongo-rankings-detail.png",
-          "alt": "Rankings SAFA — game detail page with ratings and community reviews"
+          "alt": "Rankings SAFA, game detail page with ratings and community reviews"
         }
       ],
       "accent": "violet",
       "tech": ["Python", "MongoDB", "PyMongo", "NoSQL"],
       "whatIs": "An individual project to learn NoSQL data management. Built a Python app connected to MongoDB using PyMongo. Small scope but it changed how I think about data, understanding when a document model makes more sense than a relational one.",
-      "whatBuilt": "I built a Python app that talks to MongoDB through PyMongo with no ORM in between — just direct queries so I could see exactly what was happening to the data. I designed document shapes without a fixed schema and learned when that trade-off beats a relational model with joins. The scope stayed small on purpose; the payoff was understanding NoSQL from the inside, not shipping a large product.",
+      "whatBuilt": "I built a Python app that talks to MongoDB through PyMongo with no ORM in between, just direct queries so I could see exactly what was happening to the data. I designed document shapes without a fixed schema and learned when that trade-off beats a relational model with joins. The scope stayed small on purpose; the payoff was understanding NoSQL from the inside, not shipping a large product.",
       "keyDecisions": [
         "Choosing MongoDB over a relational database forced me to think differently about data structure. No joins, no fixed schema. It was uncomfortable at first and useful after.",
         "PyMongo kept things close to the metal. No ORM, just direct queries, which helped me understand what was actually happening with the data."
@@ -197,7 +197,7 @@
       "role": "Web Application Developer",
       "company": "Lanzadera Music",
       "period": "Jan 2025 – Jan 2026",
-      "description": "Built the release creation flow — multi-step form with dynamic validation and real-time preview — plus admin panels and client-facing views. Strong focus on user experience; tuned every feature and database call for shorter load times and better scalability.",
+      "description": "Built the release creation flow, multi-step form with dynamic validation and real-time preview, plus admin panels and client-facing views. Strong focus on user experience; tuned every feature and database call for shorter load times and better scalability.",
       "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "Dynamic Forms", "Admin Panels"],
       "website": "https://www.lanzaderamusic.com"
     },
@@ -206,7 +206,7 @@
       "role": "Software Developer (Erasmus+)",
       "company": "Buinsoft Technology S.R.O.",
       "period": "Mar 2026 – May 2026",
-      "description": "Rebuilt two production websites in Next.js from scratch with AI-assisted workflows — buinsoft.com and itsalesaas.com. Also developed and published an Android app for buinsoft.com on the Play Store. First international mobile release, with careful attention to user experience across web and mobile.",
+      "description": "Rebuilt two production websites in Next.js from scratch with AI-assisted workflows, buinsoft.com and itsalesaas.com. Also developed and published an Android app for buinsoft.com on the Play Store. First international mobile release, with careful attention to user experience across web and mobile.",
       "tags": ["Next.js", "Android", "AI-assisted", "TypeScript", "Mobile"],
       "website": "https://www.buinsoft.com",
       "highlightBadge": "Erasmus+ · Prague 🌍",
@@ -218,7 +218,7 @@
       "company": "Central Loyola SAFA",
       "period": "Apr 2023 – Aug 2025",
       "website": "https://www.fundacionsafa.es/",
-      "description": "Started as an intern and ended up hired on the team. Built internal web tools used across all SAFA schools in Andalusia — student reports, admin panels, and management views — using external APIs where needed. Prioritized user experience and kept features and database access as efficient as possible for shorter load times and greater scalability.",
+      "description": "Started as an intern and ended up hired on the team. Built internal web tools used across all SAFA schools in Andalusia, student reports, admin panels, and management views, using external APIs where needed. Prioritized user experience and kept features and database access as efficient as possible for shorter load times and greater scalability.",
       "tags": ["PHP", "MySQL", "JavaScript", "Metronic", "APIs", "REST"]
     }
   ],
@@ -226,7 +226,7 @@
     {
       "id": "angel-portfolio",
       "name": "angel-portfolio",
-      "description": "My personal portfolio — built with Next.js, R3F and GSAP. The project you're looking at right now.",
+      "description": "My personal portfolio, built with Next.js, R3F and GSAP. The project you're looking at right now.",
       "repoUrl": "https://github.com/aroldanrabanal/angel-portfolio",
       "tags": ["Next.js", "R3F", "GSAP", "TypeScript"],
       "featured": true,
@@ -236,7 +236,7 @@
     {
       "id": "campusgo-frontend",
       "name": "CampusGo",
-      "description": "Multiplatform campus app — web + Android built with Angular and IONIC.",
+      "description": "Multiplatform campus app, web + Android built with Angular and IONIC.",
       "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
       "caseStudyId": "p4",
       "tags": ["Angular", "IONIC", "TypeScript"],
@@ -244,7 +244,7 @@
     },
     {
       "id": "campusgo-backend",
-      "name": "CampusGo — Backend",
+      "name": "CampusGo, Backend",
       "description": "Java REST API backend powering the CampusGo app.",
       "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
       "caseStudyId": "p4",
@@ -262,7 +262,7 @@
     {
       "id": "saturday-night",
       "name": "A Saturday Night of Angel",
-      "description": "2D Unity game — playable build available on GitHub.",
+      "description": "2D Unity game, playable build available on GitHub.",
       "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
       "caseStudyId": "p3",
       "tags": ["Unity", "C#", "2D", "Game"]
@@ -278,12 +278,12 @@
   ],
   "education": [
     {
-      "degree": "Higher Vocational Degree — Multiplatform App Development",
+      "degree": "Higher Vocational Degree, Multiplatform App Development",
       "school": "SAFA Nuestra Señora de los Reyes",
       "period": "2024 – 2026"
     },
     {
-      "degree": "Intermediate Degree — Microcomputer Systems and Networks",
+      "degree": "Intermediate Degree, Microcomputer Systems and Networks",
       "school": "SAFA Nuestra Señora de los Reyes",
       "period": "2022 – 2024"
     }
@@ -300,7 +300,7 @@
   ],
   "languages": [
     { "lang": "Spanish", "level": "Native" },
-    { "lang": "English", "level": "B2 — Trinity certified (C1 in progress)" }
+    { "lang": "English", "level": "B2, Trinity certified (C1 in progress)" }
   ],
   "extra": {
     "license": true,
@@ -360,7 +360,7 @@
     "brand": {
       "monogram": "Á",
       "name": "ANGEL.DEV",
-      "tagline": "Portfolio — work & side experiments",
+      "tagline": "Portfolio, work & side experiments",
       "estYear": "since 2023"
     },
     "nav": [
@@ -385,7 +385,7 @@
       "kicker": "About",
       "indexLabel": "#2",
       "body": [
-        "I'm Ángel, a multiplatform developer from Seville. I just finished my Higher Vocational Degree in Multiplatform App Development and I've been working on real projects since 2023 — from institutional tools to a music platform. I like building things that actually get used. In early 2026 I did an Erasmus+ internship in Prague, which taught me a lot about working in an international team and about AI-driven development. I'm looking for a place where I can keep growing and contribute from day one."
+        "I'm Ángel, a multiplatform developer from Seville. I just finished my Higher Vocational Degree in Multiplatform App Development and I've been working on real projects since 2023, from institutional tools to a music platform. I like building things that actually get used. In early 2026 I did an Erasmus+ internship in Prague, which taught me a lot about working in an international team and about AI-driven development. I'm looking for a place where I can keep growing and contribute from day one."
       ]
     },
     "skills": {
@@ -420,7 +420,7 @@
         {
           "flag": "EN",
           "name": "English",
-          "badge": "B2 — Trinity College Certified",
+          "badge": "B2, Trinity College Certified",
           "subBadge": "C1 in progress",
           "levelPercent": 75
         }
@@ -499,8 +499,8 @@
       }
     },
     "footer": {
-      "identitySubtitle": "Full-Stack & Multiplatform Developer — Seville, Spain",
-      "learningNote": "Always learning — currently exploring AI-driven development",
+      "identitySubtitle": "Full-Stack & Multiplatform Developer, Seville, Spain",
+      "learningNote": "Always learning, currently exploring AI-driven development",
       "education": [
         {
           "title": "Higher Vocational Degree",
@@ -527,7 +527,7 @@
         {
           "flag": "EN",
           "name": "English",
-          "level": "B2 — Trinity College Certified",
+          "level": "B2, Trinity College Certified",
           "subLevel": "C1 in progress"
         }
       ],
