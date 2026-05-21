@@ -37,7 +37,7 @@ export function useInView(
 
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry?.isIntersecting ?? false),
-      { threshold: 0.01, rootMargin, threshold },
+      { rootMargin, threshold },
     );
     observer.observe(node);
 
