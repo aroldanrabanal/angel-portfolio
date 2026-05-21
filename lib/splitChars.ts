@@ -30,3 +30,12 @@ export function splitChars(el: HTMLElement | null): HTMLSpanElement[] {
 
   return chars;
 }
+
+/** Drop compositor hints after char reveal animations complete. */
+export function clearSplitCharsWillChange(targets: HTMLElement[]): void {
+  for (const el of targets) {
+    if (el.dataset.char === "true") {
+      el.style.willChange = "";
+    }
+  }
+}

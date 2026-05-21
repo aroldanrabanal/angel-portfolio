@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { Portfolio, PortfolioExperience } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { splitChars } from "@/lib/splitChars";
+import { clearSplitCharsWillChange, splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { StarBurst } from "@/components/ui/StarBurst";
 
@@ -48,7 +48,8 @@ export function Experience({ data, reduceMotion, liteMotion }: Props) {
         start: "top 70%",
         once: true,
         onEnter: () => {
-          gsap.to(
+          const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+          tl.to(
             headingTargets,
             liteMotion
               ? {
@@ -63,37 +64,32 @@ export function Experience({ data, reduceMotion, liteMotion }: Props) {
                   opacity: 1,
                   duration: 0.85,
                   stagger: { each: 0.02 },
-                  ease: "expo.out",
+                  onComplete: () => clearSplitCharsWillChange(headingTargets),
                 },
-          );
-        },
-      });
-
-      const cards = gsap.utils.toArray<HTMLElement>(".exp-card");
-      cards.forEach((card, i) => {
-        const indexEl = card.querySelector<HTMLElement>(".exp-index-num");
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top 88%",
-          once: true,
-          onEnter: () => {
-            gsap.to(card, {
-              opacity: 1,
-              y: 0,
-              duration: 0.85,
-              delay: liteMotion ? 0 : i * 0.06,
-              ease: "power3.out",
-            });
-            if (indexEl) {
-              gsap.to(indexEl, {
+          )
+            .to(
+              ".exp-card",
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.85,
+                stagger: liteMotion ? 0 : 0.06,
+                ease: "power3.out",
+              },
+              "<0.12",
+            )
+            .to(
+              ".exp-index-num",
+              {
                 opacity: 1,
                 scale: 1,
                 duration: 0.6,
+                stagger: liteMotion ? 0 : 0.06,
                 ease: "back.out(1.4)",
-              });
-            }
-          },
-        });
+              },
+              "<",
+            );
+        },
       });
     }, root);
 
@@ -190,7 +186,7 @@ function ExperienceBlock({
       />
       <div
         aria-hidden
-        className={`absolute left-0 top-0 h-0 w-[3px] transition-[height] duration-500 group-hover:h-full ${
+        className={`absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 transition-transform duration-500 group-hover:scale-y-100 ${
           featured ? "bg-[color:var(--lime)]" : "bg-[color:var(--violet-soft)]"
         }`}
       />

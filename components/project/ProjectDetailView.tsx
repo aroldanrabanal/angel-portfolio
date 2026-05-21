@@ -2,7 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/lib/useReducedMotion";
+import { applySectionTheme } from "@/lib/sectionTheme";
 import Image from "next/image";
 import Link from "next/link";
 import type {
@@ -227,10 +228,9 @@ export function ProjectDetailView({ projectId, initialData }: Props) {
 
   useEffect(() => {
     if (!project) return;
-    const t = bodyThemeFromAccent(project.accent);
-    document.body.dataset.theme = t;
+    applySectionTheme(bodyThemeFromAccent(project.accent));
     return () => {
-      document.body.dataset.theme = "ink";
+      applySectionTheme("ink");
     };
   }, [project]);
 

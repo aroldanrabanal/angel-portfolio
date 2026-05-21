@@ -1,10 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useReducedMotion } from "framer-motion";
 import type { Portfolio } from "@/types/portfolio";
 import { LenisProvider } from "@/lib/lenis";
 import { useMotionProfile } from "@/lib/useMotionProfile";
+import { useReducedMotion } from "@/lib/useReducedMotion";
+import { SectionThemeCoordinator } from "@/components/SectionThemeCoordinator";
 import { TopNav } from "@/components/ui/TopNav";
 import { BackgroundGrid } from "@/components/ui/BackgroundGrid";
 import { Hero } from "@/components/sections/Hero";
@@ -52,9 +53,10 @@ export function PortfolioShell({ data }: Props) {
 
   return (
     <LenisProvider disabled={motion.disableScrollSmoothing}>
-      <BackgroundGrid />
-      <TopNav data={data} />
-      <main className="relative z-10">
+      <SectionThemeCoordinator>
+        <BackgroundGrid />
+        <TopNav data={data} />
+        <main className="relative z-10">
         <Hero data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
         <About data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
         <Skills data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
@@ -70,8 +72,9 @@ export function PortfolioShell({ data }: Props) {
           liteMotion={motion.liteMotion}
         />
         <CTA data={data} reduceMotion={motion.reduceMotion} liteMotion={motion.liteMotion} />
-      </main>
-      <Footer data={data} />
+        </main>
+        <Footer data={data} />
+      </SectionThemeCoordinator>
     </LenisProvider>
   );
 }

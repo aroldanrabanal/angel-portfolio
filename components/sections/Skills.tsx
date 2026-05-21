@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { Portfolio } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { splitChars } from "@/lib/splitChars";
+import { clearSplitCharsWillChange, splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 
 type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
@@ -83,6 +83,7 @@ export function Skills({ data, reduceMotion, liteMotion }: Props) {
                   opacity: 1,
                   duration: 0.8,
                   stagger: { each: 0.02 },
+                  onComplete: () => clearSplitCharsWillChange(headingTargets),
                 },
           )
             .to(

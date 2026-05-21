@@ -69,7 +69,7 @@ export function Hero({ data, reduceMotion, liteMotion }: Props) {
     }, root);
 
     return () => ctx.revert();
-  }, [reduceMotion, liteMotion]);
+  }, [reduceMotion]);
 
   const { hero } = data.template;
   const portrait = hero.portrait ?? data.personal.portrait;

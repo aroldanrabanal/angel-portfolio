@@ -1,10 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { startTransition, useEffect, useRef, useState } from "react";
 import type { Portfolio } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { splitChars } from "@/lib/splitChars";
+import { clearSplitCharsWillChange, splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { TechCarouselStaticGrid } from "@/components/canvas/TechCarouselStaticGrid";
 import {
@@ -40,7 +40,7 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
     if (!node) return;
 
     const updateInView = (intersecting: boolean) => {
-      setInView(intersecting);
+      startTransition(() => setInView(intersecting));
     };
 
     const observer = new IntersectionObserver(
@@ -85,6 +85,7 @@ export function Technologies({ data, reduceMotion, liteMotion }: Props) {
                   opacity: 1,
                   duration: 0.85,
                   stagger: { each: 0.02 },
+                  onComplete: () => clearSplitCharsWillChange(headingTargets),
                 },
           ).to(
             ".tech-canvas-wrap",

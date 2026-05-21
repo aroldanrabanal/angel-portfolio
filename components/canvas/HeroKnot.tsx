@@ -1,6 +1,7 @@
 "use client";
 
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useMemo, useRef, type RefObject } from "react";
+import { useCanvasFrameloop, useInView } from "@/lib/useCanvasFrameloop";
 import { useFrame } from "@react-three/fiber";
 import {
   Environment,
@@ -12,7 +13,7 @@ import { WebGLCanvas } from "@/components/canvas/WebGLCanvas";
 
 function Knot({ reduceMotion }: { reduceMotion: boolean }) {
   const ref = useRef<THREE.Mesh>(null);
-  const geo = useMemo(() => new THREE.TorusKnotGeometry(1, 0.34, 128, 24, 3, 4), []);
+  const geo = useMemo(() => new THREE.TorusKnotGeometry(1, 0.34, 96, 24, 3, 4), []);
 
   useFrame((state, delta) => {
     const m = ref.current;
@@ -39,8 +40,8 @@ function Knot({ reduceMotion }: { reduceMotion: boolean }) {
         distortionScale={0.4}
         temporalDistortion={0.1}
         backside
-        samples={4}
-        resolution={384}
+        samples={2}
+        resolution={320}
         clearcoat={1}
         clearcoatRoughness={0.05}
         attenuationColor="#a374ff"
@@ -79,16 +80,24 @@ function StaticHeroKnot({ className = "" }: { className?: string }) {
 }
 
 export function HeroKnot({ reduceMotion = false, liteMotion = false, className = "" }: Props) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(rootRef as RefObject<HTMLElement | null>, {
+    rootMargin: "80px 0px",
+    threshold: 0.01,
+  });
+  const frameloop = useCanvasFrameloop(inView);
+
   if (reduceMotion || liteMotion) {
     return <StaticHeroKnot className={className} />;
   }
 
   return (
-    <div className={`pointer-events-none absolute inset-0 ${className}`}>
+    <div ref={rootRef} className={`pointer-events-none absolute inset-0 ${className}`}>
       <WebGLCanvas
         fallback={<StaticHeroKnot />}
         camera={{ position: [0, 0, 4.2], fov: 38 }}
         dpr={[1, 1.25]}
+        frameloop={frameloop}
         gl={{
           antialias: false,
           alpha: true,

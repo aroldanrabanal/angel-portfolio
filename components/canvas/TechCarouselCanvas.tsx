@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+import { useCanvasFrameloop } from "@/lib/useCanvasFrameloop";
 import { WebGLCanvas } from "@/components/canvas/WebGLCanvas";
 import { TechCarouselScene } from "@/components/canvas/TechCarouselScene";
 import { TechCarouselStaticGrid } from "@/components/canvas/TechCarouselStaticGrid";
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export function TechCarouselCanvas({ active, className = "" }: Props) {
+  const frameloop = useCanvasFrameloop(active);
+
   return (
     <div className={`relative w-full ${className}`}>
       <div className="relative h-[min(560px,70vh)] w-full min-h-[500px]">
@@ -18,8 +21,9 @@ export function TechCarouselCanvas({ active, className = "" }: Props) {
           fallback={<TechCarouselStaticGrid className="h-full" />}
           camera={{ position: [0, 0, 5.8], fov: 42 }}
           dpr={[1, 1.25]}
+          frameloop={frameloop}
           gl={{
-            antialias: true,
+            antialias: false,
             alpha: true,
             powerPreference: "default",
             failIfMajorPerformanceCaveat: false,

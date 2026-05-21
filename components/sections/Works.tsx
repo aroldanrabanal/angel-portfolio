@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { Portfolio, PortfolioRepo, TemplateWorks } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { splitChars } from "@/lib/splitChars";
+import { clearSplitCharsWillChange, splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 
 type Props = { data: Portfolio; reduceMotion: boolean; liteMotion: boolean };
@@ -75,6 +75,7 @@ export function Works({ data, reduceMotion, liteMotion }: Props) {
                   opacity: 1,
                   duration: 0.85,
                   stagger: { each: 0.02 },
+                  onComplete: () => clearSplitCharsWillChange(headingTargets),
                 },
           ).to(
             ".repo-card",
@@ -192,7 +193,7 @@ function RepoCard({ repo, works }: { repo: PortfolioRepo; works: TemplateWorks }
         />
         <div
           aria-hidden
-          className="absolute left-0 top-0 h-0 w-[2px] bg-[color:var(--lime)] transition-[height] duration-300 group-hover:h-full"
+          className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-[color:var(--lime)] transition-transform duration-300 group-hover:scale-y-100"
         />
 
         <div className="flex items-start justify-between gap-3">

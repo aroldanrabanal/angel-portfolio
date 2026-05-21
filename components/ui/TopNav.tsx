@@ -2,8 +2,9 @@
 
 import { useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useReducedMotion } from "framer-motion";
 import type { Portfolio } from "@/types/portfolio";
+import { useBodyTheme } from "@/lib/useBodyTheme";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 import { Monogram } from "@/components/ui/Monogram";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { useSmoothScrollTo } from "@/lib/lenis";
@@ -20,25 +21,8 @@ export function TopNav({ data }: Props) {
   const aria = data.ui.aria;
   const menuId = useId();
   const reduceMotion = useReducedMotion();
+  const theme = useBodyTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<"ink" | "violet" | "cream" | "violet-deep">(
-    "ink",
-  );
-
-  useEffect(() => {
-    const update = () => {
-      const t = (document.body.dataset.theme as
-        | "ink"
-        | "violet"
-        | "cream"
-        | "violet-deep") || "ink";
-      setTheme(t);
-    };
-    update();
-    const obs = new MutationObserver(update);
-    obs.observe(document.body, { attributes: true, attributeFilter: ["data-theme"] });
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;

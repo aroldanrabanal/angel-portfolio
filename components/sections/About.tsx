@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import type { Portfolio } from "@/types/portfolio";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { splitChars } from "@/lib/splitChars";
+import { clearSplitCharsWillChange, splitChars } from "@/lib/splitChars";
 import { SectionFrame } from "@/components/ui/SectionFrame";
 import { Crosshair } from "@/components/ui/Crosshair";
 
@@ -47,6 +47,7 @@ export function About({ data, reduceMotion, liteMotion }: Props) {
                     opacity: 1,
                     duration: 0.8,
                     stagger: { each: 0.02 },
+                    onComplete: () => clearSplitCharsWillChange(headingTargets),
                   },
               "<0.1",
             )

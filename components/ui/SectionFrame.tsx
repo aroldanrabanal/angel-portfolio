@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { themeBg, themeFg, type SectionTheme } from "@/lib/sectionTheme";
 
-type Theme = "ink" | "violet" | "cream" | "violet-deep";
+type Theme = SectionTheme;
 
 type Props = {
   id: string;
@@ -19,34 +20,6 @@ type Props = {
   fill?: boolean;
 };
 
-const themeBg: Record<Theme, string> = {
-  ink: "#0A0A0F",
-  violet: "#6E22D6",
-  cream: "#EFE9F5",
-  "violet-deep": "#3D0E80",
-};
-
-const themeFg: Record<Theme, string> = {
-  ink: "#FFFFFF",
-  violet: "#FFFFFF",
-  cream: "#0A0A0F",
-  "violet-deep": "#FFFFFF",
-};
-
-const themeMuted: Record<Theme, string> = {
-  ink: "rgba(255,255,255,0.55)",
-  violet: "rgba(255,255,255,0.7)",
-  cream: "rgba(10,10,15,0.55)",
-  "violet-deep": "rgba(255,255,255,0.7)",
-};
-
-const themeGridLine: Record<Theme, string> = {
-  ink: "rgba(255,255,255,0.06)",
-  violet: "rgba(255,255,255,0.12)",
-  cream: "rgba(10,10,15,0.08)",
-  "violet-deep": "rgba(255,255,255,0.12)",
-};
-
 export function SectionFrame({
   id,
   indexLabel,
@@ -59,46 +32,13 @@ export function SectionFrame({
 }: Props) {
   const ref = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (!swapBackground) return;
-    const node = ref.current;
-    if (!node) return;
-
-    const apply = () => {
-      document.documentElement.style.setProperty("--bg", themeBg[theme]);
-      document.documentElement.style.setProperty("--fg", themeFg[theme]);
-      document.documentElement.style.setProperty("--muted", themeMuted[theme]);
-      document.documentElement.style.setProperty(
-        "--grid-line",
-        themeGridLine[theme],
-      );
-      document.body.dataset.theme = theme;
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            apply();
-          }
-        }
-      },
-      {
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: 0,
-      },
-    );
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, [theme, swapBackground]);
-
   return (
     <section
       ref={ref}
       id={id}
       data-section
-      data-theme={theme}
+      data-theme={swapBackground ? theme : undefined}
+      data-swap-background={swapBackground ? "" : undefined}
       className={`relative ${fill ? "min-h-[100svh]" : ""} w-full ${className}`}
       style={{
         backgroundColor: themeBg[theme],

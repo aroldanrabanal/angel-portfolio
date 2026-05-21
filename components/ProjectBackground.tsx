@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
+import { useCanvasFrameloop, useTabVisible } from "@/lib/useCanvasFrameloop";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { WebGLCanvas } from "@/components/canvas/WebGLCanvas";
@@ -75,16 +76,8 @@ type Props = {
 };
 
 export function ProjectBackground({ reduceMotion = false }: Props) {
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const onVisibility = () => {
-      setVisible(document.visibilityState === "visible");
-    };
-    onVisibility();
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => document.removeEventListener("visibilitychange", onVisibility);
-  }, []);
+  const tabVisible = useTabVisible();
+  const frameloop = useCanvasFrameloop(tabVisible);
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0">
@@ -93,7 +86,7 @@ export function ProjectBackground({ reduceMotion = false }: Props) {
         <WebGLCanvas
           camera={{ position: [0, 0, 5], fov: 50 }}
           dpr={[1, 1.25]}
-          frameloop={visible ? "always" : "never"}
+          frameloop={frameloop}
           gl={{
             antialias: false,
             alpha: true,
