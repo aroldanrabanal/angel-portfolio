@@ -52,6 +52,26 @@ body {
   overflow-x: hidden;
 }
 
+@layer base {
+  p {
+    text-align: justify;
+    text-wrap: pretty;
+    hyphens: auto;
+  }
+
+  :is(ul, ol) li {
+    text-align: justify;
+    text-wrap: pretty;
+  }
+
+  .max-w-prose,
+  .about-body,
+  :is(a, div)[class*="leading-relaxed"] {
+    text-align: justify;
+    text-wrap: pretty;
+  }
+}
+
 ::selection {
   background: var(--lime);
   color: var(--ink);
