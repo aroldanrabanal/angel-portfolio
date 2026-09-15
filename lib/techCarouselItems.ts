@@ -38,6 +38,7 @@ export const TECH_CAROUSEL_ITEMS: TechCarouselItem[] = [
   { name: "Capacitor", icon: "capacitor" },
 ];
 
+/** Devicon SVG URL — must be rasterized before WebGL upload (see rasterizeSvgTexture). */
 export function deviconUrl(icon: string): string {
   return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`;
 }

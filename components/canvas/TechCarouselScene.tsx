@@ -1,8 +1,15 @@
 "use client";
 
-import { Component, Suspense, useMemo, useRef, type ReactNode } from "react";
+import {
+  Component,
+  Suspense,
+  use,
+  useMemo,
+  useRef,
+  type ReactNode,
+} from "react";
 import { useFrame, type ThreeEvent } from "@react-three/fiber";
-import { Billboard, Text, useTexture } from "@react-three/drei";
+import { Billboard, Text } from "@react-three/drei";
 import * as THREE from "three";
 import {
   TECH_CAROUSEL_ITEMS,
@@ -10,6 +17,7 @@ import {
   fibonacciSphere,
   type TechCarouselItem,
 } from "@/lib/techCarouselItems";
+import { loadRasterizedSvgTexture } from "@/lib/rasterizeSvgTexture";
 
 const AUTO_ROTATE_Y = 0.003;
 const SPHERE_RADIUS = 2.35;
@@ -20,6 +28,13 @@ const ITEMS_WITH_ICONS = TECH_CAROUSEL_ITEMS.filter(
 );
 
 const TECH_ICON_URLS = ITEMS_WITH_ICONS.map((item) => deviconUrl(item.icon));
+
+/** Stable promise for Suspense — rasterize SVGs so WebGL gets real bitmaps. */
+const TECH_ICON_TEXTURES_PROMISE = Promise.all(
+  TECH_ICON_URLS.map((url) =>
+    loadRasterizedSvgTexture(url).catch(() => null),
+  ),
+);
 
 class TextureErrorBoundary extends Component<
   { fallback: ReactNode; children: ReactNode },
@@ -51,7 +66,9 @@ type CarouselState = {
   lastY: number;
 };
 
-function buildTextureMap(textures: THREE.Texture[]): Map<string, THREE.Texture> {
+function buildTextureMap(
+  textures: Array<THREE.Texture | null>,
+): Map<string, THREE.Texture> {
   const map = new Map<string, THREE.Texture>();
   ITEMS_WITH_ICONS.forEach((item, index) => {
     const texture = textures[index];
@@ -65,7 +82,7 @@ function TechCarouselTextures({
 }: {
   children: (textureMap: Map<string, THREE.Texture>) => ReactNode;
 }) {
-  const textures = useTexture(TECH_ICON_URLS) as THREE.Texture[];
+  const textures = use(TECH_ICON_TEXTURES_PROMISE);
   const textureMap = useMemo(() => buildTextureMap(textures), [textures]);
 
   return <>{children(textureMap)}</>;

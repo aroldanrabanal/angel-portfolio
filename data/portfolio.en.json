@@ -61,7 +61,7 @@
       "imageLayout": "landscape",
       "accent": "lime",
       "tech": ["Unity", "C#", "2D", "Pixel Art", "Parallax", "Game Design", "Git"],
-      "whatIs": "A 2D pixel-art platformer with a cyberpunk tone, built with Julián Navas Medina and Jose Antonio Campos Rueda for our Multimedia Programming course (2º DAM, 2025–26). The player fights or dodges enemies across three levels until reaching the bar, the goal. Along the way you pick up health and collectible pills. We organized everything in Unity with Tags and Layers so scripts, physics materials and collisions stayed predictable.",
+      "whatIs": "A 2D pixel-art platformer with a cyberpunk tone, built with Julián Navas Medina and Jose Antonio Campos Rueda for our Multimedia Programming course (2º DAM, 2025–26). The player fights or dodges enemies across three levels until reaching the bar, the goal. Along the way you pick up health and collectible. We organized everything in Unity with Tags and Layers so scripts, physics materials and collisions stayed predictable.",
       "whatBuilt": "I led the team of three and kept the pieces compatible across MainMenu, three levels and the game-over / win flows. I built Level 2 and the main menu, and wrote the core C# scripts: player movement, double jump, shooting, health and respawn, enemy behaviour, level transitions, parallax scrolling (front, middle, back), DeathZone, camera follow, and life pickups with their HUD container. Julián handled Level 1, moving platforms and collectible logic; Jose Antonio designed the levels, built Level 3, wired menu / game over / end-game flows and added the music and SFX. We used Git from day one so we would not overwrite each other's scenes.",
       "gallery": [
         {
