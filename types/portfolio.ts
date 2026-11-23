@@ -102,23 +102,14 @@ export type PortfolioExperience = {
   badgeTone?: "active" | "accent";
 };
 
-export type PortfolioRepoBadge = {
-  type: "live" | "android";
-  url?: string;
-};
-
 export type PortfolioRepo = {
   id: string;
   name: string;
   description: string;
-  repoUrl: string;
+  repoUrl?: string;
   tags: string[];
-  /** Case study page id — main card links to `/proyecto/[caseStudyId]` */
-  caseStudyId?: string;
   featured?: boolean;
   featuredBadge?: string;
-  liveUrl?: string;
-  badges?: PortfolioRepoBadge[];
 };
 
 export type PortfolioEducation = {

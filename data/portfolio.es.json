@@ -107,7 +107,7 @@
           "title": "Escenario",
           "items": [
             "Plataformas con movimiento horizontal y vertical",
-            "Items de vida (+1) y pastillas coleccionables",
+            "Items de vida (+1) y coleccionables",
             "Zona de muerte al caer; meta para pasar de nivel o terminar",
             "HUD de vida y coleccionables; menú, game over y pantalla de victoria",
             "Fondo en parallax en tres capas (front, middle, back)"
@@ -224,56 +224,30 @@
   ],
   "repos": [
     {
-      "id": "angel-portfolio",
-      "name": "angel-portfolio",
-      "description": "Mi portfolio personal, construido con Next.js, R3F y GSAP. El proyecto que estás viendo ahora mismo.",
-      "repoUrl": "https://github.com/aroldanrabanal/angel-portfolio",
-      "tags": ["Next.js", "R3F", "GSAP", "TypeScript"],
+      "id": "inkfolio",
+      "name": "Inkfolio",
+      "description": "Web para Tinta Estudio, un estudio de tatuaje blackwork a medida. Archivo de piezas, flashes, cuidados y formulario de consulta para convertir ideas en citas. Diseño editorial con una identidad visual muy marcada.",
+      "tags": ["React", "Vite", "UI design"],
       "featured": true,
-      "featuredBadge": "Lo estás viendo",
-      "liveUrl": "/"
-    },
-    {
-      "id": "campusgo-frontend",
-      "name": "CampusGo",
-      "description": "App de campus multiplataforma, web + Android con Angular e IONIC.",
-      "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
-      "caseStudyId": "p4",
-      "tags": ["Angular", "IONIC", "TypeScript"],
-      "badges": [{ "type": "android" }]
-    },
-    {
-      "id": "campusgo-backend",
-      "name": "CampusGo, Backend",
-      "description": "API REST en Java que alimenta la app CampusGo.",
-      "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
-      "caseStudyId": "p4",
-      "tags": ["Java", "REST API", "Backend"]
+      "featuredBadge": "Reciente"
     },
     {
       "id": "technoapp",
       "name": "TECHNOAPP",
-      "description": "App web con Firebase y Next.js. Publicada en Vercel.",
-      "repoUrl": "https://github.com/aroldanrabanal/TECHNOAPP",
-      "caseStudyId": "p2",
-      "tags": ["Next.js", "Firebase", "TypeScript"],
-      "badges": [{ "type": "live", "url": "https://technoapp-red.vercel.app" }]
+      "description": "App web para fans del techno: eventos, predicciones de estilo con IA por sala, recomendaciones, solicitudes de amistad y chat en tiempo real. Hecha con Next.js y Firebase.",
+      "tags": ["Next.js", "Firebase", "TypeScript", "AI"]
+    },
+    {
+      "id": "campusgo-frontend",
+      "name": "CampusGo",
+      "description": "App de campus para centros: eventos, inscripciones, pagos y capa social. Angular e IONIC en web y Android, con API REST en Java y MySQL.",
+      "tags": ["Angular", "IONIC", "Java", "MySQL"]
     },
     {
       "id": "saturday-night",
       "name": "A Saturday Night of Angel",
-      "description": "Juego 2D en Unity, build jugable disponible en GitHub.",
-      "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
-      "caseStudyId": "p3",
+      "description": "Plataformas 2D en pixel art con tono cyberpunk. Lideré un equipo de tres en Unity y C#, con los sistemas del personaje, el Nivel 2, el parallax y el menú principal.",
       "tags": ["Unity", "C#", "2D", "Game"]
-    },
-    {
-      "id": "pymongo",
-      "name": "PyMongo Project",
-      "description": "Proyecto Python + MongoDB explorando gestión de datos NoSQL.",
-      "repoUrl": "https://github.com/aroldanrabanal/pymongoproject",
-      "caseStudyId": "p1",
-      "tags": ["Python", "MongoDB", "NoSQL"]
     }
   ],
   "education": [
@@ -442,10 +416,10 @@
       "visitSiteLabel": "Visitar web"
     },
     "works": {
-      "heading": ["Proyectos personales"],
+      "heading": ["Proyectos", "personales"],
       "kicker": "Proyectos",
       "indexLabel": "#4",
-      "subtitle": "Todos los repos públicos en github.com/aroldanrabanal",
+      "subtitle": "Una selección breve de trabajo del que estoy orgulloso.",
       "githubButton": "GitHub ↗",
       "liveButton": "Live ↗",
       "liveBadge": "Live",

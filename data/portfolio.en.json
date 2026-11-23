@@ -107,7 +107,7 @@
           "title": "Environment",
           "items": [
             "Platforms moving horizontally and vertically",
-            "Health pickups (+1 life) and pill collectibles",
+            "Health pickups (+1 life) and collectibles",
             "Death zone on falls; goal triggers next level or game end",
             "HUD for life and collectibles; main menu, game over and win screens",
             "Parallax background in three layers (front, middle, back)"
@@ -224,56 +224,30 @@
   ],
   "repos": [
     {
-      "id": "angel-portfolio",
-      "name": "angel-portfolio",
-      "description": "My personal portfolio, built with Next.js, R3F and GSAP. The project you're looking at right now.",
-      "repoUrl": "https://github.com/aroldanrabanal/angel-portfolio",
-      "tags": ["Next.js", "R3F", "GSAP", "TypeScript"],
+      "id": "inkfolio",
+      "name": "Inkfolio",
+      "description": "Website for Tinta Estudio, a custom blackwork tattoo studio. Piece archive, flashes, aftercare, and an enquiry form to turn ideas into bookings. Editorial design with a strong visual identity.",
+      "tags": ["React", "Vite", "UI design"],
       "featured": true,
-      "featuredBadge": "You're looking at it",
-      "liveUrl": "/"
-    },
-    {
-      "id": "campusgo-frontend",
-      "name": "CampusGo",
-      "description": "Multiplatform campus app, web + Android built with Angular and IONIC.",
-      "repoUrl": "https://github.com/aroldanrabanal/CampusGo",
-      "caseStudyId": "p4",
-      "tags": ["Angular", "IONIC", "TypeScript"],
-      "badges": [{ "type": "android" }]
-    },
-    {
-      "id": "campusgo-backend",
-      "name": "CampusGo, Backend",
-      "description": "Java REST API backend powering the CampusGo app.",
-      "repoUrl": "https://github.com/aroldanrabanal/AppCampusGo",
-      "caseStudyId": "p4",
-      "tags": ["Java", "REST API", "Backend"]
+      "featuredBadge": "Latest"
     },
     {
       "id": "technoapp",
       "name": "TECHNOAPP",
-      "description": "Firebase-backed web app built with Next.js. Live on Vercel.",
-      "repoUrl": "https://github.com/aroldanrabanal/TECHNOAPP",
-      "caseStudyId": "p2",
-      "tags": ["Next.js", "Firebase", "TypeScript"],
-      "badges": [{ "type": "live", "url": "https://technoapp-red.vercel.app" }]
+      "description": "Web app for techno fans: events, AI style predictions per venue, recommendations, friend requests and real-time chat. Built with Next.js and Firebase.",
+      "tags": ["Next.js", "Firebase", "TypeScript", "AI"]
+    },
+    {
+      "id": "campusgo-frontend",
+      "name": "CampusGo",
+      "description": "Campus app for schools: events, subscriptions, payments and a social layer. Angular and IONIC on web and Android, Java REST API and MySQL behind it.",
+      "tags": ["Angular", "IONIC", "Java", "MySQL"]
     },
     {
       "id": "saturday-night",
       "name": "A Saturday Night of Angel",
-      "description": "2D Unity game, playable build available on GitHub.",
-      "repoUrl": "https://github.com/aroldanrabanal/ASaturdayNightOfAngel",
-      "caseStudyId": "p3",
+      "description": "2D cyberpunk pixel-art platformer. I led a team of three in Unity and C#, owning player systems, Level 2, parallax and the main menu.",
       "tags": ["Unity", "C#", "2D", "Game"]
-    },
-    {
-      "id": "pymongo",
-      "name": "PyMongo Project",
-      "description": "Python + MongoDB project exploring NoSQL data management.",
-      "repoUrl": "https://github.com/aroldanrabanal/pymongoproject",
-      "caseStudyId": "p1",
-      "tags": ["Python", "MongoDB", "NoSQL"]
     }
   ],
   "education": [
@@ -442,10 +416,10 @@
       "visitSiteLabel": "Visit site"
     },
     "works": {
-      "heading": ["Personal projects"],
+      "heading": ["Personal", "projects"],
       "kicker": "Projects",
       "indexLabel": "#4",
-      "subtitle": "All public repos at github.com/aroldanrabanal",
+      "subtitle": "A short selection of work I am proud of.",
       "githubButton": "GitHub ↗",
       "liveButton": "Live ↗",
       "liveBadge": "Live",
